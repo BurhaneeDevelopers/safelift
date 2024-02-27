@@ -89,9 +89,9 @@ const Introduction = () => {
         </div>
       </div>
 
-      <div className="flex flex-wrap mt-20 justify-center space-x-5 lg:justify-evenly items-center">
+      <div className="flex flex-wrap mt-20 justify-center md:space-x-3 lg:space-x-5 lg:justify-evenly items-center">
         {/* OUR MOTTO */}
-        <div class="relative block !size-[22rem] min-h-[30rem] xs:min-h-[24rem] sxm:min-h-full min-w-[14rem] xxs:min-w-[18rem] md:min-w-[22rem] my-7 lg:my-0">
+        <div class="relative block !size-[22rem] min-h-[30rem] xs:min-h-[24rem] sxm:min-h-full min-w-[14rem] xxs:min-w-[18rem] md:min-w-[22rem] my-7 xl:my-0">
           <span class="absolute inset-0 border-4 border-[#00a0e3] " />
 
           <div class="relative flex justify-center items-center h-full transform transition-transform -translate-x-5 -translate-y-5">
@@ -188,7 +188,7 @@ const Introduction = () => {
         </div>
 
         {/* OUR VISION */}
-        <div class="relative block !size-[22rem] min-w-[14rem] xxs:min-w-[18rem] md:min-w-[22rem] my-7 lg:my-0">
+        <div class="relative block !size-[22rem] min-w-[14rem] xxs:min-w-[18rem] md:min-w-[22rem] my-7 xl:my-0">
           <span class="absolute inset-0 border-4 border-[#00a0e3] " />
 
           <div class="relative flex justify-center items-center h-full transform transition-transform -translate-x-5 -translate-y-5">
@@ -232,7 +232,7 @@ const Introduction = () => {
         </div>
 
         {/* OUR Mission */}
-        <div class="relative block !size-[22rem] min-w-[14rem] xxs:min-w-[18rem] md:min-w-[22rem] my-7 lg:my-0">
+        <div class="relative block !size-[22rem] min-w-[14rem] xxs:min-w-[18rem] md:min-w-[22rem] my-7 xl:my-0">
           <span class="absolute inset-0 border-4 border-[#00a0e3] " />
 
           <div class="relative flex justify-center items-center h-full transform transition-transform -translate-x-5 -translate-y-5">

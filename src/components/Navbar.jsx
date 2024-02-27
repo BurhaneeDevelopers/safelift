@@ -1,16 +1,26 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import Sidebar from "./Sidebar";
 
 const Navbar = () => {
-  // const [isOpen, setIsOpen] = useState(false);
+  const [navbarOpen, setNavbarOpen] = useState(false);
 
   return (
     <div>
+      <Sidebar navbarOpen={navbarOpen} setNavbarOpen={setNavbarOpen} />
+
       {/* <!-- component --> */}
       <nav class="flex justify-between px-10 items-center bg-white mt-10 absolute w-full py-1">
         <div className="">
-          <img src="/logo.jpg" alt="Safe Lift" className="h-16" />
+          <Image
+            src="/logo.jpg"
+            alt="Safe Lift"
+            width={500}
+            height={500}
+            className="h-12 w-32 xs:h-16 xs:w-48"
+          />
         </div>
 
         <div className="flex ">
@@ -18,7 +28,25 @@ const Navbar = () => {
             <Nav />
           </div>
 
-          <div className="rounded-full bg-gray-200 w-44 relative flex justify-between items-center ml-1">
+          <button
+            className="flex xl:hidden"
+            onClick={() => setNavbarOpen(!navbarOpen)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="#000"
+            >
+              <path
+                d="M21 7.75H3c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h18c.41 0 .75.34.75.75s-.34.75-.75.75ZM21 12.75H3c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h18c.41 0 .75.34.75.75s-.34.75-.75.75ZM21 17.75H3c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h18c.41 0 .75.34.75.75s-.34.75-.75.75Z"
+                fill="#000"
+              ></path>
+            </svg>
+          </button>
+
+          <div className="rounded-full bg-gray-200 w-44 relative justify-between items-center ml-1 hidden sxm:flex">
             <input
               type="text"
               placeholder="Search for Products"
@@ -112,7 +140,11 @@ const Nav = () => {
         ]}
       />
       <NavLink navTitle={"Contact Us"} dropdownContent={[]} />
-      <NavLink navTitle={"Infra & Manufacturing"} dropdownContent={[]} directRedirect={"/infra"} />
+      <NavLink
+        navTitle={"Infra & Manufacturing"}
+        dropdownContent={[]}
+        directRedirect={"/infra"}
+      />
     </div>
   );
 };
@@ -122,7 +154,7 @@ const NavLink = ({ navTitle, dropdownContent, directRedirect }) => {
     <span class="group">
       <button class="outline-none focus:outline-none space-x-1 px-3 group-hover:bg-gray-200 flex items-center justify-center">
         <Link
-          href={`${directRedirect}`}
+          href={`${directRedirect ? directRedirect : "#"}`}
           class="group-hover:font-semibold text-lg group-hover:text-[#008dd2] uppercase font-normal"
         >
           {navTitle}

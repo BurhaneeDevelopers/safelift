@@ -13,39 +13,39 @@ const TrustedCompanies = () => {
       />
       <div className="flex mt-10 justify-evenly items-center mx-auto flex-wrap">
         <Image
-          src={"/TrustedCompanies/Logo-1.png"}
+          src={"/Home/TrustedCompanies/logo-1.webp"}
           alt="Tata Steel"
           width={"500"}
           height={"500"}
-          className="w-52 h-32"
+          className="w-56 h-32"
         />
         <Image
-          src={"/TrustedCompanies/Logo-1.png"}
+          src={"/Home/TrustedCompanies/logo-2.webp"}
           alt="Tata Steel"
           width={"500"}
           height={"500"}
-          className="w-52 h-32"
+          className="w-56 h-32"
         />
         <Image
-          src={"/TrustedCompanies/Logo-1.png"}
+          src={"/Home/TrustedCompanies/logo-3.webp"}
           alt="Tata Steel"
           width={"500"}
           height={"500"}
-          className="w-52 h-32"
+          className="w-56 h-32"
         />
         <Image
-          src={"/TrustedCompanies/Logo-1.png"}
+          src={"/Home/TrustedCompanies/logo-4.webp"}
           alt="Tata Steel"
           width={"500"}
           height={"500"}
-          className="w-52 h-32"
+          className="w-56 h-32"
         />
         <Image
-          src={"/TrustedCompanies/Logo-1.png"}
+          src={"/Home/TrustedCompanies/logo-5.webp"}
           alt="Tata Steel"
           width={"500"}
           height={"500"}
-          className="w-52 h-32"
+          className="w-56 h-32"
         />
       </div>
     </div>

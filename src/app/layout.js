@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={montserrat.className}>
         <Navbar />
-        <div className="fixed left-0 top-80 z-50">
+        <div className="fixed left-0 top-80 z-30">
           <StickyContact />
         </div>
         {children}

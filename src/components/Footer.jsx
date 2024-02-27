@@ -20,7 +20,7 @@ const Footer = () => {
 
             <div class="flex flex-col justify-center items-center space-y-5 md:space-y-0 md:flex-row flex-wrap md:justify-start lg:justify-end sm:items-start lg:space-x-5 mt-10 xl:mt-0 h">
               <div class="text-center sm:text-start max-w-72">
-                <p class="text-lg font-semibold mb-4 text-white translate-x-8">Address</p>
+                <p class="text-lg font-semibold mb-4 text-white md:translate-x-8">Address</p>
 
                 <div className="flex space-x-1 mt-3">
                   <svg
@@ -54,10 +54,10 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="h-24 flex self-end bg-gray-200 w-[1px] mx-4"></div>
+              <div className="hidden md:flex h-24 self-end bg-gray-200 w-[1px] mx-4"></div>
 
               <div class="text-center sm:text-start max-w-72">
-                <p class="text-lg font-semibold mb-4 text-white translate-x-8">Phone</p>
+                <p class="text-lg font-semibold mb-4 text-white md:translate-x-8">Phone</p>
 
                 <div className="flex space-x-1 mt-3">
                   <svg
@@ -104,10 +104,10 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="h-24 flex self-end bg-gray-200 w-[1px] mx-4"></div>
+              <div className="hidden md:flex h-24 self-end bg-gray-200 w-[1px] mx-4"></div>
 
               <div class="text-center sm:text-start max-w-72">
-                <p class="text-lg font-semibold mb-4 text-white translate-x-8">Email</p>
+                <p class="text-lg font-semibold mb-4 text-white md:translate-x-8">Email</p>
 
                 <div className="flex space-x-1 mt-3">
                   <svg

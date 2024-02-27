@@ -15,7 +15,7 @@ const Navbar = () => {
       <nav class="flex justify-between px-10 items-center bg-white mt-10 absolute w-full py-1">
         <div className="">
           <Image
-            src="/logo.jpg"
+            src="/logo.webp"
             alt="Safe Lift"
             width={500}
             height={500}

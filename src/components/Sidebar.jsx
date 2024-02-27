@@ -27,7 +27,7 @@ const Sidebar = ({ navbarOpen, setNavbarOpen }) => {
 
       <div className="flex justify-center items-center mt-5">
         <Image
-          src="/logo.jpg"
+          src="/logo.webp"
           alt="Safe Lift"
           width={500}
           height={500}
@@ -122,6 +122,7 @@ const Nav = () => {
         ]}
         isOpen={openDropdown === "Products"}
         toggleDropdown={toggleDropdown}
+        directRedirect={"/products"}
       />
       <NavLink
         navTitle={"Contact Us"}

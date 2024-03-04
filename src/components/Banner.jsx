@@ -14,7 +14,7 @@ const Banner = ({ title, ImageSource }) => {
         />
         <div className="flex flex-col items-center justify-center">
           <div className="flex flex-col items-center">
-            <h1 className="text-white font-bold text-4xl xs:text-5xl uppercase">
+            <h1 className="text-white font-bold text-4xl xs:text-5xl text-center uppercase">
               {title}
             </h1>
             <div className="bg-[#008dd2] w-52 sm:w-56 mx-auto md:mx-0 md:w-60 h-1.5 mt-2 mb-4"></div>

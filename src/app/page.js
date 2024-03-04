@@ -10,9 +10,7 @@ import StickyContact from "@/components/StickyContact";
 export default function Home() {
   return (
     <div className="h-full justify-center items-center overflow-hidden">
-      <div className="">
-        <Banner />
-      </div>
+      <Banner />
 
       {/* TRUSTED COMPANIES  */}
       <TrustedCompanies />

@@ -19,7 +19,7 @@ const Navbar = () => {
             alt="Safe Lift"
             width={500}
             height={500}
-            className="h-12 w-32 xs:h-16 xs:w-48"
+            className="h-12 w-32 xs:h-12 xs:w-48"
           />
         </div>
 

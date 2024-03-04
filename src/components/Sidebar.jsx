@@ -31,7 +31,7 @@ const Sidebar = ({ navbarOpen, setNavbarOpen }) => {
           alt="Safe Lift"
           width={500}
           height={500}
-          className="h-20 w-60"
+          className="h-16 w-60"
         />
       </div>
 

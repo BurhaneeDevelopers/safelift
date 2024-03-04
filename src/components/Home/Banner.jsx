@@ -6,9 +6,9 @@ import { motion, AnimatePresence } from "framer-motion";
 const Banner = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
-    "/Home/Product-1.webp",
     "/Home/Product-2.webp",
     "/Home/Product-3.webp",
+    "/Home/Product-1.webp",
   ];
 
   const prevSlide = () => {
@@ -85,11 +85,11 @@ const Banner = () => {
                       }`}
                       width={500}
                       height={500}
-                      className={`${
+                      className={` w-20 xsm:w-20 xs:w-24 md:w-32 xl:w-44 xl:mt-7 object-contain ${
                         index === 1
-                          ? "h-52 sm:h-64 md:h-72 lg:h-80 xl:h-96 bg-gradient-to-t from-[#a6acbb] via-transparent to-transparent rounded-b-xl mx-7"
-                          : "h-44 sm:h-48 md:h-56 lg:h-64 xl:h-72 hidden md:flex"
-                      } w-20 xsm:w-20 xs:w-24 md:w-32`}
+                          ? "h-52 sm:h-64 md:h-72 lg:h-80 xl:h-96 bg-gradient-to-t from-[#a6acbb] via-transparent to-transparent rounded-b-xl"
+                          : "h-44 sm:h-48 md:h-56 lg:h-64 xl:h-72 hidden md:inline-block mx-2"
+                      } `}
                     />
                   </motion.div>
                 ))}
@@ -131,7 +131,12 @@ const Banner = () => {
         <div className="flex items-center justify-center absolute translate-x-7 sm:translate-x-0 right-0 bottom-28 rotate-90">
           <span className="uppercase text-white tracking-[0.5rem]">Scroll</span>
 
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.12 30.22" fill="#008dd2" className="w-7 h-7 -rotate-90">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 32.12 30.22"
+            fill="#008dd2"
+            className="w-7 h-7 -rotate-90"
+          >
             <g id="Layer_2" data-name="Layer 2">
               <g id="Layer_1-2" data-name="Layer 1">
                 <rect class="cls-1" width="32.12" height="30.22" />

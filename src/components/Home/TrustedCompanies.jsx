@@ -11,41 +11,41 @@ const TrustedCompanies = () => {
         title={"Trusted By 200+ Companies"}
         additionalClasses={"max-w-xl xl:max-w-lg"}
       />
-      <div className="flex mt-10 justify-evenly items-center mx-auto flex-wrap">
+      <div className="flex mt-10 justify-around items-end flex-wrap">
         <Image
           src={"/Home/TrustedCompanies/logo-1.webp"}
           alt="Tata Steel"
           width={"500"}
           height={"500"}
-          className="w-56 h-32"
+          className="aspect-video h-36 w-64"
         />
         <Image
           src={"/Home/TrustedCompanies/logo-2.webp"}
           alt="Tata Steel"
           width={"500"}
           height={"500"}
-          className="w-56 h-32"
+          className="aspect-video h-32 w-56"
         />
         <Image
           src={"/Home/TrustedCompanies/logo-3.webp"}
           alt="Tata Steel"
           width={"500"}
           height={"500"}
-          className="w-56 h-32"
+          className="aspect-video h-32 w-56"
         />
         <Image
           src={"/Home/TrustedCompanies/logo-4.webp"}
           alt="Tata Steel"
           width={"500"}
           height={"500"}
-          className="w-56 h-32"
+          className="aspect-video h-32 w-64"
         />
         <Image
           src={"/Home/TrustedCompanies/logo-5.webp"}
           alt="Tata Steel"
           width={"500"}
           height={"500"}
-          className="w-56 h-32"
+          className="aspect-video h-32 w-56"
         />
       </div>
     </div>

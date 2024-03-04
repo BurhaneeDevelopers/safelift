@@ -8,7 +8,7 @@ const Infra = () => {
     <div>
       <Banner
         title={"Infra & Manufacturing"}
-        ImageSource={"/AboutUs/Banner.webp"}
+        ImageSource={"/Infra/Banner.webp"}
       />
 
       {/* MANUFACTURING UNIT */}

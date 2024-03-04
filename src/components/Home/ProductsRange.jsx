@@ -9,7 +9,7 @@ const ProductsRange = () => {
         <CenterHeading title={"Our Products Range"} textColor={"text-white"} />
       </div>
 
-      <div className="p-10">
+      <div className="p-10 py-20">
         <div className="flex flex-wrap justify-center items-center">
           <div className="flex flex-wrap justify-center mb-5">
             <UpCard
@@ -30,7 +30,7 @@ const ProductsRange = () => {
             />
           </div>
 
-          <div className="flex flex-wrap justify-center mt-5">
+          <div className="flex flex-wrap justify-center mt-5 sm:mt-0 xl:-translate-y-20">
             <UpCard
               title={"Lifting Tackles"}
               img={"/Home/Products-Range/prod-5.webp"}
@@ -59,13 +59,13 @@ export default ProductsRange;
 const UpCard = ({ title, img }) => {
   return (
     <div className="flex flex-col items-center w-56 mx-5">
-      <div className="flex flex-col bg-[#a2d9f7] min-h-96 justify-center items-center">
+      <div className="flex flex-col bg-[#a2d9f7] min-h-96 justify-center items-center max-h-96">
         <Image
           src={img}
           alt="Product 1"
-          width={1000}
-          height={1000}
-          className="w-56"
+          width={500}
+          height={500}
+          className="w-56 max-h-96 object-contain"
         />
       </div>
 
@@ -77,13 +77,13 @@ const UpCard = ({ title, img }) => {
 const DownCard = ({ title, img }) => {
   return (
     <div className="flex flex-col items-center w-56 mx-5">
-      <div className="flex flex-col bg-[#d4edfc] min-h-96 justify-center items-center my-5 sxm:mt-32">
+      <div className="flex flex-col bg-[#d4edfc] min-h-96 justify-center items-center my-5 sxm:mt-32 max-h-96">
         <Image
           src={img}
           alt="Product 1"
-          width={1000}
-          height={1000}
-          className="w-56 "
+          width={500}
+          height={500}
+          className="w-56 max-h-96"
         />
       </div>
 

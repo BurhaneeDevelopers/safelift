@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div>
       <footer class="bg-[#282547]">
-        <div class="mx-auto px-20 pt-20 lg:pt-44">
+        <div class="mx-auto px-20 pt-20">
           <div class="flex flex-wrap justify-center sm:justify-between items-center">
             <div>
               <div class="flex justify-center text-white font-semibold sm:justify-start">

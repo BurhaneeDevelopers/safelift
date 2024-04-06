@@ -1,6 +1,7 @@
 import AboutUs from "@/components/Home/AboutUs";
 import Banner from "@/components/Home/Banner";
 import Certification from "@/components/Home/Certification";
+import Contact from "@/components/Home/Contact";
 import OurDealers from "@/components/Home/OurDealers";
 import OurTeam from "@/components/Home/OurTeam";
 import ProductsRange from "@/components/Home/ProductsRange";
@@ -29,6 +30,9 @@ export default function Home() {
 
       {/* CERTIFICATION  */}
       <Certification />
+
+      {/* CONTACT  */}
+      <Contact />
     </div>
   );
 }

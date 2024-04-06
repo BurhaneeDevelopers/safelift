@@ -103,7 +103,7 @@ const Nav = () => {
           },
           {
             navSubTitle: "Hoisting Equipment",
-            navLink: "/",
+            navLink: "/product",
           },
           {
             navSubTitle: "Polyester Lifting & Lashing Products",

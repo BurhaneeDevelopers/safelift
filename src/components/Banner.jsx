@@ -4,13 +4,13 @@ import React from "react";
 const Banner = ({ title, ImageSource }) => {
   return (
     <div>
-      <div className="h-96 md:h-screen w-full flex items-center justify-center">
+      <div className="h-96 w-full flex items-center justify-center">
         <Image
           src={ImageSource}
           width={500}
           height={500}
           alt="BannerImage"
-          className="w-full h-96 md:h-screen absolute inset-0 -z-10"
+          className="w-full h-96 object-cover object-top absolute inset-0 -z-10"
         />
         <div className="flex flex-col items-center justify-center">
           <div className="flex flex-col items-center">
@@ -41,7 +41,7 @@ const Banner = ({ title, ImageSource }) => {
           </div>
         </div>
 
-        <div className="items-center justify-center absolute translate-x-7 sm:translate-x-0 right-0 bottom-28 rotate-90 hidden md:flex">
+        {/* <div className="items-center justify-center absolute translate-x-7 sm:translate-x-0 right-0 bottom-28 rotate-90 hidden md:flex">
           <span className="uppercase text-white tracking-[0.5rem]">Scroll</span>
 
           <svg
@@ -66,7 +66,7 @@ const Banner = ({ title, ImageSource }) => {
               </g>
             </g>
           </svg>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -25,9 +25,9 @@ const OurDealers = () => {
     { name: "Balbir Singh & Sons", city: "New Delhi" },
   ];
   return (
-    <div className="px-10 md:px-20 xl:px-20 pt-20 bg-[#25233e] hidden lg:flex relative">
+    <div className="px-10 md:px-20 xl:px-20 pt-20 bg-[#25233e] hidden lg:flex relative overflow-hidden min-h-[49rem]">
       <div className="flex flex-col xl:flex-row justify-between items-center xl:items-start flex-wrap ">
-        <div className="flex-col">
+        <div className="flex-col !h-full">
           {/* Left Heading  */}
           <LeftHeading
             smallTitle="Our"
@@ -35,8 +35,8 @@ const OurDealers = () => {
             additionalClasses={"text-white !text-start"}
           />
 
-          <div className="xl:max-w-xl mt-10">
-            <div className="flex h-full">
+          <div className="xl:max-w-xl mt-10 flex items-end justify-end text-white h-full">
+            {/* <div className="flex h-full">
               <div className="flex flex-col items-center mx-2">
                 {companies.slice(0, 10).map((item, i) => {
                   return (
@@ -54,7 +54,10 @@ const OurDealers = () => {
                   );
                 })}
               </div>
-            </div>
+            </div> */}
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum
+            placeat sequi ex molestias. Quo corporis sed perspiciatis molestiae
+            odio distinctio nostrum vitae error?
           </div>
         </div>
 

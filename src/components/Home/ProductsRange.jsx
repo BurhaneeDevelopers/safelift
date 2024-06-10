@@ -59,13 +59,13 @@ export default ProductsRange;
 const UpCard = ({ title, img }) => {
   return (
     <div className="flex flex-col items-center w-56 mx-5">
-      <div className="flex flex-col bg-[#a2d9f7] min-h-[32rem] justify-center items-center max-h-[32rem]">
+      <div className="flex flex-col bg-[#a2d9f7] min-h-96 justify-center items-center max-h-96">
         <Image
           src={img}
           alt="Product 1"
           width={500}
           height={500}
-          className="w-56 max-h-[32rem] object-contain"
+          className="w-56 max-h-96 object-contain"
         />
       </div>
 
@@ -77,13 +77,13 @@ const UpCard = ({ title, img }) => {
 const DownCard = ({ title, img }) => {
   return (
     <div className="flex flex-col items-center w-56 mx-5">
-      <div className="flex flex-col bg-[#d4edfc] min-h-[32rem] justify-center items-center my-5 sxm:mt-32 max-h-[32rem]">
+      <div className="flex flex-col bg-[#d4edfc] min-h-96 justify-center items-center my-5 sxm:mt-32 max-h-96 min-w-56">
         <Image
           src={img}
           alt="Product 1"
           width={500}
           height={500}
-          className="w-56 max-h-[32rem]"
+          className="w-auto max-w-56 max-h-96"
         />
       </div>
 

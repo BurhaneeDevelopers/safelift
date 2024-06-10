@@ -16,7 +16,7 @@ const Contact = () => {
             title="map"
             marginheight="0"
             marginwidth="0"
-            src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=%C4%B0zmir+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.391388747704!2d88.2380495108365!3d22.60185523181188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a027f517a6fb081%3A0xb15b32f215a1643f!2sSafelift%20Industries!5e0!3m2!1sen!2sin!4v1718015002087!5m2!1sen!2sin"
           ></iframe>
         </div>
         <div class="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
@@ -28,7 +28,7 @@ const Contact = () => {
               type="text"
               id="name"
               name="name"
-              class="w-full bg-white border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              class="w-full bg-white border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 px-3 leading-8 transition-colors duration-200 ease-in-out rounded-sm"
             />
           </div>
           <div class="relative">
@@ -39,7 +39,7 @@ const Contact = () => {
               type="text"
               id="name"
               name="name"
-              class="w-full bg-white border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              class="w-full bg-white border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 px-3 leading-8 transition-colors duration-200 ease-in-out rounded-sm"
             />
           </div>
           <div class="relative">
@@ -50,7 +50,7 @@ const Contact = () => {
               type="email"
               id="email"
               name="email"
-              class="w-full bg-white border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              class="w-full bg-white border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 px-3 leading-8 transition-colors duration-200 ease-in-out rounded-sm"
             />
           </div>
           <div class="relative">
@@ -61,7 +61,7 @@ const Contact = () => {
               type="text"
               id="subject"
               name="subject"
-              class="w-full bg-white border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              class="w-full bg-white border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 px-3 leading-8 transition-colors duration-200 ease-in-out rounded-sm"
             />
           </div>
           <div class="relative">
@@ -71,7 +71,7 @@ const Contact = () => {
             <textarea
               id="message"
               name="message"
-              class="w-full bg-white border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+              class="w-full bg-white border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out rounded-sm"
             ></textarea>
           </div>
           <div className="flex justify-end">

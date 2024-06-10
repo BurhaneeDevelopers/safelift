@@ -3,7 +3,7 @@ import React from "react";
 
 const FooterBanner = () => {
   return (
-    <div className="px-20 hidden md:flex">
+    <div className="px-20 hidden md:flex justify-center items-center">
       <div className="flex flex-col">
         <div className="px-5 z-10 flex justify-center items-center translate-y-24">
           <Image

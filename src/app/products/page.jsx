@@ -1,5 +1,7 @@
 import Banner from "@/components/Banner";
+import { slugify } from "@/utils/slugify";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Products = () => {
@@ -62,7 +64,10 @@ export default Products;
 
 const ProductCards = ({ title, image }) => {
   return (
-    <div class="relative block !size-96 m-3">
+    <Link
+      class="relative block !size-96 m-3"
+      href={"/products/" + slugify(title)}
+    >
       <span class="absolute inset-0 border-4 border-gray-200" />
 
       <div class="relative flex justify-center items-center h-full transform transition-transform -translate-x-4 -translate-y-4">
@@ -78,6 +83,6 @@ const ProductCards = ({ title, image }) => {
           {title}
         </h2>
       </div>
-    </div>
+    </Link>
   );
 };

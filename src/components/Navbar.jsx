@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import Sidebar from "./Sidebar";
+import { slugify } from "@/utils/slugify";
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -103,39 +104,41 @@ const Nav = () => {
           },
           {
             navSubTitle: "Hoisting Equipment",
-            navLink: "/product",
+            navLink: `/products/${slugify("Hoisting Equipment")}`,
           },
           {
             navSubTitle: "Polyester Lifting & Lashing Products",
-            navLink: "/",
+            navLink: `/products/${slugify(
+              "Polyester Lifting & Lashing Products"
+            )}`,
           },
           {
             navSubTitle: "G 80 Riggings",
-            navLink: "/",
+            navLink: `/products/${slugify("G 80 Riggings")}`,
           },
           {
             navSubTitle: "G 100 Riggings",
-            navLink: "/",
+            navLink: `/products/${slugify("G 100 Riggings")}`,
           },
           {
             navSubTitle: "Lifting Clamps",
-            navLink: "/",
+            navLink: `/products/${slugify("Lifting Clamps")}`,
           },
           {
             navSubTitle: "Lifting Tackles",
-            navLink: "/",
+            navLink: `/products/${slugify("Lifting Tackles")}`,
           },
           {
             navSubTitle: "Slings",
-            navLink: "/",
+            navLink: `/products/${slugify("Slings")}`,
           },
           {
             navSubTitle: "Hydraulic Lifting Equipments",
-            navLink: "/",
+            navLink: `/products/${slugify("Hydraulic Lifting Equipments")}`,
           },
           {
             navSubTitle: "Special Products",
-            navLink: "/",
+            navLink: `/products/${slugify("Special Products")}`,
           },
         ]}
       />

@@ -38,19 +38,32 @@ const Banner = () => {
             />
 
             <h2 className="z-10 translate-y-10">
-              <span className="text-center lg:text-start block text-3xl xxs:text-5xl xs:text-5xl lg:text-6xl xl:text-7xl uppercase text-white font-medium">
+              <span
+                className="text-center lg:text-start block text-3xl xxs:text-5xl xs:text-5xl lg:text-6xl xl:text-7xl uppercase text-white font-medium"
+                data-aos="fade-down"
+              >
                 Safety
               </span>
-              <span className="text-center lg:text-start block text-3xl xxs:text-5xl xs:text-6xl lg:text-7xl xl:text-8xl uppercase text-white font-semibold">
+              <span
+                className="text-center lg:text-start block text-3xl xxs:text-5xl xs:text-6xl lg:text-7xl xl:text-8xl uppercase text-white font-semibold"
+                data-aos="fade-right"
+              >
                 Reliability
               </span>
-              <span className="text-center lg:text-start block text-3xl xxs:text-5xl xs:text-5xl lg:text-6xl xl:text-7xl uppercase text-white font-medium">
+              <span
+                className="text-center lg:text-start block text-3xl xxs:text-5xl xs:text-5xl lg:text-6xl xl:text-7xl uppercase text-white font-medium"
+                data-aos="fade-up"
+              >
                 Quality
               </span>
             </h2>
           </div>
 
-          <div className="relative flex flex-col justify-end">
+          <div
+            className="relative flex flex-col justify-end"
+            data-aos="fade-up"
+            data-aos-duration="3000"
+          >
             <div className="flex items-center max-w-[28rem] relative -translate-y-20 sm:-translate-y-14 -translate-x-10 lg:translate-y-0">
               <AnimatePresence initial={false} custom={currentSlide + 3}>
                 {[0, 1, 2].map((index) => (
@@ -73,8 +86,8 @@ const Banner = () => {
                     animate="center"
                     exit="exit"
                     transition={{
-                      x: { stiffness: 300, damping: 30 },
-                      opacity: { duration: 0.2 },
+                      x: { stiffness: 300, damping: 20 },
+                      opacity: { duration: 0.1 },
                     }}
                     className="flex items-center"
                   >
@@ -88,7 +101,7 @@ const Banner = () => {
                       className={` w-20 xsm:w-20 xs:w-24 md:w-32 xl:w-44 xl:mt-7 object-contain ${
                         index === 1
                           ? "h-52 sm:h-64 md:h-72 lg:h-80 xl:h-96 bg-gradient-to-t from-[#a6acbb] via-transparent to-transparent rounded-b-xl"
-                          : "h-44 sm:h-48 md:h-56 lg:h-64 xl:h-72 hidden md:inline-block mx-2"
+                          : "h-44 sm:h-48 md:h-56 lg:h-64 xl:h-72 hidden md:inline-block mx-2 xl:w-52"
                       } `}
                     />
                   </motion.div>

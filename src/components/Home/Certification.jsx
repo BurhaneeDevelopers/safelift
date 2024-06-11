@@ -33,7 +33,10 @@ const Certification = () => {
     <div className="p-5 sm:p-16">
       <CenterHeading title={"Certification"} textColor={"xl:!text-6xl"} />
 
-      <div className="my-10 flex flex-wrap justify-center items-center h-full">
+      <div
+        className="my-10 flex flex-wrap justify-center items-center h-full"
+        data-aos="fade-down"
+      >
         <Image
           src={"Home/Certification/logos/logo-1.svg"}
           alt="ISI"
@@ -123,7 +126,10 @@ const Certification = () => {
         />
       </div>
 
-      <div className="flex flex-wrap justify-center items-center">
+      <div
+        className="flex flex-wrap justify-center items-center"
+        data-aos="fade-up"
+      >
         {cards.map((item, i) => {
           return <Cards key={i} title={item?.title} img={item?.image} />;
         })}

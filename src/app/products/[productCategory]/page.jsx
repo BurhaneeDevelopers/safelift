@@ -57,13 +57,12 @@ export default ProductList;
 
 const ProductCards = ({ title, productimage, productCategory, slug }) => {
   return (
-    <div className="flex flex-col justify-center items-center mb-10 mx-4">
+    <div
+      className="flex flex-col justify-center items-center mb-10 mx-4"
+      data-aos="fade-up"
+    >
       <Link
         href={"/products/" + `${slugify(productCategory)}/` + slugify(slug)}
-        // href={{
-        //   pathname: `/products/${`${slugify(productCategory)}/${slug}`}`,
-        //   query: { item },
-        // }}
         class="w-96 h-96 border-4 border-gray-200"
       >
         <div class="relative flex justify-center items-center h-full transform transition-transform p-2">

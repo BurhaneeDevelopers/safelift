@@ -4,15 +4,18 @@ import React from "react";
 const Banner = ({ title, ImageSource }) => {
   return (
     <div>
-      <div className="h-96 w-full flex items-center justify-center">
+      <div className="h-[36rem] w-full flex items-center justify-center">
         <Image
           src={ImageSource}
           width={500}
           height={500}
           alt="BannerImage"
-          className="w-full h-96 object-cover object-top absolute inset-0 -z-10"
+          className="w-full h-[36rem] object-cover object-top absolute inset-0 -z-10"
         />
-        <div className="flex flex-col items-center justify-center">
+        <div
+          className="flex flex-col items-center justify-center"
+          data-aos="fade-up"
+        >
           <div className="flex flex-col items-center">
             <h1 className="text-white font-bold text-4xl xs:text-5xl text-center uppercase">
               {title}

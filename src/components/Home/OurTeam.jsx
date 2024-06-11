@@ -5,7 +5,10 @@ const OurTeam = () => {
   return (
     <div className="py-20 pt-44">
       <div className="flex flex-col xl:flex-row justify-between relative">
-        <div className="bg-[#a2d9f7] py-10 xl:py-5 px-5 xs:px-14 sm:px-20 md:px:24 lg:px-28 xl:px-32 w-full xl:w-[40rem]">
+        <div
+          className="bg-[#a2d9f7] py-10 xl:py-5 px-5 xs:px-14 sm:px-20 md:px:24 lg:px-28 xl:px-32 w-full xl:w-[40rem]"
+          data-aos="fade-right"
+        >
           <LeftHeading smallTitle="Meet" title="Our Team" />
 
           <div className="">
@@ -25,7 +28,7 @@ const OurTeam = () => {
           </div>
         </div>
 
-        <div className="xl:absolute xl:-top-20 xl:right-0">
+        <div className="xl:absolute xl:-top-20 xl:right-0" data-aos="fade-left">
           <Image
             src={"/Home/Group.jpg"}
             alt="Our Team"
@@ -44,13 +47,9 @@ export default OurTeam;
 const LeftHeading = ({ smallTitle, title }) => {
   return (
     <div className="flex flex-col max-w-sm xl:max-w-lg text-center mx-auto xl:mx-0 xl:text-start">
-      <span
-        className={`text-4xl md:text-5xl font-semibold uppercase`}
-      >
+      <span className={`text-4xl md:text-5xl font-semibold uppercase`}>
         {smallTitle}{" "}
-        <span className="text-4xl md:text-5xl font-bold block">
-          {title}
-        </span>
+        <span className="text-4xl md:text-5xl font-bold block">{title}</span>
       </span>
       <div className="bg-[#008dd2] w-52 sm:w-60 mx-auto md:mx-0 md:w-full h-1.5 mt-2"></div>
     </div>

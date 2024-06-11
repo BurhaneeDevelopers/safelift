@@ -67,6 +67,7 @@ const ProductCards = ({ title, image }) => {
     <Link
       class="relative block !size-96 m-3"
       href={"/products/" + slugify(title)}
+      data-aos="fade-up"
     >
       <span class="absolute inset-0 border-4 border-gray-200" />
 

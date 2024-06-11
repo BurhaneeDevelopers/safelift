@@ -5,7 +5,7 @@ const Workers = () => {
   return (
     <div className="p-5 lg:p-20 lg:pb-32 bg-gray-200">
       <div className="flex flex-wrap justify-center items-center space-y-5 lg:space-y-0">
-        <div className="bg-transparent lg:bg-white lg:p-3 z-10">
+        <div className="bg-transparent lg:bg-white lg:p-3 z-10" >
           <Image
             src={"/AboutUs/Workers.webp"}
             alt="ProofLoad"

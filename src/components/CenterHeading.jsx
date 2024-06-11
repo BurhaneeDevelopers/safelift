@@ -4,6 +4,7 @@ const CenterHeading = ({ title, textColor, additionalClasses }) => {
   return (
     <div
       className={`flex flex-col items-center justify-center text-center ${additionalClasses} mx-auto`}
+      data-aos="zoom-in-down"
     >
       <span
         className={`text-3xl lg:text-4xl xl:text-5xl font-bold uppercase ${textColor}`}

@@ -11,7 +11,10 @@ const TrustedCompanies = () => {
         title={"Trusted By 200+ Companies"}
         additionalClasses={"max-w-xl xl:max-w-lg"}
       />
-      <div className="flex mt-10 justify-around items-end flex-wrap">
+      <div
+        className="flex mt-10 justify-around items-end flex-wrap"
+        data-aos="fade-up"
+      >
         <Image
           src={"/Home/TrustedCompanies/logo-1.webp"}
           alt="Tata Steel"

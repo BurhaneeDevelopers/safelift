@@ -6,7 +6,6 @@ import OurDealers from "@/components/Home/OurDealers";
 import OurTeam from "@/components/Home/OurTeam";
 import ProductsRange from "@/components/Home/ProductsRange";
 import TrustedCompanies from "@/components/Home/TrustedCompanies";
-import StickyContact from "@/components/StickyContact";
 
 export default function Home() {
   return (
@@ -32,7 +31,9 @@ export default function Home() {
       <Certification />
 
       {/* CONTACT  */}
+      {/* <div id="contactUs"> */}
       <Contact />
+      {/* </div> */}
     </div>
   );
 }

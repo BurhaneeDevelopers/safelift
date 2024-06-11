@@ -4,7 +4,7 @@ import React from "react";
 const FooterBanner = () => {
   return (
     <div className="px-20 hidden md:flex justify-center items-center">
-      <div className="flex flex-col">
+      <div className="flex flex-col" data-aos="fade-up">
         <div className="px-5 z-10 flex justify-center items-center translate-y-24">
           <Image
             src={"/AboutUs/FooterBanner.webp"}
@@ -24,7 +24,6 @@ const FooterBanner = () => {
             <Stats title={"17"} desc={"years of Experience"} />
           </div>
         </div>
-
         <div className="bg-[#2694d1] w-full h-20 translate-y-10 z-0"></div>
       </div>
     </div>

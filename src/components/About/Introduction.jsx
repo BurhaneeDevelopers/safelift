@@ -13,7 +13,10 @@ const Introduction = () => {
           className="w-[40rem] h-[50rem] absolute right-0 top-0 -z-10"
         />
 
-        <div className="flex flex-col space-y-5 w-[28rem] relative">
+        <div
+          className="flex flex-col space-y-5 w-[28rem] relative"
+          data-aos="fade-right"
+        >
           <span className="absolute -z-10 -translate-x-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -46,8 +49,11 @@ const Introduction = () => {
           </p>
         </div>
 
-        <div className="flex flex-col space-y-5 w-[28rem] mt-10 lg:mt-0">
-          <h2 className="font-bold text-3xl flex flex-col lg:flex-row items-center space-x-3">
+        <div
+          className="flex flex-col space-y-5 w-[28rem] mt-10 lg:mt-0"
+          data-aos="fade-left"
+        >
+          <div className="font-bold text-3xl flex flex-col lg:flex-row items-center space-x-3">
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +83,7 @@ const Introduction = () => {
               <span className="block text-center lg:text-start">Our</span>
               <span className="block text-center lg:text-start">Founders</span>
             </div>
-          </h2>
+          </div>
 
           <p className="font-medium text-lg text-center lg:text-start">
             Since 1983, <b>Safelift Industries</b> has evolved from a small
@@ -91,7 +97,10 @@ const Introduction = () => {
 
       <div className="flex flex-wrap mt-20 justify-center md:space-x-3 lg:space-x-5 lg:justify-evenly items-center">
         {/* OUR MOTTO */}
-        <div class="relative block !size-[22rem] min-h-[30rem] xs:min-h-[24rem] sxm:min-h-full min-w-[14rem] xxs:min-w-[18rem] md:min-w-[22rem] my-7 xl:my-0">
+        <div
+          class="relative block !size-[22rem] min-h-[30rem] xs:min-h-[24rem] sxm:min-h-full min-w-[14rem] xxs:min-w-[18rem] md:min-w-[22rem] my-7 xl:my-0"
+          data-aos="fade-right"
+        >
           <span class="absolute inset-0 border-4 border-[#00a0e3] " />
 
           <div class="relative flex justify-center items-center h-full transform transition-transform -translate-x-5 -translate-y-5">
@@ -162,7 +171,7 @@ const Introduction = () => {
               </div>
 
               <div className="mt-4">
-                <p className="text-[#1a183e] font-medium text-sm">
+                <div className="text-[#1a183e] font-medium text-sm">
                   <BulletPoints
                     title={"Prioritizing safety as a fundamental ethos"}
                   />
@@ -181,14 +190,17 @@ const Introduction = () => {
                       "Pioneering cutting-edge safety and sustainability solutions for years"
                     }
                   />
-                </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         {/* OUR VISION */}
-        <div class="relative block !size-[22rem] min-w-[14rem] xxs:min-w-[18rem] md:min-w-[22rem] my-7 xl:my-0">
+        <div
+          class="relative block !size-[22rem] min-w-[14rem] xxs:min-w-[18rem] md:min-w-[22rem] my-7 xl:my-0"
+          data-aos="fade-up"
+        >
           <span class="absolute inset-0 border-4 border-[#00a0e3] " />
 
           <div class="relative flex justify-center items-center h-full transform transition-transform -translate-x-5 -translate-y-5">
@@ -232,7 +244,10 @@ const Introduction = () => {
         </div>
 
         {/* OUR Mission */}
-        <div class="relative block !size-[22rem] min-w-[14rem] xxs:min-w-[18rem] md:min-w-[22rem] my-7 xl:my-0">
+        <div
+          class="relative block !size-[22rem] min-w-[14rem] xxs:min-w-[18rem] md:min-w-[22rem] my-7 xl:my-0"
+          data-aos="fade-left"
+        >
           <span class="absolute inset-0 border-4 border-[#00a0e3] " />
 
           <div class="relative flex justify-center items-center h-full transform transition-transform -translate-x-5 -translate-y-5">
@@ -271,7 +286,7 @@ const Introduction = () => {
               </div>
 
               <div className="mt-4">
-                <p className="text-[#1a183e] font-medium text-sm">
+                <div className="text-[#1a183e] font-medium text-sm">
                   <BulletPoints
                     title={
                       "Deep understanding of customers and their intricate safety needs "
@@ -285,7 +300,7 @@ const Introduction = () => {
                       "Commitment to safety, quality, variety, and value-for-money"
                     }
                   />
-                </p>
+                </div>
               </div>
             </div>
           </div>

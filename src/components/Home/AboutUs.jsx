@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import LeftHeading from "../LeftHeading";
+import Link from "next/link";
 
 const AboutUs = () => {
   return (
@@ -14,7 +15,7 @@ const AboutUs = () => {
             additionalClasses={"text-white"}
           />
 
-          <div className="xl:max-w-xl">
+          <div className="xl:max-w-xl" data-aos="fade-right">
             <div className="text-white text-center xl:text-justify my-10 text-sm font-medium">
               <p>
                 Safelift Industries addressed a crucial gap in the Indian market
@@ -45,14 +46,17 @@ const AboutUs = () => {
               }
             />
 
-            <div className="bg-[#008dd2] px-5 py-2 w-fit text-white text-lg font-semibold mt-10 mx-auto xl:mx-0">
+            <Link
+              href={"/about"}
+              className="bg-[#008dd2] hover:bg-[#106793] px-5 py-2 w-fit text-white text-lg font-semibold mt-10 mx-auto xl:mx-0"
+            >
               Learn More
-            </div>
+            </Link>
           </div>
         </div>
 
         {/* Images  */}
-        <div className="flex relative mt-10 xl:mt-0">
+        <div className="flex relative mt-10 xl:mt-0" data-aos="fade-left">
           <div className="border border-[#2a292c] p-4 absolute -left-24 top-10 ">
             <div className="bg-[#008dd2] w-36 h-36 flex items-center">
               <div

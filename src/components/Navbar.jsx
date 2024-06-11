@@ -82,10 +82,16 @@ export default Navbar;
 const Nav = () => {
   return (
     <div className="flex z-20">
-      <NavLink navTitle={"Home"} dropdownContent={[]} directRedirect={"/"} />
+      <NavLink
+        navTitle={"Home"}
+        dropdownContent={[]}
+        directRedirect={"/"}
+        icon={false}
+      />
 
       <NavLink
         navTitle={"About"}
+        icon={true}
         dropdownContent={[
           {
             navSubTitle: "Career",
@@ -97,6 +103,7 @@ const Nav = () => {
 
       <NavLink
         navTitle={"Products"}
+        icon={true}
         dropdownContent={[
           {
             navSubTitle: "All",
@@ -142,7 +149,7 @@ const Nav = () => {
           },
         ]}
       />
-      <NavLink navTitle={"Contact Us"} dropdownContent={[]} />
+      <NavLink navTitle={"Contact Us"} directRedirect={"/#contactUs"} dropdownContent={[]} />
       <NavLink
         navTitle={"Infra & Manufacturing"}
         dropdownContent={[]}
@@ -152,7 +159,7 @@ const Nav = () => {
   );
 };
 
-const NavLink = ({ navTitle, dropdownContent, directRedirect }) => {
+const NavLink = ({ navTitle, dropdownContent, directRedirect, icon }) => {
   return (
     <span class="group">
       <button class="outline-none focus:outline-none space-x-1 px-3 group-hover:bg-gray-200 flex items-center justify-center">
@@ -162,16 +169,18 @@ const NavLink = ({ navTitle, dropdownContent, directRedirect }) => {
         >
           {navTitle}
         </Link>
-        <span>
-          <svg
-            class="fill-current h-4 w-4 transform group-hover:-rotate-180
-                      transition duration-150 ease-in-out"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-          >
-            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-          </svg>
-        </span>
+        {icon && (
+          <span>
+            <svg
+              class="fill-current h-4 w-4 transform group-hover:-rotate-180
+            transition duration-150 ease-in-out"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+            >
+              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+            </svg>
+          </span>
+        )}
       </button>
 
       {/* DropDown Items  */}

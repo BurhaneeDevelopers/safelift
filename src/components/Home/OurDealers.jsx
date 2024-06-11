@@ -35,7 +35,10 @@ const OurDealers = () => {
             additionalClasses={"text-white !text-start"}
           />
 
-          <div className="xl:max-w-xl mt-10 flex items-end justify-end text-white h-full">
+          <div
+            className="xl:max-w-xl mt-10 flex items-end justify-end text-white"
+            data-aos="fade-"
+          >
             {/* <div className="flex h-full">
               <div className="flex flex-col items-center mx-2">
                 {companies.slice(0, 10).map((item, i) => {
@@ -63,7 +66,10 @@ const OurDealers = () => {
 
         {/* Images  */}
 
-        <div className="absolute -top-10 -right-20 mt-10 hidden lg:flex z-10">
+        <div
+          className="absolute -top-10 -right-20 mt-10 hidden lg:flex z-10"
+          data-aos="fade-left"
+        >
           <Image
             src={"/Home/Map.webp"}
             alt="Workers"
@@ -79,19 +85,22 @@ const OurDealers = () => {
 
 export default OurDealers;
 
-const FeatureBar = ({ title }) => {
-  return (
-    <div className="flex w-72 items-center my-4 h-full border-l-8 border-b border-[#00a0e3] min-h-6 max-h-6 px-3 z-20">
-      <span className="text-white font-medium -translate-y-3 text-xs">
-        {title}
-      </span>
-    </div>
-  );
-};
+// const FeatureBar = ({ title }) => {
+//   return (
+//     <div className="flex w-72 items-center my-4 h-full border-l-8 border-b border-[#00a0e3] min-h-6 max-h-6 px-3 z-20">
+//       <span className="text-white font-medium -translate-y-3 text-xs">
+//         {title}
+//       </span>
+//     </div>
+//   );
+// };
 
 const LeftHeading = ({ title, smallTitle, additionalClasses }) => {
   return (
-    <div className="flex flex-col max-w-sm xl:max-w-lg text-center mx-auto lg:mx-0 xl:text-start">
+    <div
+      className="flex flex-col max-w-sm xl:max-w-lg text-center mx-auto lg:mx-0 xl:text-start"
+      data-aos="fade-right"
+    >
       <span
         className={`text-3xl lg:text-4xl xl:text-5xl font-bold uppercase ${additionalClasses}`}
       >

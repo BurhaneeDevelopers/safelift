@@ -2,7 +2,10 @@ import React from "react";
 
 const LeftHeading = ({ title, smallTitle, additionalClasses }) => {
   return (
-    <div className="flex flex-col max-w-sm xl:max-w-lg text-center mx-auto xl:mx-0 xl:text-start">
+    <div
+      className="flex flex-col max-w-sm xl:max-w-lg text-center mx-auto xl:mx-0 xl:text-start"
+      data-aos="fade-right"
+    >
       <span
         className={`text-3xl lg:text-4xl xl:text-5xl font-medium uppercase ${additionalClasses}`}
       >

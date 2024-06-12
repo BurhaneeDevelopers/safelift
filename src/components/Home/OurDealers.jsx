@@ -2,28 +2,28 @@ import Image from "next/image";
 import React from "react";
 
 const OurDealers = () => {
-  const companies = [
-    { name: "Ezzy Lifting Tackle Equipment", city: "Visakhapatnam" },
-    { name: "Reliance Syndicate", city: "Coimbatore" },
-    { name: "India Auto Enterprises", city: "Guwahati" },
-    { name: "Vankos & Company (Hyderabad)", city: "Hyderabad" },
-    { name: "Buraq International", city: "Pune" },
-    { name: "Balaram Industries", city: "Bhubaneswar" },
-    { name: "Atom Engineering Products Pvt Ltd", city: "Jharsuguda" },
-    { name: "Air & Industrial Equipments Co.", city: "Guwahati" },
-    { name: "Lucky Traders", city: "Chennai" },
-    { name: "Globe Industrial Enterprises", city: "Bengaluru" },
-    { name: "Biswal Tools Center", city: "Paradip" },
-    { name: "National Hardware & Tools Centre", city: "Guwahati" },
-    { name: "Industrial Chain Centre", city: "Raipur" },
-    { name: "T.S. Trading Co.", city: "Bengaluru" },
-    { name: "Reliance Hardware Mart", city: "Chennai" },
-    { name: "Singhal Tools & Hardware", city: "Raigarh" },
-    { name: "Tools Co.", city: "Bokaro" },
-    { name: "Jainson Industrial House", city: "Guwahati" },
-    { name: "Tools Co.", city: "Angul" },
-    { name: "Balbir Singh & Sons", city: "New Delhi" },
-  ];
+  // const companies = [
+  //   { name: "Ezzy Lifting Tackle Equipment", city: "Visakhapatnam" },
+  //   { name: "Reliance Syndicate", city: "Coimbatore" },
+  //   { name: "India Auto Enterprises", city: "Guwahati" },
+  //   { name: "Vankos & Company (Hyderabad)", city: "Hyderabad" },
+  //   { name: "Buraq International", city: "Pune" },
+  //   { name: "Balaram Industries", city: "Bhubaneswar" },
+  //   { name: "Atom Engineering Products Pvt Ltd", city: "Jharsuguda" },
+  //   { name: "Air & Industrial Equipments Co.", city: "Guwahati" },
+  //   { name: "Lucky Traders", city: "Chennai" },
+  //   { name: "Globe Industrial Enterprises", city: "Bengaluru" },
+  //   { name: "Biswal Tools Center", city: "Paradip" },
+  //   { name: "National Hardware & Tools Centre", city: "Guwahati" },
+  //   { name: "Industrial Chain Centre", city: "Raipur" },
+  //   { name: "T.S. Trading Co.", city: "Bengaluru" },
+  //   { name: "Reliance Hardware Mart", city: "Chennai" },
+  //   { name: "Singhal Tools & Hardware", city: "Raigarh" },
+  //   { name: "Tools Co.", city: "Bokaro" },
+  //   { name: "Jainson Industrial House", city: "Guwahati" },
+  //   { name: "Tools Co.", city: "Angul" },
+  //   { name: "Balbir Singh & Sons", city: "New Delhi" },
+  // ];
   return (
     <div className="px-10 md:px-20 xl:px-20 pt-20 bg-[#25233e] hidden lg:flex relative overflow-hidden min-h-[49rem]">
       <div className="flex flex-col xl:flex-row justify-between items-center xl:items-start flex-wrap ">
@@ -36,8 +36,8 @@ const OurDealers = () => {
           />
 
           <div
-            className="xl:max-w-xl mt-10 flex items-end justify-end text-white"
-            data-aos="fade-"
+            className="xl:max-w-xl mt-10 flex items-end justify-end text-white h-[32rem]"
+            data-aos="fade-right"
           >
             {/* <div className="flex h-full">
               <div className="flex flex-col items-center mx-2">

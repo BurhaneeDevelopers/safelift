@@ -160,7 +160,7 @@ const Footer = () => {
             <p class="mt-4 text-sm text-white sm:order-first sm:mt-0">
               <span class="block sm:inline">
                 &copy; 2024 Safelift and{" "}
-                <span>Powered by Studio53</span>
+                <a href="https://www.studio53.in/" className="cursor-pointer hover:underline font-medium" target="_blank" rel="noreferrer noopener">Powered by Studio53</a>
               </span>
             </p>
           </div>

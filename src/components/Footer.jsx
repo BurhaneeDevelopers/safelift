@@ -159,8 +159,8 @@ const Footer = () => {
 
             <p class="mt-4 text-sm text-white sm:order-first sm:mt-0">
               <span class="block sm:inline">
-                Copyright &copy; 2024 | All rights reserved |{" "}
-                <span>Crafted with &#x2764; by Studio53</span>
+                &copy; 2024 Safelift and{" "}
+                <span>Powered by Studio53</span>
               </span>
             </p>
           </div>

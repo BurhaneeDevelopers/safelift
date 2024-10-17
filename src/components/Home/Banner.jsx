@@ -24,11 +24,11 @@ const Banner = () => {
   // Calculate the starting index for slicing the slides array
   const startIndex = currentSlide === 0 ? slides.length - 1 : currentSlide - 1;
   return (
-    <div>
-      {" "}
-      <div className="bg-[url('/Home/HomeBanner.webp')] h-screen w-full items-center justify-center">
-        <div className="flex flex-col lg:flex-row items-center justify-end space-x-20 h-full px-10 lg:px-16 xl:px-20">
-          <div className="flex items-center relative -translate-y-36 sm:-translate-y-24 md:-translate-y-20 lg:translate-y-0  xl:mt-20">
+    <div className="">
+      <div className="h-screen w-full items-center justify-center bg-no-repeat">
+        <Image alt="Safelift Banner" src={"/Home/HomeBanner.webp"} width={500} height={500} className="absolute inset-0 h-screen w-full -z-10"/>
+        <div className="flex flex-col lg:flex-row items-center justify-center space-x-20 h-full px-10 lg:px-16 xl:px-20">
+          <div className="flex items-center relative -translate-y-36 sm:-translate-y-24 md:-translate-y-20 lg:translate-y-0 xl:mt-20">
             <Image
               src={"/Home/Triangles.webp"}
               alt="Blob"

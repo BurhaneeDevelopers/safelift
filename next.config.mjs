@@ -7,7 +7,9 @@ const nextConfig = {
         hostname: "cdn.sanity.io",
       },
     ],
+    // unoptimized: true,
   },
+  // output: "export",
 };
 
 export default nextConfig;

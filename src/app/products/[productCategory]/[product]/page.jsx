@@ -128,21 +128,24 @@ const Product = ({ params }) => {
       )}
 
       {/* Table Section  */}
-      <div
-        className={`bg-[#282547] p-10 lg:p-20 mb-10 flex justify-center items-center ${
-          product?.highlightPoints?.length > 0 ? "" : "mt-20"
-        }`}
-      >
-        <Image
-          src={"/Product/Table.webp"}
-          alt="Product"
-          width={1000}
-          height={1000}
-          className="min-w-full lg:h-full object-contain"
-        />
-      </div>
+      {product?.table && (
+        <div
+          className={`bg-[#282547] p-10 lg:p-20 mb-10 flex justify-center items-center ${
+            product?.highlightPoints?.length > 0 ? "" : "mt-20"
+          }`}
+        >
+          <Image
+            src={product?.table && urlForImage(product?.table?.asset?._ref)}
+            alt="Product"
+            width={500}
+            height={500}
+            quality={100}
+            className="min-w-full lg:max-h-[500px] object-contain"
+          />
+        </div>
+      )}
 
-      <div className="bg-[#282547] py-3 mb-10 mt-20">
+      <div className={`bg-[#282547] py-7 mb-10 ${product?.table && "mt-20"}`}>
         <CenterHeading
           title={`Other Products in ${productCategory}`}
           textColor={"text-white !text-2xl"}

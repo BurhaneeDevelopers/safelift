@@ -19,14 +19,12 @@ export default function Home() {
       {/* ABOUT US */}
       <AboutUs />
 
-      {/* Our Team  */}
-      <OurTeam />
 
       {/* OUR RANGE OF PRODUCTS  */}
       <ProductsRange />
 
       {/* OUR DEALERS  */}
-      <OurDealers />
+      {/* <OurDealers /> */}
 
       {/* CERTIFICATION  */}
       <Certification />

@@ -2,7 +2,7 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <section class="relative bg-[#282547] flex flex-col justify-center items-center translate-y-10">
+    <section class="relative bg-[#282547] flex flex-col justify-center items-center">
       <span
         className="text-3xl lg:text-3xl xl:text-4xl font-bold uppercase text-white text-center mt-20"
         id="contactUs"
@@ -10,10 +10,11 @@ const Contact = () => {
       >
         Contact Us
       </span>
-      <div
-        class="container px-5 py-20 mx-auto flex sm:flex-nowrap flex-wrap flex-row-reverse"
-      >
-        <div class="lg:w-2/3 md:w-1/2-lg overflow-hidden sm:ml-10 flex items-end justify-start relative" data-aos="fade-left">
+      <div class="container px-5 py-20 mx-auto flex sm:flex-nowrap flex-wrap flex-row-reverse">
+        <div
+          class="lg:w-2/3 md:w-1/2-lg overflow-hidden sm:ml-10 flex items-end justify-start relative"
+          data-aos="fade-left"
+        >
           <iframe
             width="100%"
             height="100%"

@@ -1,8 +1,5 @@
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import StickyContact from "@/components/StickyContact";
 import App from "@/components/App/App";
 
 const montserrat = Montserrat({

@@ -4,12 +4,12 @@ import Image from "next/image";
 
 const ProductsRange = () => {
   return (
-    <div>
-      <div className="bg-[#282547] py-5">
+    <div className="pt-20">
+      <div className="bg-[#282547] py-10">
         <CenterHeading title={"Our Products Range"} textColor={"text-white"} />
       </div>
 
-      <div className="p-10 py-20">
+      <div className="p-10">
         <div className="flex flex-wrap justify-center items-center">
           <div className="flex flex-wrap justify-center mb-5">
             <UpCard

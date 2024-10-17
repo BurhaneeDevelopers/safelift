@@ -31,7 +31,7 @@ const Certification = () => {
   ];
   return (
     <div className="p-5 sm:p-16">
-      <CenterHeading title={"Certification"} textColor={"xl:!text-6xl"} />
+      <CenterHeading title={"PRODUCT STANDARDS & CERTIFICATIONS"} textColor={"xl:!text-6xl max-w-5xl"} />
 
       <div
         className="my-10 flex flex-wrap justify-center items-center h-full"
@@ -87,38 +87,6 @@ const Certification = () => {
         <Divider />
         <Image
           src={"Home/Certification/logos/logo-7.svg"}
-          alt="ISI"
-          width={500}
-          height={500}
-          className="w-20 h-20 mx-3 sm:mx-2"
-        />
-        <Divider />
-        <Image
-          src={"Home/Certification/logos/logo-8.svg"}
-          alt="ISI"
-          width={500}
-          height={500}
-          className="w-20 h-20 mx-3 sm:mx-2"
-        />
-        <Divider />
-        <Image
-          src={"Home/Certification/logos/logo-9.svg"}
-          alt="ISI"
-          width={500}
-          height={500}
-          className="w-20 h-20 mx-3 sm:mx-2"
-        />
-        <Divider />
-        <Image
-          src={"Home/Certification/logos/logo-10.svg"}
-          alt="ISI"
-          width={500}
-          height={500}
-          className="w-20 h-20 mx-3 sm:mx-2"
-        />
-        <Divider />
-        <Image
-          src={"Home/Certification/logos/logo-11.svg"}
           alt="ISI"
           width={500}
           height={500}

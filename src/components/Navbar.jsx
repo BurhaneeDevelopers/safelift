@@ -13,14 +13,14 @@ const Navbar = () => {
       <Sidebar navbarOpen={navbarOpen} setNavbarOpen={setNavbarOpen} />
 
       {/* <!-- component --> */}
-      <nav class="flex justify-between px-10 items-center bg-white mt-10 absolute w-full py-1">
+      <nav class="flex justify-between px-10 items-center bg-white mt-10 absolute w-full py-4">
         <div className="">
           <Image
             src="/logo.webp"
             alt="Safe Lift"
             width={500}
             height={500}
-            className="h-12 w-32 xs:h-12 xs:w-48"
+            className="h-12 w-32 xs:h-20 xs:w-64"
           />
         </div>
 
@@ -47,18 +47,18 @@ const Navbar = () => {
             </svg>
           </button>
 
-          <div className="rounded-full bg-gray-200 w-44 relative justify-between items-center ml-1 hidden sxm:flex">
+          <div className="rounded-full bg-gray-200 relative justify-between items-center ml-1 hidden sxm:flex !gap-x-2 w-fit">
             <input
               type="text"
               placeholder="Search for Products"
               className="bg-transparent pl-3 text-[12px] py-1 text-black placeholder:text-black rounded-full outline-none"
             />
 
-            <div className="rounded-full px-2 bg-[#197ab3] text-[12px] absolute mr-2 py-1 right-0">
+            <div className="rounded-full px-2 bg-[#197ab3] text-[12px] p-1 mr-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 14.55 14.56"
-                className="w-2.5 h-2.5 fill-white"
+                className="w-3 h-3 fill-white"
               >
                 <g id="Layer_2" data-name="Layer 2">
                   <g id="Layer_1-2" data-name="Layer 1">

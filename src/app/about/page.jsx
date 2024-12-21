@@ -7,7 +7,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-hidden">
       <Banner title={"About us"} ImageSource={"/AboutUs/Banner.webp"} />
 
       {/* INTRODUCTTION  */}

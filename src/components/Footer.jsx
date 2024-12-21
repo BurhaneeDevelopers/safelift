@@ -46,12 +46,13 @@ const Footer = () => {
                   </svg>
 
                   <span className="text-white">
-                    <span className="block">Ankurhati Industrial</span>
-                    <span className="block">Park Near Ludhiana Hotel</span>
-                    <span className="block">(Pathak Machine) NH-6,</span>
+                    <span className="block">Ankurhati Industrial Park</span>
                     <span className="block">
-                      Domjur, Howrah - 711 302, India
+                      Near Ludhiana Hotel (Pathak Machine)
                     </span>
+                    <span className="block">NH-6 Domjur</span>
+                    <span className="block">Howrah - 711-302</span>
+                    <span className="block">West Bengal</span>
                   </span>
                 </div>
               </div>
@@ -101,9 +102,9 @@ const Footer = () => {
                   </svg>
 
                   <span className="text-white">
-                    <span className="block">(033) 2230 0662/2230 5760</span>
-                    <span className="block">+91 89107 80530/84203 20180</span>
-                    <span className="block">+91 98316 66620/91238 69865</span>
+                    <span className="block">+91 93302 41259</span>
+                    <span className="block">Whatsapp: +91 81005 45253</span>
+                    {/* <span className="block">+91 98316 66620/91238 69865</span> */}
                   </span>
                 </div>
               </div>
@@ -160,7 +161,14 @@ const Footer = () => {
             <p class="mt-4 text-sm text-white sm:order-first sm:mt-0">
               <span class="block sm:inline">
                 &copy; 2024 Safelift and{" "}
-                <a href="https://www.studio53.in/" className="cursor-pointer hover:underline font-medium" target="_blank" rel="noreferrer noopener">Powered by Studio53</a>
+                <a
+                  href="https://www.studio53.in/"
+                  className="cursor-pointer hover:underline font-medium"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  Powered by Studio53
+                </a>
               </span>
             </p>
           </div>

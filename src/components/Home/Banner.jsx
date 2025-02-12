@@ -6,9 +6,9 @@ import { motion, AnimatePresence } from "framer-motion";
 const Banner = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
-    "/Home/image-2.png",
-    "/Home/image-3.png",
-    "/Home/image-1.png",
+    "/Home/Image-2.png",
+    "/Home/Image-3.png",
+    "/Home/Image-1.png",
   ];
 
   const prevSlide = () => {

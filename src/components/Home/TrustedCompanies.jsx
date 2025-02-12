@@ -16,39 +16,39 @@ const TrustedCompanies = () => {
         data-aos="fade-up"
       >
         <Image
-          src={"/Home/TrustedCompanies/logo-1.webp"}
+          src={"/Home/TrustedCompanies/logo-1.png"}
           alt="Tata Steel"
           width={"500"}
           height={"500"}
-          className="aspect-video h-36 w-64"
+          className="aspect-video h-full w-64 object-contain"
         />
         <Image
-          src={"/Home/TrustedCompanies/logo-2.webp"}
+          src={"/Home/TrustedCompanies/logo-2.png"}
           alt="Tata Steel"
           width={"500"}
           height={"500"}
-          className="aspect-video h-32 w-56"
+          className="aspect-video h-full w-64 object-contain"
         />
         <Image
-          src={"/Home/TrustedCompanies/logo-3.webp"}
+          src={"/Home/TrustedCompanies/logo-3.png"}
           alt="Tata Steel"
           width={"500"}
           height={"500"}
-          className="aspect-video h-32 w-56"
+          className="aspect-video h-full w-64 object-contain"
         />
         <Image
-          src={"/Home/TrustedCompanies/logo-4.webp"}
+          src={"/Home/TrustedCompanies/logo-4.png"}
           alt="Tata Steel"
           width={"500"}
           height={"500"}
-          className="aspect-video h-32 w-64"
+          className="aspect-video h-full w-64 object-contain"
         />
         <Image
-          src={"/Home/TrustedCompanies/logo-5.webp"}
+          src={"/Home/TrustedCompanies/logo-5.png"}
           alt="Tata Steel"
           width={"500"}
           height={"500"}
-          className="aspect-video h-32 w-56"
+          className="aspect-video h-full w-64 object-contain"
         />
       </div>
     </div>

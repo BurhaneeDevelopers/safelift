@@ -6,9 +6,9 @@ import { motion, AnimatePresence } from "framer-motion";
 const Banner = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
-    "/Home/Product-2.webp",
-    "/Home/Product-3.webp",
-    "/Home/Product-1.webp",
+    "/Home/image-2.png",
+    "/Home/image-3.png",
+    "/Home/image-1.png",
   ];
 
   const prevSlide = () => {
@@ -101,7 +101,7 @@ const Banner = () => {
                       className={` w-20 xsm:w-20 xs:w-24 md:w-32 xl:w-44 xl:mt-7 object-contain ${
                         index === 1
                           ? "h-52 sm:h-64 md:h-72 lg:h-80 xl:h-96 bg-gradient-to-t from-[#a6acbb] via-transparent to-transparent rounded-b-xl"
-                          : "h-44 sm:h-48 md:h-56 lg:h-64 xl:h-72 hidden md:inline-block mx-2 xl:w-52"
+                          : "h-44 sm:h-48 md:h-56 lg:h-64 xl:h-72 hidden md:inline-block mx-2 xl:w-52 grayscale"
                       } `}
                     />
                   </motion.div>

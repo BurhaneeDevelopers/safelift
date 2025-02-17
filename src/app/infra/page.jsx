@@ -3,6 +3,12 @@ import ManufacturingUnit from "@/components/Infra/ManufacturingUnit";
 import Image from "next/image";
 import React from "react";
 
+export const metadata = {
+  title: "Infra & Manufacturing | Safelift",
+  description:
+    "Explore Safelift’s advanced infra & manufacturing solutions. We deliver top-quality hoisting equipment & lifting tools for industrial excellence.",
+};
+
 const Infra = () => {
   return (
     <div>

@@ -8,8 +8,9 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
-  title: "SafeLift",
-  description: "Some Description",
+  title: "Material Handling Equipment Manufacturers & Supplier | Safelift",
+  description:
+    "Safelift leading as premium material handling equipment manufacturers & supplier in India. We offers quality material handling products like hoisting, lifting, slings, etc.",
 };
 
 export default function RootLayout({ children }) {

@@ -1,83 +1,75 @@
-"use client";
-import Banner from "@/components/Banner";
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
 import { client } from "../../../../sanity/lib/client";
-import { urlForImage } from "../../../../sanity/lib/image";
-import Link from "next/link";
-import { slugify, unslugify } from "@/utils/slugify";
+import { unslugify } from "@/utils/slugify";
+import ProductList from "./ProductList";
 
-const ProductList = ({ params }) => {
-  const [products, setProducts] = useState([]);
+const metadataMap = {
+  "products/hoisting-equipment": {
+    title: "Hoisting Equipment Manufacturers & Suppliers | Safelift",
+    description:
+      "Safelift is a top hoisting equipment manufacturer & supplier, offering electric & gear trolleys, magnet lifters, chain pulleys & more for construction needs.",
+  },
+  "products/polyester-lifting-&-lashing-products": {
+    title: "Polyester Lifting & Lashing Products Manufacturers | Safelift",
+    description:
+      "Safelift is top polyester lifting & lashing products manufacturers in India. We offer best quality lifting products like round & duplex sling, protector, etc.",
+  },
+  "products/g-80-riggings": {
+    title: "G80 Lifting Rigging Suppliers & Manufacturers | Safelift",
+    description:
+      "Safelift is top G80 lifting rigging suppliers & manufacturers in India. We offer best quality rigging products like self-locking & lifting hook and many more.",
+  },
+  "products/g-100-riggings": {
+    title: "G100 Lifting Rigging Suppliers & Manufacturers | Safelift",
+    description:
+      "Safelift is top G100 lifting rigging suppliers & manufacturers in India. We offer best quality rigging products like sling hook, G100 chain, and master link.",
+  },
+  "products/lifting-clamps": {
+    title: "Horizontal & Vertical Plate Lifting Clamp Suppliers | Safelift",
+    description:
+      "Safelift is top horizontal & vertical plate lifting clamp suppliers in India. We offer best quality plate lifting clamp products at affordable prices.",
+  },
+  "products/lifting-tackles": {
+    title: "Lifting Tackles, Tools & Accessories Suppliers | Safelift",
+    description:
+      "Safelift provides top-quality lifting tools & tackles for industries, including rope pulley blocks, lifting machines & more. Reliable & efficient solutions!",
+  },
+  "products/slings": {
+    title: "Lifting Slings Suppliers & Manufacturers in India | Safelift",
+    description:
+      "Safelift is top lifting slings suppliers & manufacturers in India. We offer best quality full line lifting slings products for any of your applications.",
+  },
+  "products/hydraulic-lifting-equipments": {
+    title:
+      "Hydraulic Lifting & Material Handling Equipment Suppliers | Safelift",
+    description:
+      "Safelift is top hydraulic lifting equipment suppliers in India. We offer best quality handling products including hand stacker, drum trolley, lifting table, etc.",
+  },
+};
 
+export async function generateMetadata({ params }) {
   const productCategory = decodeURIComponent(unslugify(params.productCategory));
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        console.log(productCategory);
-        const result = await client.fetch(
-          `*[_type == "product" && category == $category]`,
-          { category: productCategory }
-        );
-        setProducts(result);
-        console.log(result);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-  return (
-    <div>
-      <Banner title={"Products"} ImageSource={"/Products/Banner.webp"} />
-
-      <div className="p-10 sm:p-20">
-        <div className="flex flex-wrap justify-center items-center">
-          {products.map((item, i) => {
-            return (
-              <ProductCards
-                key={i}
-                title={item?.title}
-                productimage={item?.productimage}
-                productCategory={productCategory}
-                slug={item?.slug.current}
-                item={item}
-              />
-            );
-          })}
-        </div>
-      </div>
-    </div>
+  // Fetch the first product in this category for metadata
+  const product = await client.fetch(
+    `*[_type == "product" && category == $category][0]`,
+    { category: productCategory }
   );
-};
 
-export default ProductList;
+  const path = params.productCategory
+    ? `products/${params.productCategory}`
+    : params.slug || "";
 
-const ProductCards = ({ title, productimage, productCategory, slug }) => {
-  return (
-    <div
-      className="flex flex-col justify-center items-center mb-10 mx-4"
-      data-aos="fade-up"
-    >
-      <Link
-        href={"/products/" + `${slugify(productCategory)}/` + slugify(slug)}
-        class="w-96 h-96 border-4 border-gray-200"
-      >
-        <div class="relative flex justify-center items-center h-full transform transition-transform p-2">
-          <Image
-            src={urlForImage(productimage)}
-            alt={productCategory}
-            width={500}
-            height={500}
-            className="w-full h-full object-contain"
-          />
-        </div>
-      </Link>
-      <h2 className="bg-[#0493cf]/90 p-2 text-center py-4 z-50 w-96 text-white font-semibold text-base xxs:text-lg sm:text-xl min-h-16 max-h-16 mt-2">
-        <span className="line-clamp-1">{title}</span>
-      </h2>
-    </div>
-  );
-};
+  const meta = metadataMap[path] || {
+    title: "Default Title | Safelift",
+    description: "Explore high-quality products at Safelift.",
+  };
+
+  return {
+    title: meta.title,
+    description: meta.description,
+  };
+}
+
+export default function ProductCategoryPage({ params }) {
+  return <ProductList params={params} />;
+}

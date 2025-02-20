@@ -1,6 +1,8 @@
 import React from "react";
 import CenterHeading from "../CenterHeading";
 import Image from "next/image";
+import Link from "next/link";
+import { slugify } from "@/utils/slugify";
 
 const ProductsRange = () => {
   return (
@@ -59,7 +61,10 @@ export default ProductsRange;
 const UpCard = ({ title, img }) => {
   return (
     <div className="flex flex-col items-center w-56 mx-5" data-aos="fade-down">
-      <div className="flex flex-col bg-[#a2d9f7] min-h-96 justify-center items-center max-h-96">
+      <Link
+        href={`/products/${slugify(title)}`}
+        className="flex flex-col bg-[#a2d9f7] min-h-96 justify-center items-center max-h-96"
+      >
         <Image
           src={img}
           alt="Product 1"
@@ -67,7 +72,7 @@ const UpCard = ({ title, img }) => {
           height={500}
           className="w-56 max-h-96 object-contain"
         />
-      </div>
+      </Link>
 
       <h4 className="font-bold text-[#2b2a29] text-xl text-center">{title}</h4>
     </div>
@@ -77,7 +82,10 @@ const UpCard = ({ title, img }) => {
 const DownCard = ({ title, img }) => {
   return (
     <div className="flex flex-col items-center w-56 mx-5" data-aos="fade-up">
-      <div className="flex flex-col bg-[#d4edfc] min-h-96 justify-center items-center my-5 sxm:mt-32 max-h-96 min-w-56">
+      <Link
+        href={`/products/${slugify(title)}`}
+        className="flex flex-col bg-[#d4edfc] min-h-96 justify-center items-center my-5 sxm:mt-32 max-h-96 min-w-56"
+      >
         <Image
           src={img}
           alt="Product 1"
@@ -85,7 +93,7 @@ const DownCard = ({ title, img }) => {
           height={500}
           className="w-auto max-w-56 max-h-96"
         />
-      </div>
+      </Link>
 
       <h4 className="font-bold text-[#2b2a29] text-xl text-center">{title}</h4>
     </div>

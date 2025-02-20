@@ -1,5 +1,5 @@
 import { client } from "../../../../sanity/lib/client";
-import { unslugify } from "@/utils/slugify";
+import { slugify, unslugify } from "@/utils/slugify";
 import ProductList from "./ProductList";
 
 const metadataMap = {
@@ -60,13 +60,16 @@ export async function generateMetadata({ params }) {
     : params.slug || "";
 
   const meta = metadataMap[path] || {
-    title: "Default Title | Safelift",
+    title: "Material Handling Equipment Manufacturers & Supplier | Safelift",
     description: "Explore high-quality products at Safelift.",
   };
 
   return {
     title: meta.title,
     description: meta.description,
+    alternates: {
+      canonical: `https://safelift.in/${slugify(meta.title)}`,
+    },
   };
 }
 

@@ -7,6 +7,9 @@ export const metadata = {
   title: "Infra & Manufacturing | Safelift",
   description:
     "Explore Safelift’s advanced infra & manufacturing solutions. We deliver top-quality hoisting equipment & lifting tools for industrial excellence.",
+  alternates: {
+    canonical: `https://safelift.in/infra`,
+  },
 };
 
 const Infra = () => {

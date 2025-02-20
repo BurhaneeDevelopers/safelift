@@ -9,6 +9,9 @@ export const metadata = {
   title: "About Us | Safelift",
   description:
     "Safelift Industries delivers premium, globally compliant material handling solutions in India. Trusted for quality, innovation & efficiency.",
+  alternates: {
+    canonical: `https://safelift.in/about`,
+  },
 };
 
 const About = () => {

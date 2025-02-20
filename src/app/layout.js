@@ -11,6 +11,9 @@ export const metadata = {
   title: "Material Handling Equipment Manufacturers & Supplier | Safelift",
   description:
     "Safelift leading as premium material handling equipment manufacturers & supplier in India. We offers quality material handling products like hoisting, lifting, slings, etc.",
+  alternates: {
+    canonical: `https://safelift.in/`,
+  },
 };
 
 export default function RootLayout({ children }) {

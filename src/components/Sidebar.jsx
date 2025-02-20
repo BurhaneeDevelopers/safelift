@@ -128,7 +128,7 @@ const Nav = () => {
         ]}
         isOpen={openDropdown === "Products"}
         toggleDropdown={toggleDropdown}
-        directRedirect={"/products"}
+        // directRedirect={"/products"}
       />
       <NavLink
         navTitle={"Contact Us"}

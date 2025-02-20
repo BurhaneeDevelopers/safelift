@@ -9,7 +9,10 @@ const Sidebar = ({ navbarOpen, setNavbarOpen }) => {
         navbarOpen ? "inline-block" : "hidden"
       }`}
     >
-      <button className="absolute top-4 right-4 " onClick={() => setNavbarOpen(false)}>
+      <button
+        className="absolute top-4 right-4 "
+        onClick={() => setNavbarOpen(false)}
+      >
         <svg
           className="fill-current"
           width="20"
@@ -85,39 +88,41 @@ const Nav = () => {
           },
           {
             navSubTitle: "Hoisting Equipment",
-            navLink: "/",
+            navLink: `/products/${slugify("Hoisting Equipment")}`,
           },
           {
             navSubTitle: "Polyester Lifting & Lashing Products",
-            navLink: "/",
+            navLink: `/products/${slugify(
+              "Polyester Lifting & Lashing Products"
+            )}`,
           },
           {
             navSubTitle: "G 80 Riggings",
-            navLink: "/",
+            navLink: `/products/${slugify("G 80 Riggings")}`,
           },
           {
             navSubTitle: "G 100 Riggings",
-            navLink: "/",
+            navLink: `/products/${slugify("G 100 Riggings")}`,
           },
           {
             navSubTitle: "Lifting Clamps",
-            navLink: "/",
+            navLink: `/products/${slugify("Lifting Clamps")}`,
           },
           {
             navSubTitle: "Lifting Tackles",
-            navLink: "/",
+            navLink: `/products/${slugify("Lifting Tackles")}`,
           },
           {
             navSubTitle: "Slings",
-            navLink: "/",
+            navLink: `/products/${slugify("Slings")}`,
           },
           {
             navSubTitle: "Hydraulic Lifting Equipments",
-            navLink: "/",
+            navLink: `/products/${slugify("Hydraulic Lifting Equipments")}`,
           },
           {
             navSubTitle: "Special Products",
-            navLink: "/",
+            navLink: `/products/${slugify("Special Products")}`,
           },
         ]}
         isOpen={openDropdown === "Products"}
@@ -126,6 +131,7 @@ const Nav = () => {
       />
       <NavLink
         navTitle={"Contact Us"}
+        directRedirect={"/#contactUs"}
         dropdownContent={[]}
         isOpen={openDropdown === "Contact Us"}
         toggleDropdown={toggleDropdown}

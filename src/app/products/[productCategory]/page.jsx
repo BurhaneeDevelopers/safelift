@@ -64,11 +64,13 @@ export async function generateMetadata({ params }) {
     description: "Explore high-quality products at Safelift.",
   };
 
+  console.log(params.title);
+
   return {
     title: meta.title,
     description: meta.description,
     alternates: {
-      canonical: `https://safelift.in/${slugify(meta.title)}`,
+      canonical: `https://safelift.in/${slugify(params.productCategory)}`,
     },
   };
 }

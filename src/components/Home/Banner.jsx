@@ -26,9 +26,15 @@ const Banner = () => {
   return (
     <div className="">
       <div className="h-screen w-full items-center justify-center bg-no-repeat">
-        <Image alt="Safelift Banner" src={"/Home/HomeBanner.webp"} width={500} height={500} className="absolute inset-0 h-screen w-full -z-10"/>
+        <Image
+          alt="Safelift Banner"
+          src={"/Home/HomeBanner.webp"}
+          width={500}
+          height={500}
+          className="absolute inset-0 h-screen w-full -z-10"
+        />
         <div className="flex flex-col lg:flex-row items-center justify-center space-x-20 h-full px-10 lg:px-16 xl:px-20">
-          <div className="flex items-center relative -translate-y-36 sm:-translate-y-24 md:-translate-y-20 lg:translate-y-0 xl:mt-20">
+          <div className="flex items-center relative -translate-y-5 sm:-translate-y-24 md:-translate-y-20 lg:translate-y-0 xl:mt-20">
             <Image
               src={"/Home/Triangles.webp"}
               alt="Blob"
@@ -37,34 +43,39 @@ const Banner = () => {
               className="xl:w-[30rem] xl:h-96 hidden xl:flex -translate-x-44 absolute left-0"
             />
 
-            <h2 className="z-10 translate-y-10">
-              <span
-                className="text-center lg:text-start block text-3xl xxs:text-5xl xs:text-5xl lg:text-6xl xl:text-7xl uppercase text-white font-medium"
-                data-aos="fade-down"
-              >
-                Safety
-              </span>
-              <span
-                className="text-center lg:text-start block text-3xl xxs:text-5xl xs:text-6xl lg:text-7xl xl:text-8xl uppercase text-white font-semibold"
-                data-aos="fade-right"
-              >
-                Reliability
-              </span>
-              <span
-                className="text-center lg:text-start block text-3xl xxs:text-5xl xs:text-5xl lg:text-6xl xl:text-7xl uppercase text-white font-medium"
-                data-aos="fade-up"
-              >
-                Quality
-              </span>
-            </h2>
+            <div className="flex flex-col z-10 sm:translate-y-10 gap-4 ml-5">
+              <h2 className="">
+                <span
+                  className="text-center lg:text-start block text-3xl xxs:text-5xl xs:text-5xl lg:text-6xl xl:text-6xl uppercase text-white font-medium"
+                  data-aos="fade-down"
+                >
+                  Safety
+                </span>
+                <span
+                  className="text-center lg:text-start block text-3xl xxs:text-5xl xs:text-6xl lg:text-7xl xl:text-7xl uppercase text-white font-semibold"
+                  data-aos="fade-right"
+                >
+                  Reliability
+                </span>
+                <span
+                  className="text-center lg:text-start block text-3xl xxs:text-5xl xs:text-5xl lg:text-6xl xl:text-6xl uppercase text-white font-medium"
+                  data-aos="fade-up"
+                >
+                  Quality
+                </span>
+              </h2>
+              <h1 className="text-center lg:text-start block !text-sm sm:!text-xl !max-w-screen-xs uppercase text-gray-300 font-medium">
+                Material Handling Equipment Manufacturers & Supplier
+              </h1>
+            </div>
           </div>
 
           <div
-            className="relative flex flex-col justify-end"
+            className="relative flex flex-col justify-end mt-10"
             data-aos="fade-up"
             data-aos-duration="3000"
           >
-            <div className="flex items-center max-w-[28rem] relative -translate-y-20 sm:-translate-y-14 -translate-x-10 lg:translate-y-0">
+            <div className="flex items-center max-w-[28rem] relative -translate-y-5 sm:-translate-y-14 -translate-x-10 lg:translate-y-0">
               <AnimatePresence initial={false} custom={currentSlide + 3}>
                 {[0, 1, 2].map((index) => (
                   <motion.div
@@ -109,7 +120,7 @@ const Banner = () => {
               </AnimatePresence>
             </div>
 
-            <div className="flex items-center space-x-10 -translate-y-5 sxm:-translate-y-2 sm:translate-y-0">
+            <div className="flex items-center space-x-10 translate-y-10 sxm:translate-y-5 sm:translate-y-0">
               {/* Previous Button  */}
               <button
                 className=" cursor-pointer absolute bottom-0 pb-1 sm:pb-2 md:pb-3 lg:-bottom-20 z-10"

@@ -15,13 +15,11 @@ const ProductList = ({ params }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log(productCategory);
         const result = await client.fetch(
           `*[_type == "product" && category == $category]`,
           { category: productCategory }
         );
         setProducts(result);
-        console.log(result);
       } catch (error) {
         console.error("Error fetching data:", error);
       }

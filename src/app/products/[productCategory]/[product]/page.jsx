@@ -31,7 +31,6 @@ const Product = ({ params }) => {
     };
 
     fetchData();
-    console.log(productSlug);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -43,13 +42,11 @@ const Product = ({ params }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log(productCategory);
         const result = await client.fetch(
           `*[_type == "product" && category == $category]`,
           { category: productCategory }
         );
         setProducts(result);
-        console.log(result);
       } catch (error) {
         console.error("Error fetching data:", error);
       }

@@ -70,7 +70,7 @@ export async function generateMetadata({ params }) {
     title: meta.title,
     description: meta.description,
     alternates: {
-      canonical: `https://safelift.in/${slugify(params.productCategory)}`,
+      canonical: `https://safelift.in/products/${slugify(params.productCategory)}`,
     },
   };
 }

@@ -1,11 +1,11 @@
 "use client";
 import React, { useEffect } from "react";
-import Navbar from "../Navbar";
 import StickyContact from "../StickyContact";
 import Footer from "../Footer";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
+import Navbar from "../Navbar";
 
 const App = ({ children }) => {
   // const [isLoading, setIsLoading] = useState(true);
@@ -28,7 +28,7 @@ const App = ({ children }) => {
   return (
     <div>
       <Navbar />
-      <div className="fixed left-0 top-80 z-30">
+      <div className="hidden 2xl:flex fixed left-0 top-80 z-30">
         <StickyContact />
       </div>
       {children}

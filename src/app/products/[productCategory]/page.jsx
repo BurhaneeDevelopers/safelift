@@ -1,6 +1,6 @@
-import { client } from "../../../../sanity/lib/client";
 import { slugify, unslugify } from "@/utils/slugify";
 import ProductList from "./ProductList";
+import { client } from "../../../../sanityBackend/lib/client";
 
 const metadataMap = {
   "products/hoisting-equipment": {
@@ -46,14 +46,37 @@ const metadataMap = {
   },
 };
 
-export async function generateMetadata({ params }) {
-  const productCategory = decodeURIComponent(unslugify(params.productCategory));
-
-  // Fetch the first product in this category for metadata
-  const product = await client.fetch(
-    `*[_type == "product" && category == $category][0]`,
-    { category: productCategory }
+async function getSEOData(slug) {
+  return client.fetch(
+    `*[_type == "seo" && page->slug.current == $slug][0] {
+      title,
+      description,
+      canonical,
+      robots,
+      openGraph {
+        ogTitle,
+        ogDescription,
+        "ogImage": ogImage.asset->url,
+        ogUrl,
+        ogType
+      },
+      twitter {
+        twitterTitle,
+        twitterDescription,
+        "twitterImage": twitterImage.asset->url,
+        twitterCard
+      },
+      icons {
+        "favicon": favicon.asset->url,
+        "appleIcon": appleIcon.asset->url
+      }
+    }`,
+    { slug }
   );
+}
+
+export async function generateMetadata({ params }) {
+  const seoData = await getSEOData(params.slug);
 
   const path = params.productCategory
     ? `products/${params.productCategory}`
@@ -64,13 +87,51 @@ export async function generateMetadata({ params }) {
     description: "Explore high-quality products at Safelift.",
   };
 
-  console.log(params.title);
-
   return {
-    title: meta.title,
-    description: meta.description,
+    title: seoData?.title || meta.title,
+    description: seoData?.description || meta.description,
     alternates: {
-      canonical: `https://safelift.in/products/${slugify(params.productCategory)}`,
+      canonical:
+        seoData?.canonical ||
+        `https://safelift.in/products/${slugify(params.productCategory)}`,
+    },
+
+    openGraph: {
+      title: seoData?.openGraph?.ogTitle || seoData?.title,
+      description: seoData?.openGraph?.ogDescription || seoData?.description,
+      url: seoData?.openGraph?.ogUrl || "https://safelift.in/",
+      siteName: "Safelift",
+      images: seoData?.openGraph?.ogImage
+        ? [
+            {
+              url: seoData.openGraph.ogImage.asset.url,
+              width: 800,
+              height: 600,
+            },
+          ]
+        : [],
+      locale: "en_US",
+      type: seoData?.openGraph?.ogType || "website",
+    },
+    twitter: {
+      card: seoData?.twitter?.twitterCard || "summary_large_image",
+      title: seoData?.twitter?.twitterTitle || seoData?.title,
+      description: seoData?.twitter?.twitterDescription || seoData?.description,
+      images: seoData?.twitter?.twitterImage
+        ? [seoData.twitter.twitterImage.asset.url]
+        : [],
+    },
+    icons: {
+      icon: seoData?.icons?.favicon
+        ? seoData.icons.favicon.asset.url
+        : "/favicon.ico",
+      apple: seoData?.icons?.appleIcon
+        ? seoData.icons.appleIcon.asset.url
+        : "/apple-icon.png",
+    },
+    robots: {
+      index: seoData?.robots?.includes("index"),
+      follow: seoData?.robots?.includes("follow"),
     },
   };
 }

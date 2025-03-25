@@ -4,7 +4,7 @@ import React from "react";
 const Footer = () => {
   return (
     <div>
-      <footer class="bg-[#23203e]">
+      <footer class="bg-[#050742]">
         <div class="mx-auto px-20 pt-20">
           <div class="flex flex-wrap justify-center sm:justify-between items-center">
             <div>
@@ -144,7 +144,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div class="mt-12 py-3 bg-[#17152d]">
+        <div class="mt-12 py-3 bg-[#01002f]">
           <div class="text-center sm:flex sm:justify-between sm:text-start px-10 xl:px-20">
             <p class="text-sm text-white">
               <span className="border-e border-white px-3 hover:underline">

@@ -1,12 +1,12 @@
 import AboutUs from "@/components/Home/AboutUs";
+import Applications from "@/components/Home/Applications";
 import Banner from "@/components/Home/Banner";
-import Certification from "@/components/Home/Certification";
-import Contact from "@/components/Home/Contact";
-import NewsLetter from "@/components/Home/NewsLetter";
-import OurDealers from "@/components/Home/OurDealers";
-import OurTeam from "@/components/Home/OurTeam";
+import Future from "@/components/Home/Future";
+import FAQ from "@/components/Home/FAQ";
+import Partner from "@/components/Home/Partner";
 import ProductsRange from "@/components/Home/ProductsRange";
 import TrustedCompanies from "@/components/Home/TrustedCompanies";
+import WhyUs from "@/components/Home/Certification";
 
 export default function Home() {
   return (
@@ -19,21 +19,23 @@ export default function Home() {
       {/* ABOUT US */}
       <AboutUs />
 
-
       {/* OUR RANGE OF PRODUCTS  */}
       <ProductsRange />
 
-      {/* OUR DEALERS  */}
-      {/* <OurDealers /> */}
-
       {/* CERTIFICATION  */}
-      <Certification />
+      <WhyUs />
 
-      {/* NEWSLETTER  */}
-      <NewsLetter />
+      {/* Applications  */}
+      <Applications />
 
       {/* CONTACT  */}
-      <Contact />
+      <Future />
+
+      {/* Partners  */}
+      <Partner />
+
+      {/* FAQS  */}
+      <FAQ />
     </div>
   );
 }

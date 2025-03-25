@@ -10,9 +10,51 @@ const montserrat = Montserrat({
 export const metadata = {
   title: "Material Handling Equipment Manufacturers & Supplier | Safelift",
   description:
-    "Safelift leading as premium material handling equipment manufacturers & supplier in India. We offers quality material handling products like hoisting, lifting, slings, etc.",
+    "Safelift is a leading premium material handling equipment manufacturer & supplier in India. We offer quality material handling products like hoisting, lifting, slings, etc.",
   alternates: {
-    canonical: `https://safelift.in/`,
+    canonical: "https://safelift.in/",
+  },
+  openGraph: {
+    title: "Material Handling Equipment Manufacturers & Supplier | Safelift",
+    description:
+      "Safelift is a leading premium material handling equipment manufacturer & supplier in India. We offer quality material handling products like hoisting, lifting, slings, etc.",
+    url: "https://safelift.in/",
+    siteName: "Safelift",
+    images: [
+      {
+        url: "https://safelift.in/og-image.jpg",
+        width: 800,
+        height: 600,
+        alt: "Safelift - Material Handling Equipment",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@safelift",
+    title: "Material Handling Equipment Manufacturers & Supplier | Safelift",
+    description:
+      "Safelift is a leading premium material handling equipment manufacturer & supplier in India. We offer quality material handling products like hoisting, lifting, slings, etc.",
+    images: ["https://safelift.in/twitter-image.jpg"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-icon.png",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

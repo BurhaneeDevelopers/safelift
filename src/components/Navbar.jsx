@@ -13,7 +13,7 @@ const Navbar = () => {
       <Sidebar navbarOpen={navbarOpen} setNavbarOpen={setNavbarOpen} />
 
       {/* <!-- component --> */}
-      <nav class="flex justify-between px-10 items-center bg-white mt-10 absolute w-full py-4">
+      <nav class="flex justify-between px-5 lg:px-20 4xl:px-40 items-center bg-white mt-16 absolute py-4 z-50 w-full">
         <div className="">
           <Image
             src="/logo.webp"
@@ -47,7 +47,7 @@ const Navbar = () => {
             </svg>
           </button>
 
-          <div className="rounded-full bg-gray-200 relative justify-between items-center ml-1 hidden sxm:flex !gap-x-2 w-fit">
+          {/* <div className="rounded-full bg-gray-200 relative justify-between items-center ml-1 hidden sxm:flex !gap-x-2 w-fit">
             <input
               type="text"
               placeholder="Search for Products"
@@ -70,7 +70,7 @@ const Navbar = () => {
                 </g>
               </svg>
             </div>
-          </div>
+          </div> */}
         </div>
       </nav>
     </div>
@@ -149,7 +149,11 @@ const Nav = () => {
           },
         ]}
       />
-      <NavLink navTitle={"Contact Us"} directRedirect={"/#contactUs"} dropdownContent={[]} />
+      <NavLink
+        navTitle={"Contact Us"}
+        directRedirect={"/#contactUs"}
+        dropdownContent={[]}
+      />
       <NavLink
         navTitle={"Infra & Manufacturing"}
         dropdownContent={[]}
@@ -201,107 +205,3 @@ const NavLink = ({ navTitle, dropdownContent, directRedirect, icon }) => {
     </span>
   );
 };
-
-const Dropdown = () => {
-  return (
-    <div className="relative flex items-center justify-center">
-      <a
-        onClick={toggleDropdown}
-        className="font-semibold items-center flex bg-[#ebecec]"
-      >
-        <span>Dropdown</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-4 w-4"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-            clip-rule="evenodd"
-          />
-        </svg>
-      </a>
-      {isOpen && (
-        <div className="absolute z-10 py-2 mt-40 w-48 bg-[#ebecec]">
-          <a href="#" className="block px-4 py-2 hover:bg-gray-200">
-            Item 1
-          </a>
-          <a href="#" className="block px-4 py-2 hover:bg-gray-200">
-            Item 2
-          </a>
-          <a href="#" className="block px-4 py-2 hover:bg-gray-200">
-            Item 3
-          </a>
-        </div>
-      )}
-    </div>
-  );
-};
-
-{
-  /* <div class="flex items-center">
-          <ul class="flex items-center space-x-3">
-            <div class={` ${isOpen ? "bg-gray-200" : ""} `}>
-              <div className="flex space-x-1 items-center px-2 w-36 justify-center">
-                <button
-                  className={`text-lg uppercase ${
-                    isOpen ? "text-[#008dd2] font-bold" : ""
-                  }`}
-                  onClick={() => setIsOpen(!isOpen)}
-                >
-                  About us
-                </button>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </div>
-
-              {isOpen && (
-                <div className="absolute bg-gray-200 px-2 w-36 flex justify-center">
-                  <ul className="pt-3">
-                    <li className="text-[1.2rem] uppercase">career</li>
-                    <li className="text-[1.2rem] uppercase">career</li>
-                    <li className="text-[1.2rem] uppercase">career</li>
-                  </ul>
-                </div>
-              )}
-            </div>
-
-          </ul>
-
-          <div class="flex items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 pt-0.5 text-gray-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
-            <input
-              class="ml-2 border bg-transparent font-"
-              type="text"
-              name="search"
-              id="search"
-              placeholder="Search..."
-            />
-          </div>
-        </div> */
-}

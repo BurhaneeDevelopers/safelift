@@ -3,56 +3,80 @@ import CenterHeading from "../CenterHeading";
 import Image from "next/image";
 import Link from "next/link";
 import { slugify } from "@/utils/slugify";
+import Container from "../constants/Container";
+import { Heading } from "../textComponents/Heading";
+import { Body } from "../textComponents/Body";
+import { SmallBody } from "../textComponents/SmallBody";
 
 const ProductsRange = () => {
   return (
-    <div className="pt-20">
-      <div className="bg-[#282547] py-10">
-        <CenterHeading title={"Our Products Range"} textColor={"text-white"} />
-      </div>
+    <Container className="2xl:!pb-0">
+      <Heading className="!capitalize text-center max-w-screen-md mx-auto">
+        Types of material handling equipment offered by{" "}
+        <span className="text-[#00aeef]">safelift</span>
+      </Heading>
 
-      <div className="p-10">
+      <div className="p-10 2xl:!pb-0">
         <div className="flex flex-wrap justify-center items-center">
           <div className="flex flex-wrap justify-center mb-5">
             <UpCard
-              title={"Hoisting Equipments"}
-              img={"/Home/Products-Range/prod-1.webp"}
+              title={"Hydraulic Hand Pallet Truck"}
+              img={"/Home/Products-Range/prod-4.webp"}
             />
             <DownCard
-              title={"Polyester Lifting and Lashing Products"}
+              title={"Scissor Lift Pallet Truck"}
               img={"/Home/Products-Range/prod-2.webp"}
             />
             <UpCard
-              title={"Riggings"}
+              title={"Stainless Steel Pallet Truck"}
               img={"/Home/Products-Range/prod-3.webp"}
             />
             <DownCard
-              title={"Lifting Clamps"}
-              img={"/Home/Products-Range/prod-4.webp"}
+              title={"Scale Pallet Truck"}
+              img={"/Home/Products-Range/prod-1.webp"}
             />
           </div>
 
           <div className="flex flex-wrap justify-center mt-5 sm:mt-0 xl:-translate-y-20">
             <UpCard
-              title={"Lifting Tackles"}
+              title={"Rough Terrain truck"}
               img={"/Home/Products-Range/prod-5.webp"}
             />
             <DownCard
-              title={"Slings"}
+              title={"Hydraulic Lifting Table"}
               img={"/Home/Products-Range/prod-6.webp"}
             />
             <UpCard
-              title={"Hydraulic Lifting Equipments"}
+              title={"Hydraulic Hand Stacker"}
               img={"/Home/Products-Range/prod-7.webp"}
             />
             <DownCard
-              title={"Special Products"}
+              title={"Drum Lifter Cum Tilter"}
               img={"/Home/Products-Range/prod-8.webp"}
+            />
+          </div>
+
+          <div className="flex flex-wrap justify-center mb-5 xl:-translate-y-20">
+            <UpCard
+              title={"Drum Trolley"}
+              img={"/Home/Products-Range/prod-9.webp"}
+            />
+            <DownCard
+              title={"Self Loading Stacker"}
+              img={"/Home/Products-Range/prod-10.webp"}
+            />
+            <UpCard
+              title={"Electric Stacker"}
+              img={"/Home/Products-Range/prod-11.webp"}
+            />
+            <DownCard
+              title={"Electric Pallet Truck"}
+              img={"/Home/Products-Range/prod-12.webp"}
             />
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 
@@ -63,18 +87,20 @@ const UpCard = ({ title, img }) => {
     <div className="flex flex-col items-center w-56 mx-5" data-aos="fade-down">
       <Link
         href={`/products/${slugify(title)}`}
-        className="flex flex-col bg-[#a2d9f7] min-h-96 justify-center items-center max-h-96"
+        className="flex flex-col bg-[#a2d9f7] min-h-64 p-2 justify-center items-center max-h-64"
       >
         <Image
           src={img}
           alt="Product 1"
           width={500}
           height={500}
-          className="w-56 max-h-96 object-contain"
+          className="w-56 max-h-56 object-contain"
         />
       </Link>
 
-      <h4 className="font-bold text-[#2b2a29] text-xl text-center">{title}</h4>
+      <SmallBody className="text-[#2b2a29] text-center !font-medium">
+        {title}
+      </SmallBody>
     </div>
   );
 };
@@ -84,18 +110,20 @@ const DownCard = ({ title, img }) => {
     <div className="flex flex-col items-center w-56 mx-5" data-aos="fade-up">
       <Link
         href={`/products/${slugify(title)}`}
-        className="flex flex-col bg-[#d4edfc] min-h-96 justify-center items-center my-5 sxm:mt-32 max-h-96 min-w-56"
+        className="flex flex-col bg-[#d4edfc] min-h-64 p-2 justify-center items-center my-5 sxm:mt-32 max-h-64"
       >
         <Image
           src={img}
           alt="Product 1"
           width={500}
           height={500}
-          className="w-auto max-w-56 max-h-96"
+          className="w-56 max-h-56 object-contain"
         />
       </Link>
 
-      <h4 className="font-bold text-[#2b2a29] text-xl text-center">{title}</h4>
+      <SmallBody className="text-[#2b2a29] text-center !font-medium">
+        {title}
+      </SmallBody>
     </div>
   );
 };

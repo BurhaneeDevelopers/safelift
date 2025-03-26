@@ -4,11 +4,11 @@ import Banner from "@/components/Product/Banner";
 import Image from "next/image";
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { client } from "../../../../../sanity/lib/client";
-import { urlForImage } from "../../../../../sanity/lib/image";
 import { HighlightFeatureCard } from "@/components/Product/HighlightFeatureCard";
 import { slugify, unslugify } from "@/utils/slugify";
 import Link from "next/link";
+import { client } from "../../../../../sanityBackend/lib/client";
+import { urlForImage } from "../../../../../sanityBackend/lib/image";
 
 const Product = ({ params }) => {
   const [product, setProduct] = useState([]);

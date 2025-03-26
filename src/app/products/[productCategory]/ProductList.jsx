@@ -2,10 +2,10 @@
 import Banner from "@/components/Banner";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { client } from "../../../../sanity/lib/client";
-import { urlForImage } from "../../../../sanity/lib/image";
 import Link from "next/link";
 import { slugify, unslugify } from "@/utils/slugify";
+import { client } from "../../../../sanityBackend/lib/client";
+import { urlForImage } from "../../../../sanityBackend/lib/image";
 
 const ProductList = ({ params }) => {
   const [products, setProducts] = useState([]);

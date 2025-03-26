@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import { urlForImage } from "../../../sanity/lib/image";
 import { HighlightFeatureCard } from "./HighlightFeatureCard";
+import { urlForImage } from "../../../sanityBackend/lib/image";
 
 const Banner = ({
   title,

@@ -6,6 +6,7 @@ import Container from "../constants/Container";
 import { Heading } from "../textComponents/Heading";
 import { LargeHeading } from "../textComponents/LargeHeading";
 import { Body } from "../textComponents/Body";
+import Link from "next/link";
 
 const Banner = () => {
   // const [currentSlide, setCurrentSlide] = useState(0);
@@ -46,9 +47,9 @@ const Banner = () => {
           <span className="block font-black">For Optimized Operations</span>
         </LargeHeading>
 
-        <button className="border border-white rounded-lg text-white px-5 p-2 w-fit z-10">
+        <Link href={"/products"} className="border border-white rounded-lg text-white px-5 p-2 w-fit z-10 hover:bg-white hover:text-[#050742] transition-all duration-300 ease-in-out">
           <Body className="font-semibold">Learn More</Body>
-        </button>
+        </Link>
       </Container>
     </div>
   );

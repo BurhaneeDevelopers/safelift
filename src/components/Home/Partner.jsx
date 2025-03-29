@@ -3,6 +3,7 @@ import Image from "next/image";
 import Container from "../constants/Container";
 import { Body } from "../textComponents/Body";
 import { Heading } from "../textComponents/Heading";
+import Link from "next/link";
 
 const Partner = () => {
   return (
@@ -36,11 +37,9 @@ const Partner = () => {
           </span>
         </Body>
 
-        <button className="w-fit bg-[#050742] p-3 px-10 2xl:mt-7">
-          <Body className="text-gray-200 !font-medium">
-            Let&apos;s connect
-          </Body>
-        </button>
+        <Link href={"/about"} className="w-fit bg-[#050742] p-3 px-10 2xl:mt-7">
+          <Body className="text-gray-200 !font-medium">Let&apos;s connect</Body>
+        </Link>
       </div>
     </Container>
   );

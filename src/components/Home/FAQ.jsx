@@ -6,6 +6,7 @@ import { SmallCaption } from "../textComponents/SmallCaption";
 import { Body } from "../textComponents/Body";
 import Image from "next/image";
 import { LargeCaption } from "../textComponents/LargeCaption";
+import Link from "next/link";
 
 // FAQ data array for better maintainability
 const faqData = [
@@ -71,11 +72,11 @@ const FAQ = () => {
             </LargeCaption>
           </div>
 
-          <button className="w-fit bg-gray-200 p-3 px-10">
+          <Link href={"/about"} className="w-fit bg-gray-200 p-3 px-10">
             <Body className="text-[#050742] !font-medium">
               Let&apos;s connect
             </Body>
-          </button>
+          </Link>
         </div>
       </div>
     </Container>

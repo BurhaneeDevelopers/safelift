@@ -159,6 +159,11 @@ const Nav = () => {
         dropdownContent={[]}
         directRedirect={"/infra"}
       />
+      <NavLink
+        navTitle={"Blogs"}
+        dropdownContent={[]}
+        directRedirect={"/blogs"}
+      />
     </div>
   );
 };

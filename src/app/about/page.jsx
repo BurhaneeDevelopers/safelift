@@ -26,7 +26,7 @@ const About = () => {
       {/* <Workers /> */}
 
       {/* Our Team  */}
-      <OurTeam />
+      {/* <OurTeam /> */}
 
       {/* FooterBanner  */}
       <FooterBanner />

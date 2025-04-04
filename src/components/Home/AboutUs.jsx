@@ -33,7 +33,7 @@ const AboutUs = () => {
     },
   ];
   return (
-    <Container className="bg-[#050742] flex justify-between gap-10 flex-wrap 4xl:flex-nowrap">
+    <Container className="bg-[#050742] flex justify-between gap-10 flex-wrap 2xl:!flex-nowrap">
       <div className="flex flex-col gap-4 max-w-screen-sm" data-aos="fade-up">
         <Heading className="text-white capitalize">
           <span>The importance of</span>
@@ -78,7 +78,7 @@ export default AboutUs;
 
 const Card = ({ title, description, ImageSource }) => {
   return (
-    <div className="bg-[#00002e] p-3 px-4 rounded-xl w-full md:w-72 h-48 md:h-56 flex flex-col gap-4 justify-between">
+    <div className="bg-[#00002e] p-3 px-4 rounded-xl w-full size-52 6xl:!size-96 flex flex-col gap-4 justify-between">
       <div className="flex items-center justify-between w-full gap-2">
         <Image
           src={ImageSource}

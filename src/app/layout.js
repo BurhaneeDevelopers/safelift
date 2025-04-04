@@ -61,7 +61,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={montserrat.className}>
+      <body className={`7xl:max-w-[1920px] mx-auto ${montserrat.className}`}>
         <App>{children}</App>
       </body>
     </html>

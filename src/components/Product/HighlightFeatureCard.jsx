@@ -32,7 +32,7 @@ export const HighlightFeatureCard = ({ featureTitle, featuredImage }) => {
         </div>
       </div>
 
-      <div className="bg-[#282547] py-1 px-4 mt-4 capitalize text-white text-center font-semibold text-[10px] xl:text-xs w-full">
+      <div className="bg-[#050742] py-1 px-4 mt-4 capitalize text-white text-center font-semibold text-[10px] xl:text-xs w-full">
         {featureTitle}
       </div>
     </div>

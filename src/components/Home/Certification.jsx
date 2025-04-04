@@ -10,7 +10,7 @@ const WhyUs = () => {
   return (
     <Container className="bg-[#050742] flex flex-col gap-10">
       <div
-        className="flex flex-col gap-4 mx-auto max-w-screen-md"
+        className="flex flex-col gap-4 mx-auto max-w-screen-md 6xl:max-w-screen-xl"
         data-aos="fade-up"
       >
         <Heading className="text-white capitalize text-center">
@@ -26,8 +26,8 @@ const WhyUs = () => {
         </LargeCaption>
       </div>
 
-      <div className="grid grid-cols-1 2xl:grid-cols-2 gap-20 2xl:gap-10">
-        <div className="flex flex-col gap-20 2xl:gap-4 items-center">
+      <div className="flex flex-wrap lg:grid lg:!grid-cols-2 gap-20 xl:gap-10 2xl:gap-10 justify-center 6xl:mt-10">
+        <div className="flex flex-col gap-20 lg:!gap-14   6xl:!gap-32 items-center">
           <Card
             index={1}
             title={"Cutting Edge Technology and Innovation"}
@@ -63,7 +63,7 @@ const WhyUs = () => {
             }
           />
         </div>
-        <div className="flex flex-col gap-20 2xl:gap-4 items-center">
+        <div className="flex flex-col gap-20 lg:!gap-14 items-center">
           <Card
             index={4}
             title={"High-Quality Manufacturing Standards"}
@@ -125,17 +125,19 @@ export default WhyUs;
 const Card = ({ index, title, content, className }) => {
   return (
     <div
-      className={`flex flex-col justify-center h-60 w-fit relative ${className}`}
+      className={`flex flex-col justify-center h-60 w-fit max-w-screen-xs sm:max-w-fit lg:max-w-screen-sm xl:!max-w-fit relative ${className}`}
     >
-      <div className="bg-[#00aeef] size-16 2xl:size-20 rounded-full border-4 border-white absolute -top-5 2xl:top-3 -left-5 z-10 flex justify-center items-center">
-        <LargeCaption className="text-white text-center">{index}</LargeCaption>
-      </div>
-      <div className="bg-[#00aeef] p-3 px-7 flex justify-center items-center rounded-e-full translate-y-7">
-        <BigBody className="text-white text-right 2xl:text-center !font-bold">
+      <div className="bg-[#00aeef] p-3 6xl:py-5 px-10 2xl:px-7 6xl:pl-16 flex justify-center items-end 4xl:items-center rounded-e-full translate-y-7 relative">
+        <div className="bg-[#00aeef] size-16 2xl:size-20 6xl:size-28 rounded-full border-4 border-white absolute -top-5 xl:-top-3 6xl:-top-5 -left-10 z-10 flex justify-center items-center">
+          <LargeCaption className="text-white text-center">
+            {index}
+          </LargeCaption>
+        </div>
+        <BigBody className="text-white text-right 4xl:text-center !font-bold">
           {title}
         </BigBody>
       </div>
-      <div className="bg-white h-full max-w-screen-sxm p-10 flex flex-col justify-end">
+      <div className="bg-white h-full max-w-screen-sxm 6xl:max-w-screen-md p-10 flex flex-col justify-end">
         {content}
       </div>
     </div>

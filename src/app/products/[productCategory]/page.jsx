@@ -76,11 +76,12 @@ async function getSEOData(slug) {
 }
 
 export async function generateMetadata({ params }) {
-  const seoData = await getSEOData(params.slug);
+  const seoData = await getSEOData(params?.productCategory);
+  console.log(params)
 
   const path = params.productCategory
     ? `products/${params.productCategory}`
-    : params.slug || "";
+    : params?.productCategory || "";
 
   const meta = metadataMap[path] || {
     title: "Material Handling Equipment Manufacturers & Supplier | Safelift",

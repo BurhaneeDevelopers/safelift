@@ -4,7 +4,7 @@ export const LargeHeading = ({ children, className, style, ...props }) => {
   return (
     <h1
       style={style}
-      className={`font-inter text-xlcaptionLarge sm:text-mdsubTitle 7xl:text-title leading-snug font-extrabold ${className}`}
+      className={`font-inter text-xlcaptionLarge sm:text-mdsubTitle 6xl:text-title leading-snug font-extrabold ${className}`}
       {...props}
     >
       {children}

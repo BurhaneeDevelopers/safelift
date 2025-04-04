@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const Partner = () => {
   return (
-    <Container className="flex flex-wrap 2xl:flex-nowrap items-center justify-between gap-10 !bg-[#d4effb]">
+    <Container className="flex flex-wrap lg:flex-nowrap items-center justify-between gap-10 !bg-[#d4effb]">
       <div className="flex gap-32 relative">
         <Image
           src="/NewHome/partner/partner.webp"
@@ -17,7 +17,7 @@ const Partner = () => {
           className="!w-screen h-[24rem] 2xl:!h-[34rem] object-cover object-center border-8 border-[#00aeef]"
         />
       </div>
-      <div className="flex flex-col gap-4 max-w-4xl" data-aos="fade-up">
+      <div className="flex flex-col gap-4 max-w-xl 2xl:max-w-4xl" data-aos="fade-up">
         <Heading className="2xl:mb-10">
           Partner with Safelift for Unmatched Material Handling Solutions
         </Heading>

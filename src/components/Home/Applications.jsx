@@ -4,6 +4,7 @@ import { Heading } from "../textComponents/Heading";
 import { SmallBody } from "../textComponents/SmallBody";
 import { LargeCaption } from "../textComponents/LargeCaption";
 import { SmallCaption } from "../textComponents/SmallCaption";
+import { Body } from "../textComponents/Body";
 
 const Applications = () => {
   return (
@@ -68,7 +69,7 @@ export default Applications;
 const Card = ({ title, img, points }) => {
   return (
     <div
-      className="flex flex-col bg-[#d4effb] size-80 2xl:!size-96 relative items-center"
+      className="flex flex-col bg-[#d4effb] size-80 2xl:!size-96 6xl:!size-[32rem] relative items-center"
       // data-aos="fade-down"
     >
       <div
@@ -92,7 +93,7 @@ const Card = ({ title, img, points }) => {
         <ul className="flex flex-col gap-3">
           {points?.map((point, index) => (
             <li key={index} className="!list-disc">
-              <SmallBody className="!font-medium">{point}</SmallBody>
+              <Body className="!font-medium">{point}</Body>
             </li>
           ))}
         </ul>

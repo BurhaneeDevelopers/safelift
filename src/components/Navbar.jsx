@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import { slugify } from "@/utils/slugify";
+import { Body } from "./textComponents/Body";
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -13,7 +14,11 @@ const Navbar = () => {
       <Sidebar navbarOpen={navbarOpen} setNavbarOpen={setNavbarOpen} />
 
       {/* <!-- component --> */}
-      <nav class="flex justify-between px-5 lg:px-20 4xl:px-40 items-center bg-white mt-16 absolute py-4 z-50 w-full">
+      <nav
+        className={`flex justify-between px-5 lg:px-20 4xl:px-40 items-center bg-white mt-16 absolute py-4 z-50 w-full 6xl:7xl:max-w-[1920px] ${
+          navbarOpen ? "hidden" : ""
+        }`}
+      >
         <div className="">
           <Image
             src="/logo.webp"
@@ -47,7 +52,7 @@ const Navbar = () => {
             </svg>
           </button>
 
-          {/* <div className="rounded-full bg-gray-200 relative justify-between items-center ml-1 hidden sxm:flex !gap-x-2 w-fit">
+          {/* <div className="rounded-full bg-gray-200 relative justify-between items-center ml-1 hidden sxm:flex !gap-x-2 w-fit">Name
             <input
               type="text"
               placeholder="Search for Products"
@@ -151,7 +156,7 @@ const Nav = () => {
       />
       <NavLink
         navTitle={"Contact Us"}
-        directRedirect={"/#contactUs"}
+        directRedirect={"/contact"}
         dropdownContent={[]}
       />
       <NavLink
@@ -170,18 +175,21 @@ const Nav = () => {
 
 const NavLink = ({ navTitle, dropdownContent, directRedirect, icon }) => {
   return (
-    <span class="group">
-      <button class="outline-none focus:outline-none space-x-1 px-3 group-hover:bg-gray-200 flex items-center justify-center">
-        <Link
-          href={`${directRedirect ? directRedirect : "#"}`}
-          class="group-hover:font-semibold text-lg group-hover:text-[#008dd2] uppercase font-normal"
+    <span className="group">
+      <button className="outline-none focus:outline-none gap-1 px-3 group-hover:bg-gray-200 flex items-center justify-center">
+        <Body
+          className={
+            "group-hover:font-semibold group-hover:text-[#008dd2] uppercase font-normal"
+          }
         >
-          {navTitle}
-        </Link>
+          <Link href={`${directRedirect ? directRedirect : "#"}`} className="">
+            {navTitle}
+          </Link>
+        </Body>
         {icon && (
           <span>
             <svg
-              class="fill-current h-4 w-4 transform group-hover:-rotate-180
+              className="fill-current h-4 w-4 transform group-hover:-rotate-180
             transition duration-150 ease-in-out"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -194,13 +202,13 @@ const NavLink = ({ navTitle, dropdownContent, directRedirect, icon }) => {
 
       {/* DropDown Items  */}
       <ul
-        class="bg-white transform scale-0 group-hover:scale-100 absolute 
+        className="bg-white transform scale-0 group-hover:scale-100 absolute 
                  transition duration-150 ease-in-out origin-top pt-3"
       >
         {dropdownContent?.map((item, i) => {
           return (
             <Link href={item?.navLink} key={i}>
-              <li class="rounded-sm px-3 py-1 hover:bg-gray-200 uppercase text-center font-bold max-w-64">
+              <li className="rounded-sm px-3 py-1 hover:bg-gray-200 uppercase text-center font-bold max-w-64">
                 {item?.navSubTitle}
               </li>
             </Link>

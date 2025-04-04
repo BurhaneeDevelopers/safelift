@@ -44,7 +44,7 @@ const ImageCards = ({ img }) => {
       class="relative block !size-[22rem] min-w-[14rem] xxs:min-w-[18rem] md:min-w-[22rem] my-7 lg:my-5"
       data-aos="fade-up"
     >
-      <span class="absolute inset-0 border-4 border-[#00a0e3] " />
+      <span class="absolute inset-0 border-4 border-[#00aeef] " />
 
       <div class="relative flex justify-center items-center h-full transform transition-transform -translate-x-5 -translate-y-5">
         <div className="w-full h-full my-auto bg-white">

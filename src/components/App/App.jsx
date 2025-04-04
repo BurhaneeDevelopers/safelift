@@ -26,7 +26,7 @@ const App = ({ children }) => {
     });
   }, []);
   return (
-    <div>
+    <div className="relative">
       <Navbar />
       <div className="hidden 2xl:flex fixed left-0 top-80 z-30">
         <StickyContact />

@@ -86,7 +86,7 @@ const FAQ = () => {
 // Optimized FaqCard with props and collapsible functionality
 const FaqCard = ({ question, answer, isOpen, setIsOpen }) => {
   return (
-    <div className="bg-white p-5 px-5 pr-14 w-full 2xl:max-w-screen-sm flex flex-col gap-2 relative">
+    <div className="bg-white p-5 px-5 pr-14 w-full 2xl:max-w-screen-sm 6xl:max-w-screen-lg flex flex-col gap-2 relative">
       <button
         onClick={setIsOpen}
         className="bg-gray-300 size-10 flex justify-center items-center rounded-full text-4xl absolute top-3 right-3 hover:bg-gray-400 transition-colors"

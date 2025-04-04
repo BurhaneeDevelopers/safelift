@@ -34,7 +34,7 @@ const Introduction = () => {
             </svg>
           </span>
 
-          <h2 className="uppercase text-2xl sm:text-3xl border-4 mx-auto lg:mx-0 border-[#00a0e3] px-5 lg:px-7 py-3 font-bold text-[#00a0e3] w-fit">
+          <h2 className="uppercase text-2xl sm:text-3xl border-4 mx-auto lg:mx-0 border-[#00aeef] px-5 lg:px-7 py-3 font-bold text-[#00aeef] w-fit">
             Introduction
           </h2>
 
@@ -63,7 +63,7 @@ const Introduction = () => {
                 <g id="Layer_2" data-name="Layer 2">
                   <g id="Layer_1-2" data-name="Layer 1">
                     <path
-                      class="cls-1 fill-[#00a0e3]"
+                      class="cls-1 fill-[#00aeef]"
                       d="M25.27,28.51a25.27,25.27,0,0,0-.69-3.4,2.44,2.44,0,0,1,.84-2.89c.72-.62.72-1.15,0-1.74-.17-.13-.28-.34-.44-.48a.79.79,0,0,1,0-1.33c.38-.39.7-.84,1.12-1.36a21.82,21.82,0,0,1-2.19-.55,8.59,8.59,0,0,1-5.3-8.71A8.53,8.53,0,0,1,22,1.46,7,7,0,0,1,32.13,3.2a9.25,9.25,0,0,1-1.64,12.45,7.72,7.72,0,0,1-1.95,1.08,17.25,17.25,0,0,1-2.22.58c.41.5.73,1,1.11,1.33a.83.83,0,0,1,0,1.29c-1.16,1.45-1.17,1.48,0,2.87a1.74,1.74,0,0,1,.44,1.77c-.34,1.28-.54,2.6-.8,3.91l.28.09c1.24-3.36,2.47-6.72,3.74-10.16a12.4,12.4,0,0,1,4.65,3.4A18.21,18.21,0,0,1,40.18,33c0,.68-.16.88-.82.88H13c-.5,0-.84-.07-.79-.71.45-5.86,2.58-10.8,7.75-14.06a12.89,12.89,0,0,1,1.32-.69L25,28.59Z"
                     />
                     <path
@@ -101,7 +101,7 @@ const Introduction = () => {
           class="relative block !size-[22rem] min-h-[30rem] xs:min-h-[24rem] sxm:min-h-full min-w-[14rem] xxs:min-w-[18rem] md:min-w-[22rem] my-7 xl:my-0"
           data-aos="fade-right"
         >
-          <span class="absolute inset-0 border-4 border-[#00a0e3] " />
+          <span class="absolute inset-0 border-4 border-[#00aeef] " />
 
           <div class="relative flex justify-center items-center h-full transform transition-transform -translate-x-5 -translate-y-5">
             <div className="w-full h-full my-auto bg-white shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)] p-5">
@@ -201,7 +201,7 @@ const Introduction = () => {
           class="relative block !size-[22rem] min-w-[14rem] xxs:min-w-[18rem] md:min-w-[22rem] my-7 xl:my-0"
           data-aos="fade-up"
         >
-          <span class="absolute inset-0 border-4 border-[#00a0e3] " />
+          <span class="absolute inset-0 border-4 border-[#00aeef] " />
 
           <div class="relative flex justify-center items-center h-full transform transition-transform -translate-x-5 -translate-y-5">
             <div className="w-full h-full my-auto bg-white shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)] p-5">
@@ -248,7 +248,7 @@ const Introduction = () => {
           class="relative block !size-[22rem] min-w-[14rem] xxs:min-w-[18rem] md:min-w-[22rem] my-7 xl:my-0"
           data-aos="fade-left"
         >
-          <span class="absolute inset-0 border-4 border-[#00a0e3] " />
+          <span class="absolute inset-0 border-4 border-[#00aeef] " />
 
           <div class="relative flex justify-center items-center h-full transform transition-transform -translate-x-5 -translate-y-5">
             <div className="w-full h-full my-auto bg-white shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)] p-5">

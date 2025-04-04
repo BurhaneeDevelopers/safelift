@@ -65,7 +65,7 @@ const Product = ({ params }) => {
         highlightFeatures={product?.highlightFeatures}
       />
 
-      <div className="bg-[#282547] py-5 my-10 lg:hidden flex">
+      <div className="bg-[#050742] py-5 my-10 lg:hidden flex">
         <CenterHeading
           title={product?.title}
           textColor={"text-white !text-2xl"}
@@ -127,7 +127,7 @@ const Product = ({ params }) => {
       {/* Table Section  */}
       {product?.table && (
         <div
-          className={`bg-[#282547] p-10 lg:p-20 mb-10 flex justify-center items-center ${
+          className={`bg-[#050742] p-10 lg:p-20 mb-10 flex justify-center items-center ${
             product?.highlightPoints?.length > 0 ? "" : "mt-20"
           }`}
         >
@@ -142,7 +142,7 @@ const Product = ({ params }) => {
         </div>
       )}
 
-      <div className={`bg-[#282547] py-7 mb-10 ${product?.table && "mt-20"}`}>
+      <div className={`bg-[#050742] py-7 mb-10 ${product?.table && "mt-20"}`}>
         <CenterHeading
           title={`Other Products in ${productCategory}`}
           textColor={"text-white !text-2xl"}

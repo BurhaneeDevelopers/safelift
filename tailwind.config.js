@@ -61,6 +61,7 @@ module.exports = {
       "4xl": "1420px",
       "5xl": "1540px",
       "6xl": "1920px",
+      "7xl": "2560px",
     },
   },
   plugins: [],

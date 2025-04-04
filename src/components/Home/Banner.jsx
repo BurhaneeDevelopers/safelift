@@ -29,7 +29,7 @@ const Banner = () => {
   // // Calculate the starting index for slicing the slides array
   // const startIndex = currentSlide === 0 ? slides.length - 1 : currentSlide - 1;
   return (
-    <div className="w-full items-center justify-center bg-[url(/NewHome/HomeBanner.webp)] bg-cover bg-center bg-no-repeat h-screen">
+    <div className="w-full items-center justify-center bg-[url(/NewHome/HomeBanner.webp)] bg-cover bg-center bg-no-repeat h-screen 6xl:!max-h-[1080px]">
       {/* <Image
         alt="Safelift Banner"
         src={"/NewHome/HomeBanner.webp"}
@@ -37,10 +37,10 @@ const Banner = () => {
         height={500}
         className="absolute inset-0 h-screen w-full -z-10"
       /> */}
-      <div className="absolute inset-0 h-screen w-full !z-0 bg-[#050742]/30" />
+      <div className="absolute inset-0 h-screen 6xl:!max-h-[1080px] 6xl:7xl:max-w-[1920px] mx-auto w-full !z-0 bg-[#050742]/30" />
 
       <Container className="flex flex-col justify-center items-center xl:items-start h-full gap-4">
-        <LargeHeading className="text-center lg:text-start block uppercase text-white font-semibold !leading-[1.2] xl:!leading-[1.1] xl:mt-32 z-10">
+        <LargeHeading className="text-center 2xl:text-start block uppercase text-white font-semibold !leading-[1.2] xl:!leading-[1.1] lg:mt-32 z-10">
           <span className="block">Your Trusted</span>
           <span className="block">Material Handling</span>
           <span className="block">Equipment Manufacturer</span>

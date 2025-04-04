@@ -3,7 +3,7 @@ import React from "react";
 
 const Banner = ({ title, ImageSource }) => {
   return (
-    <div>
+    <div className="z-10">
       <div className="h-[36rem] w-full flex items-center justify-center">
         <Image
           src={ImageSource}

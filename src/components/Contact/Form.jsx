@@ -5,7 +5,7 @@ import { Heading } from "../textComponents/Heading";
 
 const Form = () => {
   return (
-    <Container className="relative bg-[#050742] flex flex-col justify-center items-center border-b border-gray-500">
+    <Container className="relative bg-[#050742] flex flex-col justify-center items-center border-b border-gray-500 overflow-hidden">
       {/* <div
         className="flex flex-col gap-4 4xl:gap-10 lg:max-w-screen-xs 2xl:max-w-screen-sm 4xl:max-w-screen-md"
         data-aos="fade-up"
@@ -26,7 +26,7 @@ const Form = () => {
         </Body>
       </div> */}
 
-      <div className="w-full flex sm:flex-nowrap flex-wrap flex-row-reverse">
+      <div className="w-full flex sm:flex-nowrap flex-wrap flex-row-reverse ">
         <div
           className="w-full overflow-hidden sm:ml-10 items-end justify-start relative hidden lg:flex"
           data-aos="fade-left"

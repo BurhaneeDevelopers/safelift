@@ -132,7 +132,7 @@ const Nav = () => {
       />
       <NavLink
         navTitle={"Contact Us"}
-        directRedirect={"/#contactUs"}
+        directRedirect={"/contact"}
         dropdownContent={[]}
         isOpen={openDropdown === "Contact Us"}
         toggleDropdown={toggleDropdown}

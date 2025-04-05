@@ -8,22 +8,23 @@ const Footer = () => {
   return (
     <div>
       <footer className="bg-[#050742]">
-        <div className="mx-auto px-20 pt-20">
-          <div className="flex flex-wrap justify-center sm:justify-between items-center">
+        <div className="mx-auto px-20">
+          <div className="flex flex-wrap 2xl:!flex-nowrap justify-center sm:justify-between">
             <div className="text-white">
               <div className="flex justify-center text-white font-semibold sm:justify-start">
                 <SmallCaption>Enquiries</SmallCaption>
               </div>
 
-              <Body className="mt-2 max-w-md text-center leading-relaxed sm:max-w-screen-xs sm:text-start">
-                For any enquiries, questions or commendations, please call (033)
-                2230 0662 / 2230 5760
+              <Body className="mt-2 text-center leading-relaxed sm:text-start">
+                <span className="block">For any enquiries, questions</span>
+                <span className="block">or commendations,</span>
+                <span className="block">please call (033) 2230 0662 / 2230 5760</span>
               </Body>
             </div>
 
-            <div className="flex flex-col justify-center items-center space-y-5 md:space-y-0 md:flex-row flex-wrap md:justify-start lg:justify-end sm:items-start lg:space-x-5 mt-10 xl:mt-0 h">
+            <div className="flex flex-col justify-center items-center gap-5 md:gap-0 md:flex-row flex-wrap md:justify-start lg:justify-end sm:items-start lg:space-x-5 mt-10 xl:mt-0 h">
               <div className="text-center sm:text-start max-w-screen-sm text-white flex flex-col justify-center xl:justify-normal">
-                <SmallCaption className="font-semibold mb-4 md:translate-x-16">
+                <SmallCaption className="font-semibold mb-4 4xl:translate-x-10 5xl:translate-x-16">
                   Address
                 </SmallCaption>
 
@@ -31,7 +32,7 @@ const Footer = () => {
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 31.22 35.64"
-                    className="min-w-7 size-7 xl:min-w-10 xl:!size-10 hidden lg:flex hidden lg:flex"
+                    className="min-w-7 size-7 xl:min-w-10 xl:!size-10 hidden lg:flex"
                   >
                     <g id="Layer_2" data-name="Layer 2">
                       <g id="Layer_1-2" data-name="Layer 1">
@@ -60,10 +61,10 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="hidden md:flex h-24 self-end bg-gray-200 w-[1px] mx-4"></div>
+              <div className="hidden md:flex h-40 self-end bg-gray-200 w-[1px] mx-4"></div>
 
               <div className="text-center sm:text-start max-w-screen-sm text-white flex flex-col justify-center xl:justify-normal">
-                <SmallCaption className="font-semibold mb-4 md:translate-x-16">
+                <SmallCaption className="font-semibold mb-4 4xl:translate-x-10 5xl:translate-x-16">
                   Phone
                 </SmallCaption>
 
@@ -112,10 +113,10 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="hidden md:flex h-24 self-end bg-gray-200 w-[1px] mx-4"></div>
+              <div className="hidden md:flex h-40 self-end bg-gray-200 w-[1px] mx-4"></div>
 
               <div className="text-center sm:text-start max-w-72 text-white flex flex-col justify-center xl:justify-normal">
-                <SmallCaption className="font-semibold mb-4 md:translate-x-16">
+                <SmallCaption className="font-semibold mb-4 4xl:translate-x-10 5xl:translate-x-16">
                   Email
                 </SmallCaption>
 

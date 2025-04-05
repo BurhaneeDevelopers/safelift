@@ -72,8 +72,8 @@ const FAQ = () => {
             </LargeCaption>
           </div>
 
-          <Link href={"/about"} className="w-fit bg-gray-200 p-3 px-10">
-            <Body className="text-[#050742] !font-medium">
+          <Link href={"/about"} className="w-full bg-gray-200 p-3 px-10">
+            <Body className="text-[#00aeef] !font-bold text-center">
               Let&apos;s connect
             </Body>
           </Link>

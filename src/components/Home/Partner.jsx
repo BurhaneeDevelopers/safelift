@@ -11,7 +11,7 @@ const Partner = () => {
       <div className="flex gap-32 relative">
         <Image
           src="/NewHome/partner/partner.webp"
-          alt="Partner"
+          alt="Shaking Hand Images"
           width={500}
           height={500}
           className="!w-screen h-[24rem] 2xl:!h-[34rem] object-cover object-center border-8 border-[#00aeef]"

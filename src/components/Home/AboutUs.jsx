@@ -78,14 +78,14 @@ export default AboutUs;
 
 const Card = ({ title, description, ImageSource }) => {
   return (
-    <div className="bg-[#00002e] p-3 px-4 rounded-xl w-full size-52 6xl:!size-96 flex flex-col gap-4 justify-between">
+    <div className="bg-[#00002e] p-3 px-4 rounded-xl w-full size-52 6xl:!size-80 flex flex-col gap-4 justify-between">
       <div className="flex items-center justify-between w-full gap-2">
         <Image
           src={ImageSource}
           alt="Material Handling"
           width={500}
           height={500}
-          className="w-24 h-24 object-contain"
+          className="4xl:w-16 4xl:h-16 6xl:w-20 6xl:h-20 w-24 h-24 object-contain"
         />
         <Body className="text-[#00aeef] !font-bold !capitalize text-right">
           {title}

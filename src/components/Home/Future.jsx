@@ -9,7 +9,7 @@ import { Heading } from "../textComponents/Heading";
 const Future = () => {
   return (
     <Container className="flex flex-wrap lg:flex-nowrap items-center justify-between gap-10 bg-[#050742] !pb-40 2xl:!px-20 4xl:px-40">
-      <div className="flex flex-col gap-4 4xl:gap-10 lg:max-w-screen-xs 2xl:max-w-screen-sm 4xl:max-w-screen-md" data-aos="fade-up">
+      <div className="flex flex-col gap-4 4xl:gap-10 lg:max-w-screen-xs 2xl:max-w-screen-sm 6xl:max-w-screen-lg" data-aos="fade-up">
         <Heading className="text-white">
           Future of Material Handling Equipment{" "}
           <span className="text-nowrap text-[#00aeef]">What’s Next?</span>

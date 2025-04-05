@@ -26,8 +26,8 @@ const WhyUs = () => {
         </LargeCaption>
       </div>
 
-      <div className="flex flex-wrap lg:grid lg:!grid-cols-2 gap-20 xl:gap-10 2xl:gap-10 justify-center 6xl:mt-10">
-        <div className="flex flex-col gap-20 lg:!gap-14   6xl:!gap-32 items-center">
+      <div className="flex flex-wrap lg:grid lg:!grid-cols-2 gap-20 xl:gap-10 4xl:gap-20 5xl:!gap-7 justify-center 6xl:mt-10">
+        <div className="flex flex-col gap-20 lg:!gap-14 4xl:!gap-4 5xl:!gap-14 6xl:!gap-32 items-center">
           <Card
             index={1}
             title={"Cutting Edge Technology and Innovation"}

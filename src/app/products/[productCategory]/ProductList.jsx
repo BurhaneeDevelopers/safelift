@@ -71,6 +71,8 @@ const ProductCards = ({ title, productimage, productCategory, slug }) => {
             width={500}
             height={500}
             className="w-full h-full object-contain"
+            onContextMenu={(e) => e.preventDefault()} // Disable right-click
+            draggable="false" // Disable dragging
           />
         </div>
       </Link>

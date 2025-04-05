@@ -128,7 +128,7 @@ const Card = ({ index, title, content, className }) => {
       className={`flex flex-col justify-center h-60 w-fit max-w-screen-xs sm:max-w-fit lg:max-w-screen-sm xl:!max-w-fit relative ${className}`}
     >
       <div className="bg-[#00aeef] p-3 6xl:py-5 px-10 2xl:px-7 6xl:pl-16 flex justify-center items-end 4xl:items-center rounded-e-full translate-y-7 relative">
-        <div className="bg-[#00aeef] size-16 2xl:size-20 6xl:size-28 rounded-full border-4 border-white absolute -top-5 xl:-top-3 6xl:-top-5 -left-10 z-10 flex justify-center items-center">
+        <div className="bg-[#00aeef] size-16 2xl:size-20 6xl:size-28 rounded-full border-4 border-white absolute -top-2 lg:-top-3 6xl:-top-5 -left-3 lg:-left-10 z-10 flex justify-center items-center">
           <LargeCaption className="text-white text-center">
             {index}
           </LargeCaption>

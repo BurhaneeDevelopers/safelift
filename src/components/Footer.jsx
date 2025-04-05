@@ -31,7 +31,7 @@ const Footer = () => {
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 31.22 35.64"
-                    className="min-w-7 size-7 xl:min-w-10 xl:!size-10"
+                    className="min-w-7 size-7 xl:min-w-10 xl:!size-10 hidden lg:flex hidden lg:flex"
                   >
                     <g id="Layer_2" data-name="Layer 2">
                       <g id="Layer_1-2" data-name="Layer 1">
@@ -71,7 +71,7 @@ const Footer = () => {
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 31.22 35.64"
-                    className="min-w-7 size-7 xl:min-w-10 xl:!size-10"
+                    className="min-w-7 size-7 xl:min-w-10 xl:!size-10 hidden lg:flex"
                   >
                     <g id="Layer_2" data-name="Layer 2">
                       <g id="Layer_1-2" data-name="Layer 1">
@@ -123,7 +123,7 @@ const Footer = () => {
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 31.22 35.64"
-                    className="min-w-7 size-7 xl:min-w-10 xl:!size-10"
+                    className="min-w-7 size-7 xl:min-w-10 xl:!size-10 hidden lg:flex"
                   >
                     <g id="Layer_2" data-name="Layer 2">
                       <g id="Layer_1-2" data-name="Layer 1">

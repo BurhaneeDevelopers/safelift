@@ -3,7 +3,11 @@ import React from "react";
 const StickyContact = () => {
   return (
     <div className="bg-[#197ab3] p-2 py-3 flex flex-col rounded-e-xl gap-5">
-      <a href="https://wa.me/+918100545253" target="_blank" className="text-white text-xl">
+      <a
+        href="https://wa.me/+918100545253"
+        target="_blank"
+        className="text-white text-xl"
+      >
         {/* Whatsapp  */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +36,11 @@ const StickyContact = () => {
 
       <div className="bg-black h-[0.15rem] w-5 mx-auto rounded-full my-3" />
 
-      <a href="mailto:info@safelift.in" target="_blank"  className="text-white text-xl">
+      <a
+        href="mailto:info@safelift.in"
+        target="_blank"
+        className="text-white text-xl"
+      >
         <svg
           version="1.0"
           xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +72,11 @@ const StickyContact = () => {
 
       <div className="bg-black h-[0.15rem] w-5 mx-auto rounded-full my-3" />
 
-      <a href="tel:+919330241259" target="_blank" className="text-white text-xl">
+      <a
+        href="tel:+919330241259"
+        target="_blank"
+        className="text-white text-xl"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="26"

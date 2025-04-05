@@ -1,4 +1,5 @@
 import React from "react";
+import { Heading } from "./textComponents/Heading";
 
 const CenterHeading = ({ title, textColor, additionalClasses }) => {
   return (
@@ -6,11 +7,11 @@ const CenterHeading = ({ title, textColor, additionalClasses }) => {
       className={`flex flex-col items-center justify-center text-center ${additionalClasses} mx-auto`}
       data-aos="zoom-in-down"
     >
-      <span
-        className={`text-3xl lg:text-4xl xl:text-5xl font-bold uppercase ${textColor}`}
+      <Heading
+        className={`font-bold uppercase ${textColor}`}
       >
         {title}
-      </span>
+      </Heading>
       <div className="bg-[#008dd2] w-52 sm:w-60 mx-auto md:mx-0 md:w-96 h-1.5 mt-2"></div>
     </div>
   );

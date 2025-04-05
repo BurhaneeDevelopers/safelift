@@ -19,7 +19,9 @@ const Banner = ({
           width={500}
           height={500}
           alt="BannerImage"
-          className="w-full h-96 md:h-screen absolute inset-0 -z-10"
+          className="w-full h-96 md:h-screen absolute inset-0 -z-10 "
+          onContextMenu={(e) => e.preventDefault()} // Disable right-click
+          draggable="false" // Disable dragging
         />
 
         <div className="lg:pr-20 xl:pr-20 w-full">
@@ -32,7 +34,9 @@ const Banner = ({
                     alt={title}
                     width={500}
                     height={500}
-                    className="w-96 h-[28rem] object-contain p-2"
+                    className="w-96 h-[28rem] object-contain p-2 "
+                    onContextMenu={(e) => e.preventDefault()} // Disable right-click
+                    draggable="false" // Disable dragging
                   />
                 )}
               </div>
@@ -59,7 +63,9 @@ const Banner = ({
                   alt="Highlight Image"
                   width={500}
                   height={500}
-                  className="w-4 h-10 mr-5"
+                  className="w-4 h-10 mr-5 "
+                  onContextMenu={(e) => e.preventDefault()} // Disable right-click
+                  draggable="false" // Disable dragging
                 />
 
                 <h1 className="lg:max-w-[32rem] xl:max-w-[40rem]">{title}</h1>

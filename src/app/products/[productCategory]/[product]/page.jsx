@@ -68,7 +68,7 @@ const Product = ({ params }) => {
       <div className="bg-[#050742] py-5 my-10 lg:hidden flex">
         <CenterHeading
           title={product?.title}
-          textColor={"text-white !text-2xl"}
+          textColor={"text-white"}
         />
       </div>
 
@@ -80,6 +80,8 @@ const Product = ({ params }) => {
             width={500}
             height={500}
             className="w-64 h-72 object-contain"
+            onContextMenu={(e) => e.preventDefault()} // Disable right-click
+            draggable="false" // Disable dragging
           />
         )}
 
@@ -118,6 +120,8 @@ const Product = ({ params }) => {
                 width={500}
                 height={500}
                 className="w-full xl:w-[36rem] md:h-[32rem] !min-w-full lg:h-full hidden xl:flex"
+                onContextMenu={(e) => e.preventDefault()} // Disable right-click
+                draggable="false" // Disable dragging
               />
             </div>
           </div>
@@ -138,6 +142,8 @@ const Product = ({ params }) => {
             height={500}
             quality={100}
             className="min-w-full lg:max-h-[500px] object-contain"
+            onContextMenu={(e) => e.preventDefault()} // Disable right-click
+            draggable="false" // Disable dragging
           />
         </div>
       )}
@@ -186,6 +192,8 @@ const ProductCards = ({ item, productCategory }) => {
             width={500}
             height={500}
             className="w-full h-full object-contain"
+            onContextMenu={(e) => e.preventDefault()} // Disable right-click
+            draggable="false" // Disable dragging
           />
         </div>
       </Link>

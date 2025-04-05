@@ -55,7 +55,7 @@ const ProductsRange = () => {
             />
           </div>
 
-          <div className="flex flex-wrap justify-center mb-5 xl:-translate-y-20">
+          {/* <div className="flex flex-wrap justify-center mb-5 xl:-translate-y-20">
             <UpCard
               title={"Drum Trolley"}
               img={"/Home/Products-Range/prod-9.webp"}
@@ -72,7 +72,7 @@ const ProductsRange = () => {
               title={"Electric Pallet Truck"}
               img={"/Home/Products-Range/prod-12.webp"}
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </Container>

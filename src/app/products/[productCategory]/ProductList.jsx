@@ -6,6 +6,8 @@ import Link from "next/link";
 import { slugify, unslugify } from "@/utils/slugify";
 import { client } from "../../../../sanityBackend/lib/client";
 import { urlForImage } from "../../../../sanityBackend/lib/image";
+import { SmallCaption } from "@/components/textComponents/SmallCaption";
+import { LargeCaption } from "@/components/textComponents/LargeCaption";
 
 const ProductList = ({ params }) => {
   const [products, setProducts] = useState([]);
@@ -33,20 +35,24 @@ const ProductList = ({ params }) => {
       <Banner title={"Products"} ImageSource={"/Products/Banner.webp"} />
 
       <div className="p-10 sm:p-20">
-        <div className="flex flex-wrap justify-center items-center">
-          {products.map((item, i) => {
-            return (
-              <ProductCards
-                key={i}
-                title={item?.title}
-                productimage={item?.productimage}
-                productCategory={productCategory}
-                slug={item?.slug.current}
-                item={item}
-              />
-            );
-          })}
-        </div>
+        {products.length !== 0 ? (
+          <div className="flex flex-wrap justify-center items-center">
+            {products.map((item, i) => {
+              return (
+                <ProductCards
+                  key={i}
+                  title={item?.title}
+                  productimage={item?.productimage}
+                  productCategory={productCategory}
+                  slug={item?.slug.current}
+                  item={item}
+                />
+              );
+            })}
+          </div>
+        ) : (
+          <LargeCaption className="text-center text-[#050742]">Products Coming Soon...</LargeCaption>
+        )}
       </div>
     </div>
   );

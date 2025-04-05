@@ -148,7 +148,7 @@ const Product = ({ params }) => {
         </div>
       )}
 
-      <div className={`bg-[#050742] py-7 mb-10 ${product?.table && "mt-20"}`}>
+      <div className={`bg-[#050742] py-7 mb-10 ${product?.table ? "mt-20" : "mt-20"}`}>
         <CenterHeading
           title={`Other Products in ${productCategory}`}
           textColor={"text-white !text-2xl"}

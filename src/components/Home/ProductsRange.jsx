@@ -1,11 +1,10 @@
+"use client"
 import React from "react";
-import CenterHeading from "../CenterHeading";
 import Image from "next/image";
 import Link from "next/link";
 import { slugify } from "@/utils/slugify";
 import Container from "../constants/Container";
 import { Heading } from "../textComponents/Heading";
-import { Body } from "../textComponents/Body";
 import { SmallBody } from "../textComponents/SmallBody";
 
 const ProductsRange = () => {
@@ -95,6 +94,8 @@ const UpCard = ({ title, img }) => {
           width={500}
           height={500}
           className="w-56 max-h-56 object-contain"
+          onContextMenu={(e) => e.preventDefault()} // Disable right-click
+          draggable="false" // Disable dragging
         />
       </Link>
 
@@ -118,6 +119,8 @@ const DownCard = ({ title, img }) => {
           width={500}
           height={500}
           className="w-56 max-h-56 object-contain"
+          onContextMenu={(e) => e.preventDefault()} // Disable right-click
+          draggable="false" // Disable dragging
         />
       </Link>
 

@@ -3,12 +3,15 @@ import React from "react";
 import { SmallCaption } from "./textComponents/SmallCaption";
 import { Body } from "./textComponents/Body";
 import { SmallBody } from "./textComponents/SmallBody";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
+  const pathname = usePathname();
+  const paddingTop = pathname !== "/" ? "pt-20" : "";
   return (
     <div>
       <footer className="bg-[#050742]">
-        <div className="mx-auto px-20">
+        <div className={`mx-auto px-20 ${paddingTop}`}>
           <div className="flex flex-wrap 2xl:!flex-nowrap justify-center sm:justify-between">
             <div className="text-white">
               <div className="flex justify-center text-white font-semibold sm:justify-start">
@@ -18,7 +21,9 @@ const Footer = () => {
               <Body className="mt-2 text-center leading-relaxed sm:text-start">
                 <span className="block">For any enquiries, questions</span>
                 <span className="block">or commendations,</span>
-                <span className="block">please call (033) 2230 0662 / 2230 5760</span>
+                <span className="block">
+                  please call (033) 2230 0662 / 2230 5760
+                </span>
               </Body>
             </div>
 

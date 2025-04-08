@@ -33,34 +33,40 @@ const BlogList = () => {
   const dummyImage =
     "https://images.unsplash.com/photo-1631451095765-2c91616fc9e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80";
   return (
-    <Container className="grid md:grid-cols-3 gap-8">
-      {blogs.map((blog, i) => (
-        <article key={i} className="group cursor-pointer">
-          <Image
-            width={500}
-            height={500}
-            alt=""
-            // src="https://images.unsplash.com/photo-1631451095765-2c91616fc9e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-            src={urlForImage(blog.blogImage) || dummyImage}
-            className="h-72 6xl:h-96 w-full object-cover shadow-xl transition group-hover:grayscale-0 grayscale-[70%]"
-          />
+    <Container className={blogs.length !== 0 ? "grid md:grid-cols-3 gap-8" : "flex justify-center items-center"}>
+      {blogs.length !== 0 ? (
+        blogs.map((blog, i) => (
+          <article key={i} className="group cursor-pointer">
+            <Image
+              width={500}
+              height={500}
+              alt=""
+              // src="https://images.unsplash.com/photo-1631451095765-2c91616fc9e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+              src={urlForImage(blog.blogImage) || dummyImage}
+              className="h-72 6xl:h-96 w-full object-cover shadow-xl transition group-hover:grayscale-0 grayscale-[70%]"
+            />
 
-          <div className="mt-4 flex flex-col gap-4 items-start">
-            <LargeCaption className="">{blog.title}</LargeCaption>
+            <div className="mt-4 flex flex-col gap-4 items-start">
+              <LargeCaption className="">{blog.title}</LargeCaption>
 
-            <DynamicBody className="line-clamp-3 font-medium text-gray-700">
-              <PortableText value={blog.content} components={components} />
-            </DynamicBody>
+              <DynamicBody className="line-clamp-3 font-medium text-gray-700">
+                <PortableText value={blog.content} components={components} />
+              </DynamicBody>
 
-            <Link
-              href={"/blogs/" + blog.slug.current}
-              className="w-fit bg-[#050742] p-3 px-10"
-            >
-              <Body className="text-gray-200 !font-medium">Read more...</Body>
-            </Link>
-          </div>
-        </article>
-      ))}
+              <Link
+                href={"/blogs/" + blog.slug.current}
+                className="w-fit bg-[#050742] p-3 px-10"
+              >
+                <Body className="text-gray-200 !font-medium">Read more...</Body>
+              </Link>
+            </div>
+          </article>
+        ))
+      ) : (
+        <LargeCaption className="text-center text-[#050742] mx-auto">
+          Blogs Coming Soon...
+        </LargeCaption>
+      )}
     </Container>
   );
 };

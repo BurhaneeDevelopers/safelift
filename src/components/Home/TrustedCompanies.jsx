@@ -26,13 +26,27 @@ const TrustedCompanies = () => {
           className="ww-72 h-[16rem] lg:w-96 lg:h-96 2xl:w-96 2xl:h-[26rem] object-cover object-center border-8 border-[#8dd7f7]"
         />
       </div>
-      <div className="flex flex-col gap-4 max-w-screen-sm 6xl:max-w-screen-lg mt-10 2xl:mt-0" data-aos="fade-up">
+      <div
+        className="flex flex-col gap-4 max-w-screen-sm 6xl:max-w-screen-lg mt-10 2xl:mt-0"
+        data-aos="fade-up"
+      >
         <Heading>
           ENHANCE EFFICIENCY & SAFETY WITH SAFELIFT’S CUTTING-EDGE{" "}
-          <span className="2xl:text-nowrap text-[#00aeef]">MATERIAL HANDLING SOLUTIONS</span>
+          <span className="2xl:text-nowrap text-[#00aeef]">
+            MATERIAL HANDLING SOLUTIONS
+          </span>
         </Heading>
 
         <Body className="text-justify flex flex-col gap-4 !font-medium">
+          <span>
+            Safelift has been a trailblazer in material handling Equipment
+            technology for over 20 years, specializing in the design and
+            production of top-tier equipment and solutions. Our company stands
+            as India&apos;s biggest producer of Bulk Material Handling equipment
+            while offering a comprehensive range of products designed to meet
+            specific needs of multiple industries such as steel, power, marine,
+            chemical, cement, mining, fertilizer among others.
+          </span>
           <span>
             Adopting efficient material handling equipment is essential for
             fast-paced industries to boost productivity while lowering labor

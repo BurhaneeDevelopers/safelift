@@ -16,7 +16,14 @@ export default {
       options: {
         source: 'title',
         maxLength: 10000, // will be ignored if slugify is set
-        slugify: (input) => input.toLowerCase().replace(/\s+/g, '-').slice(0, 10000),
+        slugify: (input) =>
+          input
+            .toLowerCase()
+            .replace(/[^a-z0-9\s-]/g, '') // Remove special characters
+            .trim() // Trim whitespace from ends
+            .replace(/\s+/g, '-') // Replace spaces with hyphens
+            .replace(/-+/g, '-') // Remove duplicate hyphens
+            .slice(0, 10000), // Enforce max length
       },
     },
     {

@@ -1,6 +1,7 @@
+import Image from "next/image";
+
 export const components = {
   marks: {
-    // Ex. 1: custom renderer for the em / italics decorator
     em: ({ children }) => <em className="italic">&apos;{children}&apos;</em>,
     link: ({ value, children }) => {
       const target = (value?.href || "").startsWith("https")
@@ -18,32 +19,32 @@ export const components = {
       );
     },
   },
-  // hardBreak: <br />,
-  block: {
-    // Ex. 1: customizing common block types
-    h1: ({ children }) => <h1 className="text-4xl">{children}</h1>,
-    h2: ({ children }) => <h1 className="text-3xl">{children}</h1>,
-    h3: ({ children }) => <h1 className="text-2xl">{children}</h1>,
-    h4: ({ children }) => <h1 className="text-xl">{children}</h1>,
-    h5: ({ children }) => <h1 className="text-lg">{children}</h1>,
-    h6: ({ children }) => <h1 className="text-md">{children}</h1>,
-    blockquote: ({ children }) => (
-      <blockquote className="border-l-purple-500">{children}</blockquote>
+  types: {
+    image: ({ value }) => (
+      <Image
+        alt="Blog Image"
+        src={value.imageUrl}
+        width={500}
+        height={500}
+        className="w-[32rem] h-80 object-cover"
+      />
     ),
-
-    // Ex. 2: rendering custom styles
-    customHeading: ({ children }) => (
-      <h2 className="text-lg text-primary text-purple-700">{children}</h2>
+  },
+  block: {
+    normal: ({ children }) => <p style={{whiteSpace: "pre-line"}} className="mt-2 mb-4">{children}</p>,
+    h1: ({ children }) => <h1 className="my-10 text-4xl">{children}</h1>,
+    h2: ({ children }) => <h1 className="my-10 text-3xl">{children}</h1>,
+    h3: ({ children }) => <h1 className="my-5 text-2xl">{children}</h1>,
+    h4: ({ children }) => <h1 className="my-4 text-xl">{children}</h1>,
+    h5: ({ children }) => <h1 className="my-4 text-lg">{children}</h1>,
+    h6: ({ children }) => <h1 className="my-4 text-md">{children}</h1>,
+    blockquote: ({ children }) => (
+      <blockquote className="mt-2 mb-4 border-l-purple-500">{children}</blockquote>
     ),
   },
   listItem: {
-    // Ex. 1: customizing common list types
-    bullet: ({ children }) => <li className=" ml-7 list-disc">{children}</li>,
-    number: ({ children }) => (
-      <li className=" ml-7 list-decimal">{children}</li>
-    ),
-
-    // Ex. 2: rendering custom list items
-    checkmarks: ({ children }) => <li>✅ {children}</li>,
+    bullet: ({ children }) => <li className="my-3 ml-7 list-disc">{children}</li>,
+    number: ({ children }) => <li className="my-3 ml-7 list-decimal">{children}</li>,
+    checkmarks: ({ children }) => <li className="mt-4 mb-2">✅ {children}</li>,
   },
 };

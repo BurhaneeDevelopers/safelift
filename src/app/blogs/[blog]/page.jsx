@@ -12,7 +12,6 @@ import { components } from "@/utils/portableTextComponent";
 import { sanityFetch } from "../../../../sanityBackend/utils/sanityFetch";
 import { groq } from "next-sanity";
 import { Heading } from "@/components/textComponents/Heading";
-import { SmallCaption } from "@/components/textComponents/SmallCaption";
 
 const Blog = async ({ params }) => {
   const slug = params.blog;
@@ -116,13 +115,13 @@ const Blog = async ({ params }) => {
                       />
 
                       <Link href={"/blogs/" + item.slug.current} className="">
-                        <SmallCaption
+                        <Body
                           className={
-                            "mt-2 font-bold hover:underline text-[#050742]"
+                            "mt-2 !font-bold hover:underline text-[#050742] line-clamp-3"
                           }
                         >
                           {item.title}
-                        </SmallCaption>
+                        </Body>
                       </Link>
                     </div>
                   </div>

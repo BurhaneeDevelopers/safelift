@@ -33,7 +33,13 @@ const BlogList = () => {
   const dummyImage =
     "https://images.unsplash.com/photo-1631451095765-2c91616fc9e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80";
   return (
-    <Container className={blogs.length !== 0 ? "grid md:grid-cols-3 gap-8" : "flex justify-center items-center"}>
+    <Container
+      className={
+        blogs.length !== 0
+          ? "grid md:grid-cols-3 gap-8"
+          : "flex justify-center items-center"
+      }
+    >
       {blogs.length !== 0 ? (
         blogs.map((blog, i) => (
           <article key={i} className="group cursor-pointer">
@@ -56,6 +62,7 @@ const BlogList = () => {
               <Link
                 href={"/blogs/" + blog.slug.current}
                 className="w-fit bg-[#050742] p-3 px-10"
+                rel="dofollow"
               >
                 <Body className="text-gray-200 !font-medium">Read more...</Body>
               </Link>

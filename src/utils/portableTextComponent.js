@@ -11,7 +11,7 @@ export const components = {
         <a
           href={value?.href}
           target={target}
-          rel={target === "_blank" && "noindex nofollow"}
+          rel={target === "_blank" && "dofollow"}
           className="text-[#283B7F] underline"
         >
           {children}

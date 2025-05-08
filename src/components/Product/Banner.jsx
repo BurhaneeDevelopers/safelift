@@ -24,8 +24,8 @@ const Banner = ({
           draggable="false" // Disable dragging
         />
 
-        <div className="lg:pr-20 xl:pr-20 w-full">
-          <div className="bg-[#050742] h-44 lg:h-72 w-full p-5 lg:pr-20 lg:px-20 flex justify-between lg:justify-end items-center relative mx-auto mt-16">
+        <div className="xl:pr-20 w-full">
+          <div className="bg-[#050742] h-fit py-10 lg:py-5 lg:h-72 w-full p-5 lg:pr-20 xl:px-20 flex justify-between lg:justify-end items-center relative mx-auto mt-16">
             <div className="hidden lg:flex absolute -top-20 left-20 xl:left-64 items-center justify-between">
               <div className="h-[28rem] w-[28rem] flex justify-center items-center bg-white rounded overflow-hidden">
                 {productImage && (
@@ -56,8 +56,22 @@ const Banner = ({
               )}
             </div>
 
-            <div className="flex flex-col justify-center items-center space-y-2">
-              <div className="uppercase text-lg xs:text-xl sm:text-2xl lg:text-3xl xl:text-4xl text-white font-semibold text-center flex">
+            <div className="flex flex-col justify-center items-center gap-4 w-full lg:w-auto">
+              <div className="h-[28rem] w-[28rem] flex justify-center items-center bg-white rounded overflow-hidden lg:hidden">
+                {productImage && (
+                  <Image
+                    src={urlForImage(productImage)}
+                    alt={title}
+                    width={500}
+                    height={500}
+                    className="w-96 h-[28rem] object-contain p-2 "
+                    onContextMenu={(e) => e.preventDefault()} // Disable right-click
+                    draggable="false" // Disable dragging
+                  />
+                )}
+              </div>
+
+              <div className="uppercase text-lg xs:text-xl sm:text-2xl lg:text-3xl xl:text-4xl text-white font-semibold text-center flex flex-row items-center mt-7 lg:mt-0">
                 <Image
                   src={"/Product/LeftArrow.png"}
                   alt="Highlight Image"

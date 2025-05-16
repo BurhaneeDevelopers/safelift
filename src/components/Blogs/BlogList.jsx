@@ -48,19 +48,19 @@ const BlogList = () => {
               height={500}
               alt=""
               // src="https://images.unsplash.com/photo-1631451095765-2c91616fc9e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-              src={urlForImage(blog.blogImage) || dummyImage}
+              src={urlForImage(blog?.blogImage) || dummyImage}
               className="h-72 6xl:h-96 w-full object-cover shadow-xl transition group-hover:grayscale-0 grayscale-[70%]"
             />
 
             <div className="mt-4 flex flex-col gap-4 items-start">
-              <LargeCaption className="">{blog.title}</LargeCaption>
+              <LargeCaption className="">{blog?.title}</LargeCaption>
 
               <DynamicBody className="line-clamp-3 font-medium text-gray-700">
-                <PortableText value={blog.content} components={components} />
+                <PortableText value={blog?.content} components={components} />
               </DynamicBody>
 
               <Link
-                href={"/blogs/" + blog.slug.current}
+                href={"/blogs/" + blog.slug?.current}
                 className="w-fit bg-[#050742] p-3 px-10"
                 rel="dofollow"
               >

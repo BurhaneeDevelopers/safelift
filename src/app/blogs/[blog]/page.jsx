@@ -58,7 +58,7 @@ const Blog = async ({ params }) => {
 
             <div>
               <Body className="mt-6 text-[#197ab3] uppercase !font-semibold">
-                {blog?.slug.current}
+                {blog?.slug?.current}
               </Body>
 
               <Heading className="max-w-screen-xl my-4 text-2xl font-semibold leading-tight text-[#050742]">
@@ -114,7 +114,7 @@ const Blog = async ({ params }) => {
                         alt={item.title}
                       />
 
-                      <Link href={"/blogs/" + item.slug.current} className="">
+                      <Link href={"/blogs/" + item?.slug?.current} className="">
                         <Body
                           className={
                             "mt-2 !font-bold hover:underline text-[#050742] line-clamp-3"

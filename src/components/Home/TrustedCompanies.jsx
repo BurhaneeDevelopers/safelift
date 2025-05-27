@@ -9,7 +9,7 @@ import { Heading } from "../textComponents/Heading";
 const TrustedCompanies = () => {
   return (
     <Container className="flex flex-wrap 2xl:flex-nowrap items-center justify-between gap-10 lg:!pb-32">
-      <div className="flex gap-16 2xl:gap-32 relative">
+      <div className="flex gap-16 2xl:gap-36 4xl:gap-32 relative">
         <Image
           src="/NewHome/solutions/solution-1.webp"
           alt="Material Handling"
@@ -27,7 +27,7 @@ const TrustedCompanies = () => {
         />
       </div>
       <div
-        className="flex flex-col gap-4 max-w-screen-sm 6xl:max-w-screen-lg mt-10 2xl:mt-0"
+        className="flex flex-col gap-4 max-w-screen-sm 2xl:max-w-screen-sxm 4xl:max-w-screen-sm 6xl:max-w-screen-lg mt-10 2xl:mt-0"
         data-aos="fade-up"
       >
         <Heading>

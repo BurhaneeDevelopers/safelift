@@ -5,29 +5,29 @@ export default defineType({
   title: 'SEO Settings',
   type: 'document',
   fields: [
-    defineField({
-      name: 'productCategory',
-      title: 'Product Category',
-      type: 'string',
-      options: {
-        list: [
-          {title: 'Hoisting Equipment', value: 'hoisting-equipment'},
-          {
-            title: 'Polyester Lifting & Lashing Products',
-            value: 'polyester-lifting-&-lashing-products',
-          },
-          {title: 'G-80 Riggings', value: 'g-80-riggings'},
-          {title: 'G-100 Riggings', value: 'g-100-riggings'},
-          {title: 'Clamps', value: 'clamps'},
-          {title: 'Lifting Tackles', value: 'lifting-tackles'},
-          {title: 'Slings', value: 'slings'},
-          {title: 'Hydraulic Lifting Equipments', value: 'hydraulic-lifting-equipments'},
-          {title: 'Special Products', value: 'special-products'},
-        ],
-      },
-      description: 'Select a product category',
-      hidden: ({document}) => !!document?.page, // Hide if page is selected
-    }),
+    // defineField({
+    //   name: 'productCategory',
+    //   title: 'Product Category',
+    //   type: 'string',
+    //   options: {
+    //     list: [
+    //       {title: 'Hoisting Equipment', value: 'hoisting-equipment'},
+    //       {
+    //         title: 'Polyester Lifting & Lashing Products',
+    //         value: 'polyester-lifting-&-lashing-products',
+    //       },
+    //       {title: 'G-80 Riggings', value: 'g-80-riggings'},
+    //       {title: 'G-100 Riggings', value: 'g-100-riggings'},
+    //       {title: 'Clamps', value: 'clamps'},
+    //       {title: 'Lifting Tackles', value: 'lifting-tackles'},
+    //       {title: 'Slings', value: 'slings'},
+    //       {title: 'Hydraulic Lifting Equipments', value: 'hydraulic-lifting-equipments'},
+    //       {title: 'Special Products', value: 'special-products'},
+    //     ],
+    //   },
+    //   description: 'Select a product category',
+    //   hidden: ({document}) => !!document?.page, // Hide if page is selected
+    // }),
     defineField({
       name: 'page',
       title: 'Page',

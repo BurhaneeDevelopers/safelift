@@ -32,12 +32,12 @@ export const components = {
   },
   block: {
     normal: ({ children }) => <p style={{whiteSpace: "pre-line"}} className="mt-2 mb-4">{children}</p>,
-    h1: ({ children }) => <h1 className="my-10 text-4xl">{children}</h1>,
-    h2: ({ children }) => <h1 className="my-10 text-3xl">{children}</h1>,
-    h3: ({ children }) => <h1 className="my-5 text-2xl">{children}</h1>,
-    h4: ({ children }) => <h1 className="my-4 text-xl">{children}</h1>,
-    h5: ({ children }) => <h1 className="my-4 text-lg">{children}</h1>,
-    h6: ({ children }) => <h1 className="my-4 text-md">{children}</h1>,
+    h1: ({ children }) => <h1 className="my-10 text-5xl">{children}</h1>,
+    h2: ({ children }) => <h2 className="my-10 text-4xl">{children}</h2>,
+    h3: ({ children }) => <h3 className="my-5 text-3xl">{children}</h3>,
+    h4: ({ children }) => <h4 className="my-4 text-2xl">{children}</h4>,
+    h5: ({ children }) => <h5 className="my-4 text-xl">{children}</h5>,
+    h6: ({ children }) => <h6 className="my-4 text-lg">{children}</h6>,
     blockquote: ({ children }) => (
       <blockquote className="mt-2 mb-4 border-l-purple-500">{children}</blockquote>
     ),

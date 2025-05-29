@@ -27,7 +27,7 @@ const TrustedCompanies = () => {
         />
       </div>
       <div
-        className="flex flex-col gap-4 max-w-screen-sm 2xl:max-w-screen-sxm 4xl:max-w-screen-sm 6xl:max-w-screen-lg mt-10 2xl:mt-0"
+        className="flex flex-col gap-4 max-w-screen-sm xl:max-w-screen-sxm 4xl:max-w-screen-sm 6xl:max-w-screen-lg mt-10 2xl:mt-0"
         data-aos="fade-up"
       >
         <Heading>

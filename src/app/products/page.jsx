@@ -35,11 +35,12 @@ const Products = () => {
       image: "/Products/Prod-7.webp",
     },
     {
-      title: "Hydraulic Lifting Equipments",
+      title: "Warehouse Management Equipment (Manual)",
       image: "/Products/Prod-8.webp",
     },
     {
-      title: "Special Products",
+      title: "Warehouse Management Equipment (Electric)",
+      // title: "Special Products",
       image: "/Products/Prod-9.webp",
     },
   ];

@@ -6,7 +6,6 @@ import Link from "next/link";
 import { slugify, unslugify } from "@/utils/slugify";
 import { client } from "../../../../sanityBackend/lib/client";
 import { urlForImage } from "../../../../sanityBackend/lib/image";
-import { SmallCaption } from "@/components/textComponents/SmallCaption";
 import { LargeCaption } from "@/components/textComponents/LargeCaption";
 
 const ProductList = ({ params }) => {

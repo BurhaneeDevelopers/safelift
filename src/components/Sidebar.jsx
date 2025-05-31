@@ -118,12 +118,12 @@ const Nav = () => {
             navLink: `/products/${slugify("Slings")}`,
           },
           {
-            navSubTitle: "Hydraulic Lifting Equipments",
-            navLink: `/products/${slugify("Hydraulic Lifting Equipments")}`,
+            navSubTitle: "Warehouse Management Equipment (Manual)",
+            navLink: `/products/${slugify("Warehouse Management Equipment (Manual)")}`,
           },
           {
-            navSubTitle: "Special Products",
-            navLink: `/products/${slugify("Special Products")}`,
+            navSubTitle: "Warehouse Management Equipment (Electric)",
+            navLink: `/products/${slugify("Warehouse Management Equipment (Electric)")}`,
           },
         ]}
         isOpen={openDropdown === "Products"}

@@ -146,11 +146,11 @@ const Nav = () => {
           },
           {
             navSubTitle: "Warehouse Management Equipment (Manual)",
-            navLink: `/products/${slugify("Hydraulic Lifting Equipments")}`,
+            navLink: `/products/${slugify("Warehouse Management Equipment (Manual)")}`,
           },
           {
             navSubTitle: "Warehouse Management Equipment (Electric)",
-            navLink: `/products/${slugify("Special Products")}`,
+            navLink: `/products/${slugify("Warehouse Management Equipment (Electric)")}`,
           },
         ]}
       />

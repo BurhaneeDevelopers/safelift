@@ -19,38 +19,38 @@ const ProductsRange = () => {
         <div className="flex flex-wrap justify-center items-center">
           <div className="flex flex-wrap justify-center">
             <UpCard
-              title={"Hydraulic Hand Pallet Truck"}
+              title={"Vertical Plate Lifting Clamp"}
               img={"/Home/Products-Range/prod-4.webp"}
             />
             <DownCard
-              title={"Scissor Lift Pallet Truck"}
+              title={"Polyester Sling"}
               img={"/Home/Products-Range/prod-2.webp"}
             />
             <UpCard
-              title={"Stainless Steel Pallet Truck"}
+              title={"Swivel Hook"}
               img={"/Home/Products-Range/prod-3.webp"}
             />
             <DownCard
-              title={"Scale Pallet Truck"}
+              title={"Chain Block"}
               img={"/Home/Products-Range/prod-1.webp"}
             />
           </div>
 
           <div className="flex flex-wrap justify-center mt-5 sm:mt-0 xl:-translate-y-20">
             <UpCard
-              title={"Rough Terrain truck"}
+              title={"Spring Balancer"}
               img={"/Home/Products-Range/prod-5.webp"}
             />
             <DownCard
-              title={"Hydraulic Lifting Table"}
+              title={"Chain Sling"}
               img={"/Home/Products-Range/prod-6.webp"}
             />
             <UpCard
-              title={"Hydraulic Hand Stacker"}
+              title={"Hydraulic Lifting Table"}
               img={"/Home/Products-Range/prod-7.webp"}
             />
             <DownCard
-              title={"Drum Lifter Cum Tilter"}
+              title={"Electric Folk Lift"}
               img={"/Home/Products-Range/prod-8.webp"}
             />
           </div>

@@ -19,9 +19,18 @@ export default {
       },
     },
     {
-      name: 'category',
-      type: 'string',
-      title: 'Category',
+      name: 'mainCategory',
+      title: 'Main Category (if applicable)',
+      type: 'reference',
+      to: [{type: 'mainCategory'}],
+      hidden: ({parent}) => !!parent?.subCategory,
+    },
+    {
+      name: 'subCategory',
+      title: 'Sub Category (if applicable)',
+      type: 'reference',
+      to: [{type: 'subCategory'}],
+      hidden: ({parent}) => !!parent?.mainCategory,
     },
     {
       name: 'series',

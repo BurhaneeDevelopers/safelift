@@ -1,10 +1,11 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
 import { slugify } from "@/utils/slugify";
 import { Body } from "./textComponents/Body";
+import { client } from "../../sanityBackend/lib/client";
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -85,6 +86,21 @@ const Navbar = () => {
 export default Navbar;
 
 const Nav = () => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await client.fetch(`*[_type == "mainCategory"]`);
+        setCategories(result);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+
+    fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div className="flex z-20">
       <NavLink
@@ -109,50 +125,65 @@ const Nav = () => {
       <NavLink
         navTitle={"Products"}
         icon={true}
+        // dropdownContent={[
+        //   {
+        //     navSubTitle: "All",
+        //     navLink: "/products",
+        //   },
+        //   {
+        //     navSubTitle: "Hoisting Equipment",
+        //     navLink: `/products/${slugify("Hoisting Equipment")}`,
+        //   },
+        //   {
+        //     navSubTitle: "Polyester Lifting & Lashing Products",
+        //     navLink: `/products/${slugify(
+        //       "Polyester Lifting & Lashing Products"
+        //     )}`,
+        //   },
+        //   {
+        //     navSubTitle: "G 80 Riggings",
+        //     navLink: `/products/${slugify("G 80 Riggings")}`,
+        //   },
+        //   {
+        //     navSubTitle: "G 100 Riggings",
+        //     navLink: `/products/${slugify("G 100 Riggings")}`,
+        //   },
+        //   {
+        //     navSubTitle: "Lifting Clamps",
+        //     navLink: `/products/${slugify("Lifting Clamps")}`,
+        //   },
+        //   {
+        //     navSubTitle: "Lifting Tackles",
+        //     navLink: `/products/${slugify("Lifting Tackles")}`,
+        //   },
+        //   {
+        //     navSubTitle: "Slings",
+        //     navLink: `/products/${slugify("Slings")}`,
+        //   },
+        //   {
+        //     navSubTitle: "Warehouse Management Equipment (Manual)",
+        //     navLink: `/products/${slugify(
+        //       "Warehouse Management Equipment (Manual)"
+        //     )}`,
+        //   },
+        //   {
+        //     navSubTitle: "Warehouse Management Equipment (Electric)",
+        //     navLink: `/products/${slugify(
+        //       "Warehouse Management Equipment (Electric)"
+        //     )}`,
+        //   },
+        // ]}
         dropdownContent={[
           {
             navSubTitle: "All",
             navLink: "/products",
           },
-          {
-            navSubTitle: "Hoisting Equipment",
-            navLink: `/products/${slugify("Hoisting Equipment")}`,
-          },
-          {
-            navSubTitle: "Polyester Lifting & Lashing Products",
-            navLink: `/products/${slugify(
-              "Polyester Lifting & Lashing Products"
-            )}`,
-          },
-          {
-            navSubTitle: "G 80 Riggings",
-            navLink: `/products/${slugify("G 80 Riggings")}`,
-          },
-          {
-            navSubTitle: "G 100 Riggings",
-            navLink: `/products/${slugify("G 100 Riggings")}`,
-          },
-          {
-            navSubTitle: "Lifting Clamps",
-            navLink: `/products/${slugify("Lifting Clamps")}`,
-          },
-          {
-            navSubTitle: "Lifting Tackles",
-            navLink: `/products/${slugify("Lifting Tackles")}`,
-          },
-          {
-            navSubTitle: "Slings",
-            navLink: `/products/${slugify("Slings")}`,
-          },
-          {
-            navSubTitle: "Warehouse Management Equipment (Manual)",
-            navLink: `/products/${slugify("Warehouse Management Equipment (Manual)")}`,
-          },
-          {
-            navSubTitle: "Warehouse Management Equipment (Electric)",
-            navLink: `/products/${slugify("Warehouse Management Equipment (Electric)")}`,
-          },
+          ...categories.map((cat) => ({
+            navSubTitle: cat.title,
+            navLink: `/products/${cat.slug.current}`,
+          })),
         ]}
+        megaDropDown={true}
       />
       <NavLink
         navTitle={"Contact Us"}
@@ -173,7 +204,13 @@ const Nav = () => {
   );
 };
 
-const NavLink = ({ navTitle, dropdownContent, directRedirect, icon }) => {
+const NavLink = ({
+  navTitle,
+  dropdownContent,
+  directRedirect,
+  icon,
+  megaDropDown,
+}) => {
   return (
     <span className="group">
       <button className="outline-none focus:outline-none gap-1 px-3 group-hover:bg-gray-200 flex items-center justify-center">
@@ -201,20 +238,38 @@ const NavLink = ({ navTitle, dropdownContent, directRedirect, icon }) => {
       </button>
 
       {/* DropDown Items  */}
-      <ul
-        className="bg-white transform scale-0 group-hover:scale-100 absolute 
+
+      {megaDropDown ? (
+        <ul
+          className="bg-white transform scale-0 group-hover:scale-100 absolute 
+                 transition duration-150 ease-in-out origin-top left-0 py-7 flex flex-wrap gap-4 justify-between p-2"
+        >
+          {dropdownContent?.map((item, i) => {
+            return (
+              <Link href={item?.navLink} key={i}>
+                <li className="rounded-xl px-3 py-1 hover:bg-gray-200 uppercase text-center font-bold w-64 h-20 p-4 bg-gray-100 flex flex-col justify-center items-center">
+                  {item?.navSubTitle}
+                </li>
+              </Link>
+            );
+          })}
+        </ul>
+      ) : (
+        <ul
+          className="bg-white transform scale-0 group-hover:scale-100 absolute 
                  transition duration-150 ease-in-out origin-top pt-3"
-      >
-        {dropdownContent?.map((item, i) => {
-          return (
-            <Link href={item?.navLink} key={i}>
-              <li className="rounded-sm px-3 py-1 hover:bg-gray-200 uppercase text-center font-bold max-w-64">
-                {item?.navSubTitle}
-              </li>
-            </Link>
-          );
-        })}
-      </ul>
+        >
+          {dropdownContent?.map((item, i) => {
+            return (
+              <Link href={item?.navLink} key={i}>
+                <li className="rounded-sm px-3 py-1 hover:bg-gray-200 uppercase text-center font-bold max-w-64">
+                  {item?.navSubTitle}
+                </li>
+              </Link>
+            );
+          })}
+        </ul>
+      )}
     </span>
   );
 };

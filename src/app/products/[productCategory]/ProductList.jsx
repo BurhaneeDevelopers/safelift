@@ -39,9 +39,10 @@ const ProductList = ({ params }) => {
 
         if (subCats.length === 0) {
           const result = await client.fetch(
-            `*[_type == "product" && category == $category]`,
+            `*[_type == "product" && mainCategory->title == $category]`,
             { category: productCategory }
           );
+
           setMainCategoryProducts(result);
         } else {
           let data = {};

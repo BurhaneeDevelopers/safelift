@@ -4,14 +4,23 @@ import { urlForImage } from "../../../sanityBackend/lib/image";
 const { default: Image } = require("next/image");
 const { default: Link } = require("next/link");
 
-export const ProductCards = ({ title, productimage, productCategory, slug }) => {
+export const ProductCards = ({
+  title,
+  productimage,
+  productCategory,
+  slug,
+}) => {
   return (
     <div
       className="flex flex-col justify-center items-center mb-10 mx-4"
       data-aos="fade-up"
     >
       <Link
-        href={"/product/" + `${slugify(productCategory)}/` + slugify(slug)}
+        href={
+          "/products/" +
+          `${slugify(productCategory ? productCategory : "")}/` +
+          slugify(slug)
+        }
         className="w-96 h-96 border-4 border-gray-200"
       >
         <div class="relative flex justify-center items-center h-full transform transition-transform p-2">

@@ -1,20 +1,30 @@
-import { slugify } from "@/utils/slugify";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { ProductCards } from "./ProductCards";
 
-const PaginatedProducts = () => {
+const PRODUCTS_PER_PAGE = 6;
+
+const PaginatedProducts = ({ products = [] }) => {
+  const [currentPage, setCurrentPage] = useState(0);
+  const [paginatedProducts, setPaginatedProducts] = useState([]);
+
+  const totalPages = Math.ceil(products.length / PRODUCTS_PER_PAGE);
+
+  useEffect(() => {
+    const start = currentPage * PRODUCTS_PER_PAGE;
+    const end = start + PRODUCTS_PER_PAGE;
+    setPaginatedProducts(products.slice(start, end));
+  }, [products, currentPage]);
+
   return (
     <>
       <div className="flex flex-wrap justify-center items-center">
-        {paginated.map((item, i) => (
+        {paginatedProducts.map((item, i) => (
           <ProductCards
             key={i}
             title={item?.title}
             productimage={item?.productimage}
             productCategory={item?.category}
-            slug={item?.slug.current}
+            slug={item?.slug?.current}
             item={item}
           />
         ))}

@@ -9,6 +9,7 @@ import { slugify, unslugify } from "@/utils/slugify";
 import Link from "next/link";
 import { client } from "../../../../../sanityBackend/lib/client";
 import { urlForImage } from "../../../../../sanityBackend/lib/image";
+import SharpenedImage from "@/utils/sharpenedImage";
 
 const Product = ({ params }) => {
   const [product, setProduct] = useState([]);
@@ -66,10 +67,7 @@ const Product = ({ params }) => {
       />
 
       <div className="bg-[#050742] py-5 my-10 lg:hidden flex">
-        <CenterHeading
-          title={product?.title}
-          textColor={"text-white"}
-        />
+        <CenterHeading title={product?.title} textColor={"text-white"} />
       </div>
 
       <div className="lg:hidden flex flex-wrap items-center justify-center w-full">
@@ -135,7 +133,7 @@ const Product = ({ params }) => {
             product?.highlightPoints?.length > 0 ? "" : "mt-20"
           }`}
         >
-          <Image
+          {/* <Image
             src={product?.table && urlForImage(product?.table?.asset?._ref)}
             alt="Product"
             width={500}
@@ -144,11 +142,19 @@ const Product = ({ params }) => {
             className="min-w-full lg:max-h-[500px] object-contain"
             onContextMenu={(e) => e.preventDefault()} // Disable right-click
             draggable="false" // Disable dragging
+          /> */}
+          <SharpenedImage
+            imageUrl={urlForImage(product?.table?.asset?._ref)}
+            className="min-w-full lg:max-h-[500px] object-contain"
           />
         </div>
       )}
 
-      <div className={`bg-[#050742] py-7 mb-10 ${product?.table ? "mt-20" : "mt-20"}`}>
+      <div
+        className={`bg-[#050742] py-7 mb-10 ${
+          product?.table ? "mt-20" : "mt-20"
+        }`}
+      >
         <CenterHeading
           title={`Other Products in ${productCategory}`}
           textColor={"text-white !text-2xl"}

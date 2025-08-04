@@ -7,16 +7,6 @@ const imageBuilder = createImageUrlBuilder({
   dataset: dataset || "",
 });
 
-// export const urlForImage = (source) => {
-//   return imageBuilder?.image(source).auto("format").fit("max").url();
-// };
-
 export const urlForImage = (source) => {
-  return imageBuilder
-    ?.image(source)
-    .auto("format")
-    .fit("max")
-    .dpr(5) // Sharper on high-res screens
-    .quality(100) // Max quality
-    .url();
+  return imageBuilder?.image(source).auto("format").fit("max").url();
 };

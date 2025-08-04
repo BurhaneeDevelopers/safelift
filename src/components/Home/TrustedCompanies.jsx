@@ -30,14 +30,14 @@ const TrustedCompanies = () => {
         className="flex flex-col gap-4 max-w-screen-sm xl:max-w-screen-sxm 4xl:max-w-screen-sm 6xl:max-w-screen-lg mt-10 2xl:mt-0"
         data-aos="fade-up"
       >
-        <Heading>
+        <Heading className="max-w-2xl 4xl:max-w-full">
           ENHANCE EFFICIENCY & SAFETY WITH SAFELIFT’S CUTTING-EDGE{" "}
           <span className="2xl:text-nowrap text-[#00aeef]">
             MATERIAL HANDLING SOLUTIONS
           </span>
         </Heading>
 
-        <Body className="text-justify flex flex-col gap-4 !font-medium">
+        <Body className="text-justify flex flex-col gap-4 !font-medium max-w-2xl 4xl:max-w-full">
           <span>
             Safelift has been a trailblazer in material handling Equipment
             technology for over 20 years, specializing in the design and

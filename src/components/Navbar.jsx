@@ -86,13 +86,39 @@ const Navbar = () => {
 export default Navbar;
 
 const Nav = () => {
+  const customOrder = [
+    "Hoisting Equipment",
+    "Slings for Lifting",
+    "Shackle",
+    "Lifting Points",
+    "G80 Lifting",
+    "G100 Lifting",
+    "WareHouse Management Products",
+    "Chains for Lifting",
+    "Wire Rope and Accessories",
+    "Rope Pulley",
+    "Permanent Magnet Lifting",
+    "Lifting Clamps",
+    "Non Marking Clamps",
+    "Dynamometer",
+    "Spring Balance",
+    "Lashing Products",
+    "Fall Arrestor",
+  ];
+
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const result = await client.fetch(`*[_type == "mainCategory"]`);
-        setCategories(result);
+
+        // Sort based on custom order
+        const sorted = customOrder
+          .map((title) => result.find((cat) => cat.title === title))
+          .filter(Boolean); // Remove undefined if any title doesn't match
+
+        setCategories(sorted);
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
@@ -124,55 +150,8 @@ const Nav = () => {
 
       <NavLink
         navTitle={"Products"}
+        directRedirect={"/products"}
         icon={true}
-        // dropdownContent={[
-        //   {
-        //     navSubTitle: "All",
-        //     navLink: "/products",
-        //   },
-        //   {
-        //     navSubTitle: "Hoisting Equipment",
-        //     navLink: `/products/${slugify("Hoisting Equipment")}`,
-        //   },
-        //   {
-        //     navSubTitle: "Polyester Lifting & Lashing Products",
-        //     navLink: `/products/${slugify(
-        //       "Polyester Lifting & Lashing Products"
-        //     )}`,
-        //   },
-        //   {
-        //     navSubTitle: "G 80 Riggings",
-        //     navLink: `/products/${slugify("G 80 Riggings")}`,
-        //   },
-        //   {
-        //     navSubTitle: "G 100 Riggings",
-        //     navLink: `/products/${slugify("G 100 Riggings")}`,
-        //   },
-        //   {
-        //     navSubTitle: "Lifting Clamps",
-        //     navLink: `/products/${slugify("Lifting Clamps")}`,
-        //   },
-        //   {
-        //     navSubTitle: "Lifting Tackles",
-        //     navLink: `/products/${slugify("Lifting Tackles")}`,
-        //   },
-        //   {
-        //     navSubTitle: "Slings",
-        //     navLink: `/products/${slugify("Slings")}`,
-        //   },
-        //   {
-        //     navSubTitle: "Warehouse Management Equipment (Manual)",
-        //     navLink: `/products/${slugify(
-        //       "Warehouse Management Equipment (Manual)"
-        //     )}`,
-        //   },
-        //   {
-        //     navSubTitle: "Warehouse Management Equipment (Electric)",
-        //     navLink: `/products/${slugify(
-        //       "Warehouse Management Equipment (Electric)"
-        //     )}`,
-        //   },
-        // ]}
         dropdownContent={[
           {
             navSubTitle: "All",

@@ -9,7 +9,6 @@ import { slugify, unslugify } from "@/utils/slugify";
 import Link from "next/link";
 import { client } from "../../../../../sanityBackend/lib/client";
 import { urlForImage } from "../../../../../sanityBackend/lib/image";
-import SharpenedImage from "@/utils/sharpenedImage";
 
 const Product = ({ params }) => {
   const [product, setProduct] = useState([]);
@@ -43,18 +42,37 @@ const Product = ({ params }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await client.fetch(
-          `*[_type == "product" && category == $category]`,
-          { category: productCategory }
-        );
+        if (!product) return;
+
+        let result = [];
+
+        if (product?.mainCategory?._ref) {
+          result = await client.fetch(
+            `*[_type == "product" && mainCategory._ref == $catRef && _id != $currentId]`,
+            {
+              catRef: product.mainCategory._ref,
+              currentId: product._id,
+            }
+          );
+        } else if (product?.subCategory?._ref) {
+          result = await client.fetch(
+            `*[_type == "product" && subCategory._ref == $catRef && _id != $currentId]`,
+            {
+              catRef: product.subCategory._ref,
+              currentId: product._id,
+            }
+          );
+        }
+
         setProducts(result);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching related products:", error);
       }
     };
 
     fetchData();
-  }, []);
+  }, [product]);
+
   return (
     <div>
       <Banner
@@ -133,7 +151,7 @@ const Product = ({ params }) => {
             product?.highlightPoints?.length > 0 ? "" : "mt-20"
           }`}
         >
-          {/* <Image
+          <Image
             src={product?.table && urlForImage(product?.table?.asset?._ref)}
             alt="Product"
             width={500}
@@ -142,10 +160,6 @@ const Product = ({ params }) => {
             className="min-w-full lg:max-h-[500px] object-contain"
             onContextMenu={(e) => e.preventDefault()} // Disable right-click
             draggable="false" // Disable dragging
-          /> */}
-          <SharpenedImage
-            imageUrl={urlForImage(product?.table?.asset?._ref)}
-            className="min-w-full lg:max-h-[500px] object-contain"
           />
         </div>
       )}

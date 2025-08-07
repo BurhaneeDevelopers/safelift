@@ -84,9 +84,9 @@ const Product = ({ params }) => {
         highlightFeatures={product?.highlightFeatures}
       />
 
-      <div className="bg-[#050742] py-5 my-10 lg:hidden flex">
+      {/* <div className="bg-[#050742] py-5 my-10 lg:hidden flex">
         <CenterHeading title={product?.title} textColor={"text-white"} />
-      </div>
+      </div> */}
 
       <div className="lg:hidden flex flex-wrap items-center justify-center w-full">
         {product?.productimage && (
@@ -164,16 +164,18 @@ const Product = ({ params }) => {
         </div>
       )}
 
-      <div
-        className={`bg-[#050742] py-7 mb-10 ${
-          product?.table ? "mt-20" : "mt-20"
-        }`}
-      >
-        <CenterHeading
-          title={`Other Products in ${productCategory}`}
-          textColor={"text-white !text-2xl"}
-        />
-      </div>
+      {products.length !== 0 && (
+        <div
+          className={`bg-[#050742] py-7 mb-10 ${
+            product?.table ? "mt-20" : "mt-20"
+          }`}
+        >
+          <CenterHeading
+            title={`Other Products in ${productCategory}`}
+            textColor={"text-white !text-2xl"}
+          />
+        </div>
+      )}
 
       <div className="flex flex-wrap justify-center items-center">
         {products.map((item, i) => {

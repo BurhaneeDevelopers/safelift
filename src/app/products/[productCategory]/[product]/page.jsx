@@ -9,6 +9,8 @@ import { slugify, unslugify } from "@/utils/slugify";
 import Link from "next/link";
 import { client } from "../../../../../sanityBackend/lib/client";
 import { urlForImage } from "../../../../../sanityBackend/lib/image";
+import { Body } from "@/components/textComponents/Body";
+import { Download, ArrowRight } from "lucide-react";
 
 const Product = ({ params }) => {
   const [product, setProduct] = useState([]);
@@ -88,6 +90,23 @@ const Product = ({ params }) => {
         <CenterHeading title={product?.title} textColor={"text-white"} />
       </div> */}
 
+      <div className="flex justify-end items-center gap-4 px-10 lg:px-20">
+        <Link href={"/about"} className="w-fit bg-[#050742] p-3 px-10 2xl:mt-7 flex gap-2 items-center text-white">
+          <ArrowRight className="-rotate-45" />
+          <Body className="!font-medium">View Catalogue</Body>
+        </Link>
+
+        <Link
+          href={"/about"}
+          className="w-fit border-2 border-[#050742] p-3 px-10 2xl:mt-7 flex gap-2 text-[#050742] items-center"
+        >
+          <Download />
+          <Body className="!font-medium">
+            Download Catalogue
+          </Body>
+        </Link>
+      </div>
+
       <div className="lg:hidden flex flex-wrap items-center justify-center w-full">
         {product?.productimage && (
           <Image
@@ -118,7 +137,7 @@ const Product = ({ params }) => {
 
       {/* Highlight Section  */}
       {product?.highlightPoints?.length > 0 && (
-        <div className="p-10 md:p-20">
+        <div className="p-10 lg:p-20">
           <div class="grid grid-cols-1 xl:grid-cols-3">
             <div class="bg-gray-200 lg:col-span-2 p-5 md:p-10">
               <h3 className="text-[#1486b8] font-bold text-3xl sm:text-4xl mb-5">

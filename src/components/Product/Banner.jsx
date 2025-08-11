@@ -82,23 +82,23 @@ const Banner = ({
                 )}
               </div>
 
-              <div className="uppercase text-lg xs:text-xl sm:text-2xl lg:text-3xl xl:text-4xl text-white font-semibold text-center flex flex-row items-center mt-7 lg:mt-0">
+              <div className="uppercase text-lg xs:text-xl sm:text-2xl text-white font-semibold text-center flex flex-row items-center mt-7 lg:mt-0 gap-2">
                 <Image
                   src={"/Product/LeftArrow.png"}
                   alt="Highlight Image"
                   width={500}
                   height={500}
-                  className="w-4 h-10 mr-5 "
+                  className="w-4 h-10"
                   onContextMenu={(e) => e.preventDefault()} // Disable right-click
                   draggable="false" // Disable dragging
                 />
 
-                <h1 className="lg:max-w-[32rem] xl:max-w-[40rem]">{title}</h1>
+                <h1 className="sm:max-w-80">{title}</h1>
               </div>
-              <h3 className="uppercase text-3xl xs:text-4xl sm:text-5xl xl:text-6xl 6xl:text-7xl text-[#00aeef] font-bold text-center max-w-xl xl:max-w-2xl 2xl:max-w-3xl 5xl:max-w-6xl">
+              <h3 className="uppercase text-3xl xs:text-4xl sm:text-5xl 6xl:text-7xl text-[#00aeef] font-bold text-center max-w-xl xl:max-w-2xl 2xl:max-w-3xl 5xl:max-w-6xl">
                 {series}
               </h3>
-              <h4 className="uppercase text-lg xs:text-xl sm:text-2xl lg:text-3xl xl:text-4xl text-white font-semibold text-center">
+              <h4 className="uppercase text-lg xs:text-xl sm:text-2xl text-white font-semibold text-center">
                 {feature}
               </h4>
             </div>

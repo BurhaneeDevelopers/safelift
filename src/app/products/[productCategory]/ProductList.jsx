@@ -43,7 +43,7 @@ const ProductList = ({ params }) => {
 
         // Step 3: Fetch products that belong directly to this main category (no subCategory)
         const mainOnlyProducts = await client.fetch(
-          `*[_type == "product" && mainCategory->title == $title && !defined(subCategory)]`,
+          `*[_type == "product" && mainCategory->title == $title]`,
           { title: productCategory }
         );
 
@@ -90,6 +90,7 @@ const ProductList = ({ params }) => {
                       <ProductCards
                         key={idx}
                         title={item.title}
+                        series={item?.series ?? ""}
                         productimage={item.productimage}
                         productCategory={productCategory}
                         slug={item.slug.current}
@@ -120,18 +121,21 @@ const ProductList = ({ params }) => {
 
                     {expanded[subId] && (
                       <div className="mt-4">
-                        {paginated.length > 0 ? (
+                        {paginated && paginated.length !== 0 ? (
                           <>
                             <div className="flex flex-wrap justify-center">
-                              {paginated.map((item, idx) => (
-                                <ProductCards
-                                  key={idx}
-                                  title={item.title}
-                                  productimage={item.productimage}
-                                  productCategory={productCategory}
-                                  slug={item.slug.current}
-                                />
-                              ))}
+                              {paginated &&
+                                paginated.length !== 0 &&
+                                paginated?.map((item, idx) => (
+                                  <ProductCards
+                                    key={idx}
+                                    title={item?.title}
+                                    series={item?.series ?? ""}
+                                    productimage={item?.productimage}
+                                    productCategory={productCategory}
+                                    slug={item?.slug?.current}
+                                  />
+                                ))}
                             </div>
                             <div className="flex justify-center gap-4 mt-4">
                               <button

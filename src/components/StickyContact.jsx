@@ -73,7 +73,7 @@ const StickyContact = () => {
       <div className="bg-black h-[0.15rem] w-5 mx-auto rounded-full my-3" />
 
       <a
-        href="tel:+919330241259"
+        href="tel:+918100545253"
         target="_blank"
         className="text-white text-xl"
       >

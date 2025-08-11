@@ -12,7 +12,7 @@ const Footer = () => {
     <div>
       <footer className="bg-[#050742]">
         <div className={`mx-auto px-20 ${paddingTop}`}>
-          <div className="flex flex-wrap 2xl:!flex-nowrap justify-center sm:justify-between">
+          <div className="flex flex-wrap 3xl:!flex-nowrap justify-center sm:justify-between">
             <div className="text-white">
               <div className="flex justify-center text-white font-semibold sm:justify-start">
                 <SmallCaption>Enquiries</SmallCaption>
@@ -22,7 +22,7 @@ const Footer = () => {
                 <span className="block">For any enquiries, questions</span>
                 <span className="block">or commendations,</span>
                 <span className="block">
-                  please call (033) 2230 0662 / 2230 5760
+                  please call +91 93308 36668 | +91 81005 45253
                 </span>
               </Body>
             </div>
@@ -66,9 +66,9 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="hidden md:flex h-40 self-end bg-gray-200 w-[1px] mx-4"></div>
+              {/* <div className="hidden md:flex h-40 self-end bg-gray-200 w-[1px] mx-4"></div> */}
 
-              <div className="text-center sm:text-start max-w-screen-sm text-white flex flex-col justify-center xl:justify-normal">
+              {/* <div className="text-center sm:text-start max-w-screen-sm text-white flex flex-col justify-center xl:justify-normal">
                 <SmallCaption className="font-semibold mb-4 4xl:translate-x-10 5xl:translate-x-16">
                   Phone
                 </SmallCaption>
@@ -113,10 +113,9 @@ const Footer = () => {
                   <Body className="text-white">
                     <span className="block">+91 93302 41259</span>
                     <span className="block">Whatsapp: +91 81005 45253</span>
-                    {/* <span className="block">+91 98316 66620/91238 69865</span> */}
                   </Body>
                 </div>
-              </div>
+              </div> */}
 
               <div className="hidden md:flex h-40 self-end bg-gray-200 w-[1px] mx-4"></div>
 

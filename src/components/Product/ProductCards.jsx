@@ -6,6 +6,7 @@ const { default: Link } = require("next/link");
 
 export const ProductCards = ({
   title,
+  series,
   productimage,
   productCategory,
   slug,
@@ -35,9 +36,10 @@ export const ProductCards = ({
           />
         </div>
       </Link>
-      <h2 className="bg-[#0493cf]/90 p-2 text-center py-4 z-50 w-96 text-white font-semibold text-base xxs:text-lg sm:text-xl min-h-16 max-h-16 mt-2">
-        <span className="line-clamp-1">{title}</span>
-      </h2>
+      <div className="bg-[#0493cf]/90 p-2 text-center py-4 z-50 w-96 text-white font-semibold text-base xxs:text-lg sm:text-xl min-h-24 max-h-24 mt-2 flex flex-col justify-center items-center">
+        <h5 className="line-clamp-1">{title} {series ? "-" : ""}</h5>
+        <h5 className="line-clamp-1">{series}</h5>
+      </div>
     </div>
   );
 };

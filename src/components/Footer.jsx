@@ -10,27 +10,31 @@ const Footer = () => {
   const paddingTop = pathname !== "/" ? "pt-20" : "";
   return (
     <div>
-      <footer className="bg-[#050742]">
+      <footer className="bg-[#050742] border-t border-gray-600 pt-10">
         <div className={`mx-auto px-20 ${paddingTop}`}>
           <div className="flex flex-wrap 3xl:!flex-nowrap justify-center sm:justify-between">
             <div className="text-white">
               <div className="flex justify-center text-white font-semibold sm:justify-start">
-                <SmallCaption>Enquiries</SmallCaption>
+                <SmallCaption>Safelift</SmallCaption>
               </div>
-
-              <Body className="mt-2 text-center leading-relaxed sm:text-start">
-                <span className="block">For any enquiries, questions</span>
-                <span className="block">or commendations,</span>
+              <Body className="text-white min-w-fit">
+                <span className="block">Ankurhati Industrial Park</span>
                 <span className="block">
-                  please call +91 93308 36668 | +91 81005 45253
+                  Near Ludhiana Hotel (Pathak Machine)
+                </span>
+                <span className="block">NH-6 Domjur</span>
+                <span className="block">Howrah - 711-302</span>
+                <span className="block">West Bengal</span>
+                <span className="block">
+                  Contact: +91 93308 36668 | +91 81005 45253
                 </span>
               </Body>
             </div>
 
-            <div className="flex flex-col justify-center items-center gap-5 md:gap-0 md:flex-row flex-wrap md:justify-start lg:justify-end sm:items-start lg:space-x-5 mt-10 xl:mt-0 h">
-              <div className="text-center sm:text-start max-w-screen-sm text-white flex flex-col justify-center xl:justify-normal">
-                <SmallCaption className="font-semibold mb-4 4xl:translate-x-10 5xl:translate-x-16">
-                  Address
+            <div className="flex flex-col justify-center items-center gap-5 md:gap-0 md:flex-row flex-wrap md:justify-start lg:justify-end sm:items-start mt-10 xl:mt-0 divide-x divide-white">
+              <div className="text-center sm:text-start max-w-screen-sm text-white flex flex-col justify-center xl:justify-normal px-7">
+                <SmallCaption className="font-semibold mb-4 4xl:translate-x-10">
+                  Pune Branch
                 </SmallCaption>
 
                 <div className="flex gap-1 mt-3">
@@ -55,20 +59,20 @@ const Footer = () => {
                   </svg>
 
                   <Body className="text-white min-w-fit">
-                    <span className="block">Ankurhati Industrial Park</span>
+                    <span className="block">SHRI VITTAL WAREHOUSE</span>
                     <span className="block">
-                      Near Ludhiana Hotel (Pathak Machine)
+                      Kakasaheb Wadake Road, Wadki
                     </span>
-                    <span className="block">NH-6 Domjur</span>
-                    <span className="block">Howrah - 711-302</span>
-                    <span className="block">West Bengal</span>
+                    <span className="block"></span>
+                    <span className="block">Pune - 412-308</span>
+                    <span className="block">Maharashtra</span>
                   </Body>
                 </div>
               </div>
 
               {/* <div className="hidden md:flex h-40 self-end bg-gray-200 w-[1px] mx-4"></div> */}
 
-              {/* <div className="text-center sm:text-start max-w-screen-sm text-white flex flex-col justify-center xl:justify-normal">
+              {/* <div className="text-center sm:text-start max-w-screen-sm text-white flex flex-col justify-center xl:justify-normal px-7">
                 <SmallCaption className="font-semibold mb-4 4xl:translate-x-10 5xl:translate-x-16">
                   Phone
                 </SmallCaption>
@@ -117,9 +121,9 @@ const Footer = () => {
                 </div>
               </div> */}
 
-              <div className="hidden md:flex h-40 self-end bg-gray-200 w-[1px] mx-4"></div>
+              {/* <div className="hidden md:flex h-40 self-end bg-gray-200 w-[1px] mx-4"></div> */}
 
-              <div className="text-center sm:text-start max-w-72 text-white flex flex-col justify-center xl:justify-normal">
+              <div className="text-center sm:text-start max-w-72 text-white flex flex-col justify-center xl:justify-normal px-7">
                 <SmallCaption className="font-semibold mb-4 4xl:translate-x-10 5xl:translate-x-16">
                   Email
                 </SmallCaption>
@@ -168,7 +172,7 @@ const Footer = () => {
 
             <SmallBody className="mt-4 text-sm text-white sm:order-first sm:mt-0">
               <span className="block sm:inline">
-                &copy; 2024 Safelift and{" "}
+                &copy; 2025 Safelift and{" "}
                 <a
                   href="https://www.studio53.in/"
                   className="cursor-pointer hover:underline font-medium"

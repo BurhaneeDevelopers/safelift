@@ -124,7 +124,7 @@ const Footer = () => {
               {/* <div className="hidden md:flex h-40 self-end bg-gray-200 w-[1px] mx-4"></div> */}
 
               <div className="text-center sm:text-start max-w-72 text-white flex flex-col justify-center xl:justify-normal px-7">
-                <SmallCaption className="font-semibold mb-4 4xl:translate-x-10 5xl:translate-x-16">
+                <SmallCaption className="font-semibold mb-4 4xl:translate-x-10">
                   Email
                 </SmallCaption>
 

@@ -88,13 +88,13 @@ export default Navbar;
 const Nav = () => {
   const customOrder = [
     "Hoisting Equipment",
-    "Slings for Lifting",
+    "Slings For Lifting",
     "Shackle",
     "Lifting Points",
     "G80 Lifting",
     "G100 Lifting",
-    "WareHouse Management Products",
-    "Chains for Lifting",
+    "Warehouse Management Products",
+    "Chains For Lifting",
     "Wire Rope and Accessories",
     "Rope Pulley",
     "Permanent Magnet Lifting",

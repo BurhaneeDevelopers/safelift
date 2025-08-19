@@ -90,15 +90,15 @@ const Product = ({ params }) => {
         <CenterHeading title={product?.title} textColor={"text-white"} />
       </div> */}
 
-      <div className="flex justify-end items-center gap-4 px-10 lg:px-20">
-        <Link href={"/about"} className="w-fit bg-[#050742] p-3 px-10 2xl:mt-7 flex gap-2 items-center text-white">
+      <div className="flex flex-wrap justify-end items-center gap-4 pt-5 px-10 lg:px-20">
+        <Link href={"/about"} className="w-full flex-grow lg:w-fit bg-[#050742] p-3 px-10 2xl:mt-7 flex gap-2 items-center justify-center text-center text-white">
           <ArrowRight className="-rotate-45" />
           <Body className="!font-medium">View Catalogue</Body>
         </Link>
 
         <Link
           href={"/about"}
-          className="w-fit border-2 border-[#050742] p-3 px-10 2xl:mt-7 flex gap-2 text-[#050742] items-center"
+          className="w-full flex-grow lg:w-fit border-2 border-[#050742] p-3 px-10 2xl:mt-7 flex gap-2 text-[#050742] items-center justify-center text-center"
         >
           <Download />
           <Body className="!font-medium">
@@ -120,7 +120,7 @@ const Product = ({ params }) => {
           />
         )}
 
-        {product?.highlightFeatures && (
+        {/* {product?.highlightFeatures && (
           <div className="flex flex-wrap justify-center items-center mt-10">
             {product?.highlightFeatures.map((feature, i) => {
               return (
@@ -132,7 +132,7 @@ const Product = ({ params }) => {
               );
             })}
           </div>
-        )}
+        )} */}
       </div>
 
       {/* Highlight Section  */}

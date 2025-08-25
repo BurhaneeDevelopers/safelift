@@ -163,6 +163,9 @@ const NavLink = ({
 }) => {
   const handleClick = () => {
     toggleDropdown(navTitle);
+    if (navTitle !== "Products") {
+      setNavbarOpen(false)
+    }
   };
   return (
     <li class="bg-gray-200 mt-3 flex flex-col pt-4">

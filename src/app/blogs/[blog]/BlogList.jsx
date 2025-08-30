@@ -1,4 +1,5 @@
-import React from "react";
+"use client"
+import React, { useEffect, useState } from "react";
 import Banner from "@/components/Banner";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -12,25 +13,65 @@ import { components } from "@/utils/portableTextComponent";
 import { sanityFetch } from "../../../../sanityBackend/utils/sanityFetch";
 import { groq } from "next-sanity";
 import { Heading } from "@/components/textComponents/Heading";
-import { unslugify } from "@/utils/slugify";
+import { client } from "../../../../sanityBackend/lib/client";
 
-const BlogList = async ({ params }) => {
+const BlogList = ({ params }) => {
   const slug = params.blog;
-  console.log(slug);
+  const [blog, setBlog] = useState([]);
+  const [blogs, setBlogs] = useState([]);
+  // const builder = imageUrlBuilder(client);
 
-  const BLOG_QUERY = groq`*[_type == "blogs" && slug.current == $slug][0]`;
-  const BLOGS_QUERY = groq`*[_type == "blogs"]`;
+  // Search Single Product
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await client.fetch(
+          `*[_type == "blogs" && slug.current == $slug] [0]`,
+          { slug: slug }
+        );
+        setBlog(result);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
 
-  const blog = await sanityFetch({
-    query: BLOG_QUERY,
-    params: {
-      slug: slug, // Passing slug as a parameter
-    },
-  });
+    fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  const blogs = await sanityFetch({
-    query: BLOGS_QUERY,
-  });
+  // const builder = imageUrlBuilder(client);
+
+  // Search Single Product
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await client.fetch(
+          `*[_type == "blogs"]`,
+          { slug: slug }
+        );
+        setBlogs(result);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // const BLOG_QUERY = groq`*[_type == "blogs" && slug.current == $slug][0]`;
+  // const BLOGS_QUERY = groq`*[_type == "blogs"]`;
+
+  // const blog = await sanityFetch({
+  //   query: BLOG_QUERY,
+  //   params: {
+  //     slug: slug, // Passing slug as a parameter
+  //   },
+  // });
+
+  // const blogs = await sanityFetch({
+  //   query: BLOGS_QUERY,
+  // });
 
   return (
     <Container>
@@ -59,7 +100,7 @@ const BlogList = async ({ params }) => {
 
             <div>
               <Body className="mt-6 text-[#197ab3] uppercase !font-semibold">
-                {unslugify(blog?.slug?.current)}
+                {blog?.slug?.current}
               </Body>
 
               <Heading className="max-w-screen-xl my-4 text-2xl font-semibold leading-tight text-[#050742]">

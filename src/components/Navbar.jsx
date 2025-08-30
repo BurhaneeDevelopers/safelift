@@ -95,7 +95,7 @@ const Nav = () => {
     "G100 Lifting",
     "Warehouse Management Products",
     "Chains For Lifting",
-    "Wire Rope and Accessories",
+    "Wire Rope And Accessories",
     "Rope Pulley",
     "Permanent Magnet Lifting",
     "Lifting Clamps",

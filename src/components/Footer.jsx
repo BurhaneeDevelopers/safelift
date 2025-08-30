@@ -15,23 +15,59 @@ const Footer = () => {
           <div className="flex flex-wrap 3xl:!flex-nowrap justify-center sm:justify-between">
             <div className="text-white">
               <div className="flex justify-center text-white font-semibold sm:justify-start">
-                <SmallCaption>Safelift</SmallCaption>
+                <SmallCaption>Safelift Industries</SmallCaption>
               </div>
               <Body className="text-white min-w-fit">
+                <span className="block font-bold">Factory Address</span>
                 <span className="block">Ankurhati Industrial Park</span>
                 <span className="block">
                   Near Ludhiana Hotel (Pathak Machine)
                 </span>
-                <span className="block">NH-6 Domjur</span>
-                <span className="block">Howrah - 711-302</span>
+                <span className="block">NH-6 Domjur, Howrah - 711-302</span>
                 <span className="block">West Bengal</span>
                 <span className="block">
-                  Contact: +91 93308 36668 | +91 81005 45253
+                  Contact: +91 81005 45253
                 </span>
               </Body>
             </div>
 
             <div className="flex flex-col justify-center items-center gap-5 md:gap-0 md:flex-row flex-wrap md:justify-start lg:justify-end sm:items-start mt-10 xl:mt-0 divide-x divide-white">
+              <div className="text-center sm:text-start max-w-screen-sm text-white flex flex-col justify-center xl:justify-normal px-7">
+                <SmallCaption className="font-semibold mb-4 4xl:translate-x-10">
+                  Kolkata Head Office
+                </SmallCaption>
+
+                <div className="flex gap-1 mt-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 31.22 35.64"
+                    className="min-w-7 size-7 xl:min-w-10 xl:!size-10 hidden lg:flex"
+                  >
+                    <g id="Layer_2" data-name="Layer 2">
+                      <g id="Layer_1-2" data-name="Layer 1">
+                        <rect
+                          className="fill-[#01002f]"
+                          width="31.22"
+                          height="35.64"
+                        />
+                        <path
+                          className="fill-[#fff]"
+                          d="M19.41,14a3.83,3.83,0,0,1-4.19,3.39A3.93,3.93,0,0,1,13.78,17l-.28-.17a3.4,3.4,0,0,1-.28-.21A3.81,3.81,0,0,1,16,9.82,3.82,3.82,0,0,1,19.41,14ZM17.63,27.27a1.75,1.75,0,0,1,1,.44c.89,1-4.79,1.38-6,.41a.31.31,0,0,1,0-.47,3.38,3.38,0,0,1,1-.41l-1.06-1.48c-.93,0-6.53.84-5.57,2.48,1.3,2.22,13.07,2.64,16.65.54.49-.29,1-.8.47-1.42-.88-1-4.1-1.53-5.43-1.6l-1.05,1.51Zm-2,.67c2.74-3.56,5.8-7.81,7.54-12a6.58,6.58,0,0,0,.62-4,8.08,8.08,0,0,0-1.54-3.34L21.68,8a8.09,8.09,0,0,0-2.11-1.56,8.76,8.76,0,0,0-7.87,0A8,8,0,0,0,9,8.6c-2.92,3.74-1.45,6.94.65,10.67.35.63,1,1.67,1.38,2.27.17.26.34.48.5.73l3.55,5A5.62,5.62,0,0,0,15.62,27.94Z"
+                        />
+                      </g>
+                    </g>
+                  </svg>
+
+                  <Body className="text-white min-w-fit">
+                    <span className="block">24 Netaji Subhas Road</span>
+                    <span className="block">
+                      Kolkata - 700001
+                    </span>
+                    <span className="block">West Bengal - India</span>
+                  </Body>
+                </div>
+              </div>
+
               <div className="text-center sm:text-start max-w-screen-sm text-white flex flex-col justify-center xl:justify-normal px-7">
                 <SmallCaption className="font-semibold mb-4 4xl:translate-x-10">
                   Pune Branch

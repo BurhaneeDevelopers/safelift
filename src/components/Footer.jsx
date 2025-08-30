@@ -33,7 +33,7 @@ const Footer = () => {
 
             <div className="flex flex-col justify-center items-center gap-5 md:gap-0 md:flex-row flex-wrap md:justify-start lg:justify-end sm:items-start mt-10 xl:mt-0 divide-x divide-white">
               <div className="text-center sm:text-start max-w-screen-sm text-white flex flex-col justify-center xl:justify-normal px-7">
-                <SmallCaption className="font-semibold mb-4 4xl:translate-x-10">
+                <SmallCaption className="font-semibold mb-4">
                   Kolkata Head Office
                 </SmallCaption>
 

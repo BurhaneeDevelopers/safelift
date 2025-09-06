@@ -21,18 +21,22 @@ const ProductsRange = () => {
             <UpCard
               title={"Vertical Plate Lifting Clamp"}
               img={"/Home/Products-Range/prod-4.webp"}
+              category="lifting-clamps"
             />
             <DownCard
               title={"Polyester Sling"}
               img={"/Home/Products-Range/prod-2.webp"}
+              category="slings-for-lifting"
             />
             <UpCard
               title={"Swivel Hook"}
               img={"/Home/Products-Range/prod-3.webp"}
+              category="g80-lifting"
             />
             <DownCard
               title={"Chain Block"}
               img={"/Home/Products-Range/prod-1.webp"}
+              category="manual-hoist"
             />
           </div>
 
@@ -40,18 +44,23 @@ const ProductsRange = () => {
             <UpCard
               title={"Spring Balancer"}
               img={"/Home/Products-Range/prod-5.webp"}
+              category="spring-balance"
             />
             <DownCard
               title={"Chain Sling"}
               img={"/Home/Products-Range/prod-6.webp"}
+              category="g80-lifting"
+              slug="g80-master-link-assembly-with-enlarged-sublinks"
             />
             <UpCard
               title={"Hydraulic Lifting Table"}
               img={"/Home/Products-Range/prod-7.webp"}
+              category="manual"
             />
             <DownCard
-              title={"Electric Folk Lift"}
+              title={"Electric FolkLift"}
               img={"/Home/Products-Range/prod-8.webp"}
+              category="electric"
             />
           </div>
 
@@ -81,11 +90,11 @@ const ProductsRange = () => {
 
 export default ProductsRange;
 
-const UpCard = ({ title, img }) => {
+const UpCard = ({ title, img, category, slug }) => {
   return (
     <div className="flex flex-col items-center w-56 mx-5 mt-5" data-aos="fade-down">
       <Link
-        href={`/products/${slugify(title)}`}
+        href={`/products/${category}/${slug ? slug : slugify(title)}`}
         className="flex flex-col bg-[#a2d9f7] min-h-64 p-2 justify-center items-center max-h-64"
       >
         <Image
@@ -106,11 +115,11 @@ const UpCard = ({ title, img }) => {
   );
 };
 
-const DownCard = ({ title, img }) => {
+const DownCard = ({ title, img, category, slug }) => {
   return (
     <div className="flex flex-col items-center w-56 mx-5" data-aos="fade-up">
       <Link
-        href={`/products/${slugify(title)}`}
+        href={`/products/${category}/${slug ? slug : slugify(title)}`}
         className="flex flex-col bg-[#d4edfc] min-h-64 p-2 justify-center items-center my-5 sxm:mt-32 max-h-64"
       >
         <Image

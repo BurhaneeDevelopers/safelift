@@ -52,8 +52,8 @@ const Banner = ({
                 )}
               </div>
 
-              {highlightFeatures && (
-                <div className="flex -translate-y-10 translate-x-3">
+              {/* {highlightFeatures && (
+                <div className="flex -translate-y-10 translate-x-3 lg:hidden">
                   {highlightFeatures.map((feature, i) => {
                     return (
                       <HighlightFeatureCard
@@ -64,7 +64,7 @@ const Banner = ({
                     );
                   })}
                 </div>
-              )}
+              )} */}
             </div>
 
             <div className="flex flex-col justify-center items-center gap-4 w-full lg:w-auto">

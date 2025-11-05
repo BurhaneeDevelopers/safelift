@@ -6,9 +6,8 @@ import { slugify } from "@/utils/slugify";
 const Sidebar = ({ navbarOpen, setNavbarOpen }) => {
   return (
     <div
-      className={`bg-white h-full overflow-y-auto fixed left-0 top-0 z-50 w-96 ${
-        navbarOpen ? "inline-block" : "hidden"
-      }`}
+      className={`bg-white h-full overflow-y-auto fixed left-0 top-0 z-50 w-96 ${navbarOpen ? "inline-block" : "hidden"
+        }`}
     >
       <button
         className="absolute top-4 right-4 "
@@ -40,7 +39,7 @@ const Sidebar = ({ navbarOpen, setNavbarOpen }) => {
       </div>
 
       <nav className="my-10">
-        <Nav />
+        <Nav setNavbarOpen={setNavbarOpen} />
       </nav>
     </div>
   );
@@ -48,7 +47,7 @@ const Sidebar = ({ navbarOpen, setNavbarOpen }) => {
 
 export default Sidebar;
 
-const Nav = () => {
+const Nav = ({ setNavbarOpen }) => {
   const [openDropdown, setOpenDropdown] = useState(null);
 
   const toggleDropdown = (navTitle) => {
@@ -63,6 +62,7 @@ const Nav = () => {
         directRedirect={"/"}
         isOpen={openDropdown === "Home"}
         toggleDropdown={toggleDropdown}
+        setNavbarOpen={setNavbarOpen}
       />
 
       <NavLink
@@ -77,6 +77,7 @@ const Nav = () => {
         directRedirect={"/about"}
         isOpen={openDropdown === "About"}
         toggleDropdown={toggleDropdown}
+        setNavbarOpen={setNavbarOpen}
       />
 
       <NavLink
@@ -128,7 +129,8 @@ const Nav = () => {
         ]}
         isOpen={openDropdown === "Products"}
         toggleDropdown={toggleDropdown}
-        // directRedirect={"/products"}
+        setNavbarOpen={setNavbarOpen}
+      // directRedirect={"/products"}
       />
       <NavLink
         navTitle={"Contact Us"}
@@ -136,6 +138,7 @@ const Nav = () => {
         dropdownContent={[]}
         isOpen={openDropdown === "Contact Us"}
         toggleDropdown={toggleDropdown}
+        setNavbarOpen={setNavbarOpen}
       />
       <NavLink
         navTitle={"Infra & Manufacturing"}
@@ -143,6 +146,7 @@ const Nav = () => {
         directRedirect={"/infra"}
         isOpen={openDropdown === "Infra & Manufacturing"}
         toggleDropdown={toggleDropdown}
+        setNavbarOpen={setNavbarOpen}
       />
     </div>
   );
@@ -155,16 +159,19 @@ const NavLink = ({
   dHeight,
   isOpen,
   toggleDropdown,
+  setNavbarOpen
 }) => {
   const handleClick = () => {
     toggleDropdown(navTitle);
+    if (navTitle !== "Products") {
+      setNavbarOpen(false)
+    }
   };
   return (
     <li class="bg-gray-200 mt-3 flex flex-col pt-4">
       <Link
-        className={`px-4 ${
-          isOpen ? "font-bold text-[#008dd2]" : "font-medium"
-        }`}
+        className={`px-4 ${isOpen ? "font-bold text-[#008dd2]" : "font-medium"
+          }`}
         onClick={handleClick}
         href={`${directRedirect ? directRedirect : "#"}`}
       >
@@ -173,15 +180,14 @@ const NavLink = ({
 
       {/* DropDown Items  */}
       <span
-        className={`bg-gray-300 transition-all duration-500 ease-in-out mt-4 ${
-          isOpen ? dHeight || "h-0" : "h-0"
-        }`}
+        className={`bg-gray-300 transition-all duration-500 ease-in-out mt-4 ${isOpen ? dHeight || "h-0" : "h-0"
+          }`}
       >
         <ul className={`${isOpen ? "flex flex-col -mt-2" : "hidden"}`}>
           {dropdownContent?.map((item, i) => {
             return (
               <li key={i} className="py-3 px-6 font-medium">
-                <Link href={item?.navLink}>{item?.navSubTitle}</Link>
+                <Link href={item?.navLink} onClick={() => setNavbarOpen(false)}>{item?.navSubTitle}</Link>
               </li>
             );
           })}

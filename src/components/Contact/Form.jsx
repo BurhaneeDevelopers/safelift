@@ -5,7 +5,7 @@ import { Heading } from "../textComponents/Heading";
 
 const Form = () => {
   return (
-    <Container className="relative bg-[#050742] flex flex-col justify-center items-center border-b border-gray-500 overflow-hidden">
+    <Container className="relative bg-[#050742] flex flex-col justify-center items-center border-b border-gray-500 overflow-hidden h-full">
       {/* <div
         className="flex flex-col gap-4 4xl:gap-10 lg:max-w-screen-xs 2xl:max-w-screen-sm 4xl:max-w-screen-md"
         data-aos="fade-up"
@@ -26,7 +26,7 @@ const Form = () => {
         </Body>
       </div> */}
 
-      <div className="w-full flex sm:flex-nowrap flex-wrap flex-row-reverse ">
+      <div className="w-full flex sm:flex-nowrap flex-wrap flex-row-reverse h-full">
         <div
           className="w-full overflow-hidden sm:ml-10 items-end justify-start relative hidden lg:flex"
           data-aos="fade-left"
@@ -46,65 +46,16 @@ const Form = () => {
           className="flex flex-col gap-4 md:ml-auto w-full md:py-8 mt-8 md:mt-0 max-w-screen-sm"
           data-aos="fade-right"
         >
-          <div className="relative">
-            <label for="name" className="leading-7 text-sm text-white">
-              <Body>First Name</Body>
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              className="w-full bg-white border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 px-3 leading-8 transition-colors duration-200 ease-in-out rounded-sm"
-            />
-          </div>
-          <div className="relative">
-            <label for="name" className="leading-7 text-sm text-white">
-              <Body>Last Name</Body>
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              className="w-full bg-white border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 px-3 leading-8 transition-colors duration-200 ease-in-out rounded-sm"
-            />
-          </div>
-          <div className="relative">
-            <label for="email" className="leading-7 text-sm text-white">
-              <Body>Email *</Body>
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              className="w-full bg-white border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 px-3 leading-8 transition-colors duration-200 ease-in-out rounded-sm"
-            />
-          </div>
-          <div className="relative">
-            <label for="subject" className="leading-7 text-sm text-white">
-              <Body>Subject</Body>
-            </label>
-            <input
-              type="text"
-              id="subject"
-              name="subject"
-              className="w-full bg-white border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 px-3 leading-8 transition-colors duration-200 ease-in-out rounded-sm"
-            />
-          </div>
-          <div className="relative">
-            <label for="message" className="leading-7 text-sm text-white">
-              <Body>Message</Body>
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              className="w-full bg-white border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out rounded-sm"
-            ></textarea>
-          </div>
-          <div className="flex justify-end">
-            <button className=" bg-[#00aeef] border-0 !p-2 !px-6 focus:outline-none hover:bg-indigo-600">
-              <Body className="text-white font-semibold">Submit</Body>
-            </button>
-          </div>
+          <iframe
+            width="100%"
+            height="100%"
+            className="w-full h-[44rem]"
+            frameborder="0"
+            title="Form"
+            marginheight="0"
+            marginwidth="0"
+            src="https://safelift.smartcrmcloud.com/forms/wtl/770c5721df166201dfb73ea9a62d195f?styled=1"
+          />
         </div>
         <div
           className="w-full sm:ml-10 flex items-end justify-start relative border lg:hidden mt-10"

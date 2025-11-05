@@ -60,7 +60,7 @@ const BlogList = () => {
               </DynamicBody>
 
               <Link
-                href={"/blogs/" + blog.slug?.current}
+                href={`/blogs/${blog.slug?.current ?? "Hi"}`}
                 className="w-fit bg-[#050742] p-3 px-10"
                 rel="dofollow"
               >

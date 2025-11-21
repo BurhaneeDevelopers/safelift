@@ -40,7 +40,7 @@ const Banner = () => {
       <div className="absolute inset-0 h-screen 6xl:!max-h-[1080px] 6xl:7xl:max-w-[1920px] mx-auto w-full !z-0 bg-[#050742]/30" />
 
       <Container className="flex flex-col justify-center items-center xl:items-start h-full gap-4">
-        <Heading className="text-center 2xl:text-start block uppercase text-white font-semibold !leading-[1.2] xl:!leading-[1.1] lg:mt-32 z-10">
+        <Heading as="h1" className="text-center 2xl:text-start block uppercase text-white font-semibold !leading-[1.2] xl:!leading-[1.1] lg:mt-32 z-10">
           <span className="block">Your Trusted</span>
           <span className="block">Material Handling</span>
           <span className="block">Equipment Manufacturer</span>

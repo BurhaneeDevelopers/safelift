@@ -22,6 +22,19 @@ const nextConfig = {
     // unoptimized: true,
   },
   // output: "export",
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "index, follow",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

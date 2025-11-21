@@ -34,9 +34,10 @@ export default defineType({
       type: 'reference',
       to: [
         {type: 'product'}, // Reference to Product pages
+        {type: 'blogs'}, // Reference to Blog posts
         {type: 'customPage'}, // Reference to any other custom pages (like home, about)
       ],
-      description: 'Select the page this SEO metadata applies to',
+      description: 'Select the page this SEO metadata applies to (Product, Blog, or Custom Page)',
       hidden: ({document}) => !!document?.productCategory, // Hide if productCategory is selected
     }),
     defineField({
@@ -51,6 +52,23 @@ export default defineType({
       type: 'text',
       validation: (Rule) =>
         Rule.required().max(160).warning('Descriptions should be under 160 characters'),
+    }),
+    defineField({
+      name: 'keywords',
+      title: 'Meta Keywords',
+      type: 'array',
+      of: [{type: 'string'}],
+      description: 'Add relevant keywords for SEO (comma-separated)',
+      options: {
+        layout: 'tags',
+      },
+    }),
+    defineField({
+      name: 'publisher',
+      title: 'Publisher',
+      type: 'string',
+      description: 'Publisher name for the content',
+      initialValue: 'Safelift',
     }),
     defineField({
       name: 'canonical',
@@ -126,7 +144,16 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      subtitle: 'page.title',
+      pageTitle: 'page.title',
+      pageType: 'page._type',
+    },
+    prepare({title, pageTitle, pageType}) {
+      return {
+        title: title || 'Untitled SEO',
+        subtitle: pageTitle
+          ? `${pageType === 'blogs' ? 'Blog' : pageType === 'product' ? 'Product' : 'Page'}: ${pageTitle}`
+          : 'No page selected',
+      }
     },
   },
 })

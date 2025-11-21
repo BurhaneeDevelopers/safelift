@@ -1,4 +1,4 @@
-import { Inter, Montserrat } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import App from "@/components/App/App";
 import Script from "next/script";
@@ -8,54 +8,12 @@ const montserrat = Montserrat({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
+// Global metadata - page-specific metadata is defined in each page.js
 export const metadata = {
-  title: "Material Handling Equipment Manufacturers & Supplier | Safelift",
-  description:
-    "Safelift is a leading premium material handling equipment manufacturer & supplier in India. We offer quality material handling products like hoisting, lifting, slings, etc.",
-  alternates: {
-    canonical: "https://safelift.in/",
-  },
-  openGraph: {
-    title: "Material Handling Equipment Manufacturers & Supplier | Safelift",
-    description:
-      "Safelift is a leading premium material handling equipment manufacturer & supplier in India. We offer quality material handling products like hoisting, lifting, slings, etc.",
-    url: "https://safelift.in/",
-    siteName: "Safelift",
-    images: [
-      {
-        url: "https://safelift.in/og-image.jpg",
-        width: 800,
-        height: 600,
-        alt: "Safelift - Material Handling Equipment",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "@safelift",
-    title: "Material Handling Equipment Manufacturers & Supplier | Safelift",
-    description:
-      "Safelift is a leading premium material handling equipment manufacturer & supplier in India. We offer quality material handling products like hoisting, lifting, slings, etc.",
-    images: ["https://safelift.in/twitter-image.jpg"],
-  },
+  metadataBase: new URL("https://safelift.in"),
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-icon.png",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    nocache: false,
-    googleBot: {
-      index: true,
-      follow: true,
-      noimageindex: false,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
   },
 };
 

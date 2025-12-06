@@ -13,7 +13,6 @@ export default defineType({
       description: 'Enter the page URL path (e.g., "/" for home, "/about" for about page)',
       placeholder: '/',
     }),
-
     // SEO Settings Group
     defineField({
       name: 'seoTitle',

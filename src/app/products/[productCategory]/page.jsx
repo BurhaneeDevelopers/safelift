@@ -46,11 +46,31 @@ const metadataMap = {
   },
 };
 
-async function getSEOData(slug) {
-  return client.fetch(
-    `*[_type == "seo" && page->slug.current == $slug][0] {
+async function getProductCategorySEOData(categorySlug) {
+  // First, get the mainCategory with its built-in SEO data
+  const category = await client.fetch(
+    `*[_type == "mainCategory" && slug.current == $categorySlug][0] {
+      _id,
+      title,
+      seo {
+        metaTitle,
+        metaDescription,
+        keywords,
+        "ogImage": ogImage.asset->url
+      }
+    }`,
+    { categorySlug }
+  );
+
+  if (!category) return null;
+
+  // Then, try to get SEO data from SEO Settings that references this category
+  const seoSettings = await client.fetch(
+    `*[_type == "seo" && page._ref == $categoryId][0] {
       title,
       description,
+      keywords,
+      publisher,
       canonical,
       robots,
       openGraph {
@@ -71,13 +91,41 @@ async function getSEOData(slug) {
         "appleIcon": appleIcon.asset->url
       }
     }`,
-    { slug }
+    { categoryId: category._id }
   );
+
+  // If SEO Settings exist, use them; otherwise use category's built-in SEO
+  if (seoSettings) {
+    return seoSettings;
+  }
+
+  // Fallback to mainCategory's built-in SEO fields
+  if (category.seo) {
+    return {
+      title: category.seo.metaTitle || category.title,
+      description: category.seo.metaDescription,
+      keywords: category.seo.keywords,
+      publisher: "Safelift",
+      openGraph: {
+        ogTitle: category.seo.metaTitle || category.title,
+        ogDescription: category.seo.metaDescription,
+        ogImage: category.seo.ogImage,
+        ogType: "website",
+      },
+      twitter: {
+        twitterTitle: category.seo.metaTitle || category.title,
+        twitterDescription: category.seo.metaDescription,
+        twitterImage: category.seo.ogImage,
+        twitterCard: "summary_large_image",
+      },
+    };
+  }
+
+  return null;
 }
 
 export async function generateMetadata({ params }) {
-  const seoData = await getSEOData(params?.productCategory);
-  console.log(params)
+  const seoData = await getProductCategorySEOData(params?.productCategory);
 
   const path = params.productCategory
     ? `products/${params.productCategory}`
@@ -88,51 +136,58 @@ export async function generateMetadata({ params }) {
     description: "Explore high-quality products at Safelift.",
   };
 
+  if (!seoData) {
+    return {
+      title: meta.title,
+      description: meta.description,
+      alternates: {
+        canonical: `https://safelift.in/products/${params.productCategory}`,
+      },
+    };
+  }
+
   return {
-    title: seoData?.title || meta.title,
-    description: seoData?.description || meta.description,
+    title: seoData.title || meta.title,
+    description: seoData.description || meta.description,
+    keywords: seoData.keywords || [],
+    publisher: seoData.publisher || "Safelift",
     alternates: {
       canonical:
-        seoData?.canonical ||
-        `https://safelift.in/products/${slugify(params.productCategory)}`,
+        seoData.canonical ||
+        `https://safelift.in/products/${params.productCategory}`,
     },
-
     openGraph: {
-      title: seoData?.openGraph?.ogTitle || seoData?.title,
-      description: seoData?.openGraph?.ogDescription || seoData?.description,
-      url: seoData?.openGraph?.ogUrl || "https://safelift.in/",
+      title: seoData.openGraph?.ogTitle || seoData.title || meta.title,
+      description: seoData.openGraph?.ogDescription || seoData.description || meta.description,
+      url: seoData.openGraph?.ogUrl || `https://safelift.in/products/${params.productCategory}`,
       siteName: "Safelift",
-      images: seoData?.openGraph?.ogImage
+      images: seoData.openGraph?.ogImage
         ? [
             {
-              url: seoData.openGraph.ogImage.asset.url,
-              width: 800,
-              height: 600,
+              url: seoData.openGraph.ogImage,
+              width: 1200,
+              height: 630,
             },
           ]
         : [],
       locale: "en_US",
-      type: seoData?.openGraph?.ogType || "website",
+      type: seoData.openGraph?.ogType || "website",
     },
     twitter: {
-      card: seoData?.twitter?.twitterCard || "summary_large_image",
-      title: seoData?.twitter?.twitterTitle || seoData?.title,
-      description: seoData?.twitter?.twitterDescription || seoData?.description,
-      images: seoData?.twitter?.twitterImage
-        ? [seoData.twitter.twitterImage.asset.url]
+      card: seoData.twitter?.twitterCard || "summary_large_image",
+      title: seoData.twitter?.twitterTitle || seoData.title || meta.title,
+      description: seoData.twitter?.twitterDescription || seoData.description || meta.description,
+      images: seoData.twitter?.twitterImage
+        ? [seoData.twitter.twitterImage]
         : [],
     },
     icons: {
-      icon: seoData?.icons?.favicon
-        ? seoData.icons.favicon.asset.url
-        : "/favicon.ico",
-      apple: seoData?.icons?.appleIcon
-        ? seoData.icons.appleIcon.asset.url
-        : "/apple-icon.png",
+      icon: seoData.icons?.favicon || "/favicon.ico",
+      apple: seoData.icons?.appleIcon || "/apple-icon.png",
     },
     robots: {
-      index: seoData?.robots?.includes("index"),
-      follow: seoData?.robots?.includes("follow"),
+      index: seoData.robots?.includes("index") ?? true,
+      follow: seoData.robots?.includes("follow") ?? true,
     },
   };
 }

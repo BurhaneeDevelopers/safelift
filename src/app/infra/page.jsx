@@ -2,15 +2,19 @@ import Banner from "@/components/Banner";
 import ManufacturingUnit from "@/components/Infra/ManufacturingUnit";
 import Image from "next/image";
 import React from "react";
+import { getSEOData, generateMetadataFromSEO } from "@/utils/sanity";
 
-export const metadata = {
-  title: "Infra & Manufacturing | Safelift",
-  description:
-    "Explore Safelift’s advanced infra & manufacturing solutions. We deliver top-quality hoisting equipment & lifting tools for industrial excellence.",
-  alternates: {
-    canonical: `https://safelift.in/infra`,
-  },
-};
+export async function generateMetadata() {
+  const seoData = await getSEOData("/infra");
+  
+  return generateMetadataFromSEO(seoData, {
+    title: "Infra & Manufacturing | Safelift",
+    description: "Explore Safelift's advanced infra & manufacturing solutions. We deliver top-quality hoisting equipment & lifting tools for industrial excellence.",
+    alternates: {
+      canonical: "https://safelift.in/infra",
+    },
+  });
+}
 
 const Infra = () => {
   return (

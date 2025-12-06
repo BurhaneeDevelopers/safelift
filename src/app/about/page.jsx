@@ -4,15 +4,19 @@ import Workers from "@/components/About/Workers";
 import Banner from "@/components/Banner";
 import OurTeam from "@/components/Home/OurTeam";
 import React from "react";
+import { getSEOData, generateMetadataFromSEO } from "@/utils/sanity";
 
-export const metadata = {
-  title: "About Us | Safelift",
-  description:
-    "Safelift Industries delivers premium, globally compliant material handling solutions in India. Trusted for quality, innovation & efficiency.",
-  alternates: {
-    canonical: `https://safelift.in/about`,
-  },
-};
+export async function generateMetadata() {
+  const seoData = await getSEOData("/about");
+  
+  return generateMetadataFromSEO(seoData, {
+    title: "About Us | Safelift",
+    description: "Safelift Industries delivers premium, globally compliant material handling solutions in India. Trusted for quality, innovation & efficiency.",
+    alternates: {
+      canonical: "https://safelift.in/about",
+    },
+  });
+}
 
 const About = () => {
   return (

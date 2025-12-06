@@ -34,10 +34,11 @@ export default defineType({
       type: 'reference',
       to: [
         {type: 'product'}, // Reference to Product pages
+        {type: 'mainCategory'}, // Reference to Product Categories
         {type: 'blogs'}, // Reference to Blog posts
         {type: 'customPage'}, // Reference to any other custom pages (like home, about)
       ],
-      description: 'Select the page this SEO metadata applies to (Product, Blog, or Custom Page)',
+      description: 'Select the page this SEO metadata applies to (Product, Category, Blog, or Custom Page)',
       hidden: ({document}) => !!document?.productCategory, // Hide if productCategory is selected
     }),
     defineField({

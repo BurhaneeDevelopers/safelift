@@ -47,6 +47,38 @@ export default {
       type: 'text',
     },
     {
+      name: 'content',
+      title: 'Category Content (Rich Text)',
+      type: 'array',
+      description: 'Add detailed content about this category with rich text formatting',
+      of: [
+        {
+          type: 'block',
+        },
+        {
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
+          fields: [
+            {
+              name: 'caption',
+              type: 'string',
+              title: 'Caption',
+              options: {
+                isHighlighted: true,
+              },
+            },
+            {
+              name: 'attribution',
+              type: 'string',
+              title: 'Attribution',
+            },
+          ],
+        },
+      ],
+    },
+    {
       name: 'seo',
       title: 'SEO Metadata',
       type: 'object',

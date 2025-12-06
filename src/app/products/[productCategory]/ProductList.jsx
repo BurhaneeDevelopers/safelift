@@ -3,9 +3,12 @@ import { useEffect, useState } from "react";
 import { client } from "../../../../sanityBackend/lib/client";
 import Banner from "@/components/Banner";
 import { LargeCaption } from "@/components/textComponents/LargeCaption";
-import { unslugify, slugify } from "@/utils/slugify";
-import PaginatedProducts from "@/components/Product/PaginatedProducts";
+import { unslugify } from "@/utils/slugify";
 import { ProductCards } from "@/components/Product/ProductCards";
+import { PortableText } from "@portabletext/react";
+import { DynamicBody } from "@/components/textComponents/DynamicBody";
+import { components } from "@/utils/portableTextComponent";
+import Container from "@/components/constants/Container";
 
 const PRODUCTS_PER_PAGE = 20;
 
@@ -13,6 +16,7 @@ const ProductList = ({ params }) => {
   const [productsBySub, setProductsBySub] = useState({});
   const [expanded, setExpanded] = useState({});
   const [pageIndex, setPageIndex] = useState({});
+  const [categoryData, setCategoryData] = useState(null);
 
   const productCategory = decodeURIComponent(unslugify(params.productCategory));
 
@@ -22,6 +26,20 @@ const ProductList = ({ params }) => {
         const productsBySubTemp = {};
         const expandedMap = {};
         const pageIndexMap = {};
+
+        // Step 0: Get the main category data with content
+        const mainCategory = await client.fetch(
+          `*[_type == "mainCategory" && title == $title][0] {
+            _id,
+            title,
+            description,
+            content,
+            "categoryImage": categoryImage.asset->url
+          }`,
+          { title: productCategory }
+        );
+
+        setCategoryData(mainCategory);
 
         // Step 1: Get subcategories under this main category (via title)
         const subCategories = await client.fetch(
@@ -77,7 +95,8 @@ const ProductList = ({ params }) => {
 
   return (
     <div>
-      <Banner title="Products" ImageSource="/Products/Banner.webp" />
+      <Banner title={productCategory} ImageSource="/Products/Banner.webp" />
+
       <div className="p-10 sm:p-20">
         {Object.keys(productsBySub).length > 0 ? (
           <>
@@ -114,52 +133,54 @@ const ProductList = ({ params }) => {
                   <div key={subId} className="mb-10">
                     <button
                       onClick={() => toggleExpand(subId)}
-                      className="text-lg font-bold text-left w-full bg-blue-200 px-4 py-2 rounded"
+                      className="text-xl font-bold text-left w-full bg-[#0493cf] hover:bg-[#0493cf]/90 text-white px-6 py-4 rounded-lg transition-all duration-200 flex items-center justify-between shadow-md"
                     >
-                      {subId} {expanded[subId] ? "▲" : "▼"}
+                      <span>{subId}</span>
+                      <span className="text-2xl">{expanded[subId] ? "▲" : "▼"}</span>
                     </button>
 
                     {expanded[subId] && (
-                      <div className="mt-4">
+                      <div className="mt-6">
                         {paginated && paginated.length !== 0 ? (
                           <>
                             <div className="flex flex-wrap justify-center">
-                              {paginated &&
-                                paginated.length !== 0 &&
-                                paginated?.map((item, idx) => (
-                                  <ProductCards
-                                    key={idx}
-                                    title={item?.title}
-                                    series={item?.series ?? ""}
-                                    productimage={item?.productimage}
-                                    productCategory={productCategory}
-                                    slug={item?.slug?.current}
-                                  />
-                                ))}
+                              {paginated.map((item, idx) => (
+                                <ProductCards
+                                  key={idx}
+                                  title={item?.title}
+                                  series={item?.series ?? ""}
+                                  productimage={item?.productimage}
+                                  productCategory={productCategory}
+                                  slug={item?.slug?.current}
+                                />
+                              ))}
                             </div>
-                            <div className="flex justify-center gap-4 mt-4">
+                            <div className="flex justify-center gap-4 mt-6">
                               <button
                                 onClick={() => changePage(subId, -1)}
                                 disabled={currentPage === 0}
-                                className={`px-4 py-1 rounded ${
+                                className={`px-6 py-2 rounded-lg font-semibold transition-all ${
                                   currentPage === 0
-                                    ? "bg-indigo-400 opacity-50"
-                                    : "bg-indigo-400 text-white"
+                                    ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                                    : "bg-[#050742] text-white hover:bg-[#050742]/90"
                                 }`}
                               >
-                                Prev
+                                Previous
                               </button>
+                              <span className="px-4 py-2 text-[#050742] font-semibold">
+                                Page {currentPage + 1} of {Math.ceil(products.length / PRODUCTS_PER_PAGE)}
+                              </span>
                               <button
                                 onClick={() => changePage(subId, 1)}
                                 disabled={
                                   (currentPage + 1) * PRODUCTS_PER_PAGE >=
                                   products.length
                                 }
-                                className={`px-4 py-1 rounded ${
+                                className={`px-6 py-2 rounded-lg font-semibold transition-all ${
                                   (currentPage + 1) * PRODUCTS_PER_PAGE >=
                                   products.length
-                                    ? "bg-indigo-400 opacity-50"
-                                    : "bg-indigo-400 text-white"
+                                    ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                                    : "bg-[#050742] text-white hover:bg-[#050742]/90"
                                 }`}
                               >
                                 Next
@@ -167,7 +188,7 @@ const ProductList = ({ params }) => {
                             </div>
                           </>
                         ) : (
-                          <LargeCaption className="text-center">
+                          <LargeCaption className="text-center text-gray-500">
                             No products in this sub-category.
                           </LargeCaption>
                         )}
@@ -183,6 +204,17 @@ const ProductList = ({ params }) => {
           </LargeCaption>
         )}
       </div>
+
+      {/* Category Rich Text Content - Moved to Bottom */}
+      {categoryData?.content && categoryData.content.length > 0 && (
+        <div className="bg-gray-50 py-10">
+          <Container>
+            <DynamicBody>
+              <PortableText value={categoryData.content} components={components} />
+            </DynamicBody>
+          </Container>
+        </div>
+      )}
     </div>
   );
 };

@@ -14,7 +14,7 @@ const PRODUCTS_PER_PAGE = 20;
 
 const ProductList = ({ params }) => {
   const [productsBySub, setProductsBySub] = useState({});
-  const [expanded, setExpanded] = useState({});
+  const [activeTab, setActiveTab] = useState("");
   const [pageIndex, setPageIndex] = useState({});
   const [categoryData, setCategoryData] = useState(null);
 
@@ -24,7 +24,6 @@ const ProductList = ({ params }) => {
     const fetchData = async () => {
       try {
         const productsBySubTemp = {};
-        const expandedMap = {};
         const pageIndexMap = {};
 
         // Step 0: Get the main category data with content
@@ -55,7 +54,6 @@ const ProductList = ({ params }) => {
           );
 
           productsBySubTemp[subCat.title] = subProducts;
-          expandedMap[subCat.title] = false;
           pageIndexMap[subCat.title] = 0;
         }
 
@@ -66,14 +64,18 @@ const ProductList = ({ params }) => {
         );
 
         if (mainOnlyProducts.length > 0) {
-          productsBySubTemp["uncategorized"] = mainOnlyProducts;
-          expandedMap["uncategorized"] = true;
-          pageIndexMap["uncategorized"] = 0;
+          productsBySubTemp["All Products"] = mainOnlyProducts;
+          pageIndexMap["All Products"] = 0;
         }
 
         setProductsBySub(productsBySubTemp);
-        setExpanded(expandedMap);
         setPageIndex(pageIndexMap);
+        
+        // Set the first tab as active
+        const tabs = Object.keys(productsBySubTemp);
+        if (tabs.length > 0) {
+          setActiveTab(tabs[0]);
+        }
       } catch (err) {
         console.error("Error fetching products:", err);
       }
@@ -82,16 +84,15 @@ const ProductList = ({ params }) => {
     fetchData();
   }, [productCategory]);
 
-  const toggleExpand = (slug) => {
-    setExpanded((prev) => ({ ...prev, [slug]: !prev[slug] }));
-  };
-
   const changePage = (slug, direction) => {
     setPageIndex((prev) => ({
       ...prev,
       [slug]: Math.max(0, prev[slug] + direction),
     }));
   };
+
+  const subcategories = Object.keys(productsBySub).filter(key => key !== "All Products");
+  const hasSubcategories = subcategories.length > 0;
 
   return (
     <div>
@@ -100,103 +101,94 @@ const ProductList = ({ params }) => {
       <div className="p-10 sm:p-20">
         {Object.keys(productsBySub).length > 0 ? (
           <>
-            {/* Show uncategorized (main-only) products */}
-            {productsBySub["uncategorized"] &&
-              productsBySub["uncategorized"].length > 0 && (
-                <div className="mb-10">
-                  <div className="flex flex-wrap justify-center">
-                    {productsBySub["uncategorized"].map((item, idx) => (
-                      <ProductCards
-                        key={idx}
-                        title={item.title}
-                        series={item?.series ?? ""}
-                        productimage={item.productimage}
-                        productCategory={productCategory}
-                        slug={item.slug.current}
-                      />
-                    ))}
-                  </div>
-                </div>
-              )}
-
-            {/* Render subcategory sections */}
-            {Object.entries(productsBySub)
-              .filter(([subId]) => subId !== "uncategorized")
-              .map(([subId, products]) => {
-                const currentPage = pageIndex[subId] || 0;
-                const paginated = products.slice(
-                  currentPage * PRODUCTS_PER_PAGE,
-                  (currentPage + 1) * PRODUCTS_PER_PAGE
-                );
-
-                return (
-                  <div key={subId} className="mb-10">
+            {/* Tab Navigation - Only show if there are subcategories */}
+            {hasSubcategories && (
+              <div className="mb-8">
+                <div className="flex flex-wrap gap-2 border-b-2 border-gray-200">
+                  {Object.keys(productsBySub).map((tabName) => (
                     <button
-                      onClick={() => toggleExpand(subId)}
-                      className="text-xl font-bold text-left w-full bg-[#0493cf] hover:bg-[#0493cf]/90 text-white px-6 py-4 rounded-lg transition-all duration-200 flex items-center justify-between shadow-md"
+                      key={tabName}
+                      onClick={() => setActiveTab(tabName)}
+                      className={`px-6 py-3 font-semibold text-lg transition-all duration-200 ${
+                        activeTab === tabName
+                          ? "bg-[#0493cf] text-white border-b-4 border-[#050742]"
+                          : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      }`}
                     >
-                      <span>{subId}</span>
-                      <span className="text-2xl">{expanded[subId] ? "▲" : "▼"}</span>
+                      {tabName}
                     </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
-                    {expanded[subId] && (
-                      <div className="mt-6">
-                        {paginated && paginated.length !== 0 ? (
-                          <>
-                            <div className="flex flex-wrap justify-center">
-                              {paginated.map((item, idx) => (
-                                <ProductCards
-                                  key={idx}
-                                  title={item?.title}
-                                  series={item?.series ?? ""}
-                                  productimage={item?.productimage}
-                                  productCategory={productCategory}
-                                  slug={item?.slug?.current}
-                                />
-                              ))}
-                            </div>
-                            <div className="flex justify-center gap-4 mt-6">
-                              <button
-                                onClick={() => changePage(subId, -1)}
-                                disabled={currentPage === 0}
-                                className={`px-6 py-2 rounded-lg font-semibold transition-all ${
-                                  currentPage === 0
-                                    ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                                    : "bg-[#050742] text-white hover:bg-[#050742]/90"
-                                }`}
-                              >
-                                Previous
-                              </button>
-                              <span className="px-4 py-2 text-[#050742] font-semibold">
-                                Page {currentPage + 1} of {Math.ceil(products.length / PRODUCTS_PER_PAGE)}
-                              </span>
-                              <button
-                                onClick={() => changePage(subId, 1)}
-                                disabled={
-                                  (currentPage + 1) * PRODUCTS_PER_PAGE >=
-                                  products.length
-                                }
-                                className={`px-6 py-2 rounded-lg font-semibold transition-all ${
-                                  (currentPage + 1) * PRODUCTS_PER_PAGE >=
-                                  products.length
-                                    ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                                    : "bg-[#050742] text-white hover:bg-[#050742]/90"
-                                }`}
-                              >
-                                Next
-                              </button>
-                            </div>
-                          </>
-                        ) : (
-                          <LargeCaption className="text-center text-gray-500">
-                            No products in this sub-category.
-                          </LargeCaption>
-                        )}
+            {/* Tab Content */}
+            {Object.entries(productsBySub).map(([tabName, products]) => {
+              const currentPage = pageIndex[tabName] || 0;
+              const paginated = products.slice(
+                currentPage * PRODUCTS_PER_PAGE,
+                (currentPage + 1) * PRODUCTS_PER_PAGE
+              );
+
+              // Show content only if it's the active tab (or if no subcategories exist)
+              if (hasSubcategories && activeTab !== tabName) return null;
+
+              return (
+                <div key={tabName}>
+                  {paginated && paginated.length > 0 ? (
+                    <>
+                      <div className="flex flex-wrap justify-center">
+                        {paginated.map((item, idx) => (
+                          <ProductCards
+                            key={idx}
+                            title={item?.title}
+                            series={item?.series ?? ""}
+                            productimage={item?.productimage}
+                            productCategory={productCategory}
+                            slug={item?.slug?.current}
+                          />
+                        ))}
                       </div>
-                    )}
-                  </div>
-                );
-              })}
+
+                      {/* Pagination */}
+                      {products.length > PRODUCTS_PER_PAGE && (
+                        <div className="flex justify-center items-center gap-4 mt-10">
+                          <button
+                            onClick={() => changePage(tabName, -1)}
+                            disabled={currentPage === 0}
+                            className={`px-6 py-2 rounded-lg font-semibold transition-all ${
+                              currentPage === 0
+                                ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                                : "bg-[#050742] text-white hover:bg-[#050742]/90"
+                            }`}
+                          >
+                            Previous
+                          </button>
+                          <span className="px-4 py-2 text-[#050742] font-semibold">
+                            Page {currentPage + 1} of {Math.ceil(products.length / PRODUCTS_PER_PAGE)}
+                          </span>
+                          <button
+                            onClick={() => changePage(tabName, 1)}
+                            disabled={(currentPage + 1) * PRODUCTS_PER_PAGE >= products.length}
+                            className={`px-6 py-2 rounded-lg font-semibold transition-all ${
+                              (currentPage + 1) * PRODUCTS_PER_PAGE >= products.length
+                                ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                                : "bg-[#050742] text-white hover:bg-[#050742]/90"
+                            }`}
+                          >
+                            Next
+                          </button>
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <LargeCaption className="text-center text-gray-500 py-10">
+                      No products available in this category.
+                    </LargeCaption>
+                  )}
+                </div>
+              );
+            })}
           </>
         ) : (
           <LargeCaption className="text-center text-[#050742]">

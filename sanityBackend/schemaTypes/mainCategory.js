@@ -41,11 +41,11 @@ export default {
         slugify: (input) => input.toLowerCase().replace(/\s+/g, '-').slice(0, 100),
       },
     },
-    {
-      name: 'description',
-      title: 'Short Description',
-      type: 'text',
-    },
+    // {
+    //   name: 'description',
+    //   title: 'Short Description',
+    //   type: 'text',
+    // },
     {
       name: 'content',
       title: 'Category Content (Rich Text)',
@@ -78,36 +78,36 @@ export default {
         },
       ],
     },
-    {
-      name: 'seo',
-      title: 'SEO Metadata',
-      type: 'object',
-      fields: [
-        {
-          name: 'metaTitle',
-          title: 'Meta Title',
-          type: 'string',
-          validation: (Rule) => Rule.max(60),
-        },
-        {
-          name: 'metaDescription',
-          title: 'Meta Description',
-          type: 'text',
-          validation: (Rule) => Rule.max(160),
-        },
-        {
-          name: 'keywords',
-          title: 'Keywords',
-          type: 'array',
-          of: [{ type: 'string' }],
-        },
-        {
-          name: 'ogImage',
-          title: 'Open Graph Image',
-          type: 'image',
-          options: { hotspot: true },
-        },
-      ],
-    },
+    // {
+    //   name: 'seo',
+    //   title: 'SEO Metadata',
+    //   type: 'object',
+    //   fields: [
+    //     {
+    //       name: 'metaTitle',
+    //       title: 'Meta Title',
+    //       type: 'string',
+    //       validation: (Rule) => Rule.max(60),
+    //     },
+    //     {
+    //       name: 'metaDescription',
+    //       title: 'Meta Description',
+    //       type: 'text',
+    //       validation: (Rule) => Rule.max(160),
+    //     },
+    //     {
+    //       name: 'keywords',
+    //       title: 'Keywords',
+    //       type: 'array',
+    //       of: [{ type: 'string' }],
+    //     },
+    //     {
+    //       name: 'ogImage',
+    //       title: 'Open Graph Image',
+    //       type: 'image',
+    //       options: { hotspot: true },
+    //     },
+    //   ],
+    // },
   ],
 }

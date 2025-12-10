@@ -1,5 +1,5 @@
 import { getSEOData, generateMetadataFromSEO } from "@/utils/sanity";
-import ProductsClient from "./ProductsClient";
+import ProductsServer from "./ProductsServer";
 
 export async function generateMetadata() {
   const seoData = await getSEOData("/products");
@@ -14,5 +14,5 @@ export async function generateMetadata() {
 }
 
 export default function Products() {
-  return <ProductsClient />;
+  return <ProductsServer />;
 }

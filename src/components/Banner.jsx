@@ -17,8 +17,8 @@ const Banner = ({ title, ImageSource }) => {
           className="flex flex-col items-center justify-center"
           data-aos="fade-up"
         >
-          <div className="flex flex-col items-center">
-            <h1 className="font-inter text-white text-captionLarge xl:text-mdcaptionLarge 4xl:text-lgcaptionLarge 6xl:text-mdsubTitle leading-snug font-bold">
+          <div className="flex flex-col items-center text-center">
+            <h1 className="font-inter text-white text-captionLarge xl:text-mdcaptionLarge 4xl:text-lgcaptionLarge 6xl:text-mdsubTitle leading-snug font-bold text-center">
               {title}
             </h1>
             <div className="bg-[#008dd2] w-52 sm:w-56 mx-auto md:mx-0 md:w-60 h-1.5 mt-2 mb-4"></div>

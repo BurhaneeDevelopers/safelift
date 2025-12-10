@@ -7,7 +7,29 @@ const client = createClient({
   apiVersion: "2025-03-05",
 });
 
+// Create a client with revalidation for server-side fetching
+export const clientWithRevalidation = createClient({
+  projectId: "n12km8si",
+  dataset: "production",
+  useCdn: false,
+  apiVersion: "2025-03-05",
+  // Add token for authenticated requests if needed for draft content
+  // token: process.env.SANITY_API_TOKEN,
+});
+
 export default client;
+
+// Generic fetch function with revalidation for server components
+export async function fetchWithRevalidation(query, params = {}, revalidateTime = 60) {
+  try {
+    return await client.fetch(query, params, {
+      next: { revalidate: revalidateTime }
+    });
+  } catch (error) {
+    console.error("Error fetching data from Sanity:", error);
+    return null;
+  }
+}
 
 // Helper function to fetch SEO data for a specific page by URL
 export async function getSEOData(pageUrl) {
@@ -38,7 +60,10 @@ export async function getSEOData(pageUrl) {
   }`;
 
   try {
-    const seoData = await client.fetch(query, { pageUrl });
+    const seoData = await client.fetch(query, { pageUrl }, {
+      // Revalidate every 60 seconds
+      next: { revalidate: 60 }
+    });
     return seoData;
   } catch (error) {
     console.error("Error fetching SEO data:", error);
@@ -96,7 +121,9 @@ export async function getBlogSEOData(blogSlug) {
   }`;
 
   try {
-    const blogData = await client.fetch(query, { blogSlug });
+    const blogData = await client.fetch(query, { blogSlug }, {
+      next: { revalidate: 60 }
+    });
     
     if (!blogData) return null;
 
@@ -154,7 +181,9 @@ export async function getSEODataByReference(referenceId, referenceType) {
   }`;
 
   try {
-    const seoData = await client.fetch(query, { referenceId });
+    const seoData = await client.fetch(query, { referenceId }, {
+      next: { revalidate: 60 }
+    });
     return seoData;
   } catch (error) {
     console.error("Error fetching SEO data by reference:", error);
@@ -172,7 +201,9 @@ export async function getProductSEOData(productSlug) {
   }`;
 
   try {
-    const productData = await client.fetch(query, { productSlug });
+    const productData = await client.fetch(query, { productSlug }, {
+      next: { revalidate: 60 }
+    });
     
     if (!productData) return null;
 

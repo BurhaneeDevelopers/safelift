@@ -22,6 +22,13 @@ const nextConfig = {
     // unoptimized: true,
   },
   // output: "export",
+  
+  // Enable experimental features for better revalidation
+  experimental: {
+    // Enable partial prerendering for better performance
+    ppr: false,
+  },
+  
   async headers() {
     return [
       {
@@ -30,6 +37,10 @@ const nextConfig = {
           {
             key: "X-Robots-Tag",
             value: "index, follow",
+          },
+          {
+            key: "Cache-Control",
+            value: "public, s-maxage=60, stale-while-revalidate=300",
           },
         ],
       },

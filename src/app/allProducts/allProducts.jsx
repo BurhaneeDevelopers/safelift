@@ -62,10 +62,10 @@ export default AllProducts;
 
 const ProductCards = ({ title, image }) => {
   return (
-    <div class="relative block !size-96 m-3">
-      <span class="absolute inset-0 border-4 border-gray-200" />
+    <div className="relative block !size-96 m-3">
+      <span className="absolute inset-0 border-4 border-gray-200" />
 
-      <div class="relative flex justify-center items-center h-full transform transition-transform -translate-x-4 -translate-y-4">
+      <div className="relative flex justify-center items-center h-full transform transition-transform -translate-x-4 -translate-y-4">
         <Image
           src={image}
           alt="ProofLoad"

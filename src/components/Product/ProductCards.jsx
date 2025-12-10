@@ -24,7 +24,7 @@ export const ProductCards = ({
         }
         className="w-96 h-96 border-4 border-gray-200"
       >
-        <div class="relative flex justify-center items-center h-full transform transition-transform p-2">
+        <div className="relative flex justify-center items-center h-full transform transition-transform p-2">
           <Image
             src={urlForImage(productimage)}
             alt={productCategory}

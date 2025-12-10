@@ -101,8 +101,8 @@
 //       {/* Highlight Section  */}
 //       {product?.highlightPoints?.length > 0 && (
 //         <div className="p-10 md:p-20">
-//           <div class="grid grid-cols-1 xl:grid-cols-3">
-//             <div class="bg-gray-200 lg:col-span-2 p-5 md:p-10">
+//           <div className="grid grid-cols-1 xl:grid-cols-3">
+//             <div className="bg-gray-200 lg:col-span-2 p-5 md:p-10">
 //               <h3 className="text-[#1486b8] font-bold text-3xl sm:text-4xl mb-5">
 //                 Highlights
 //               </h3>
@@ -111,7 +111,7 @@
 //                 return <HighlightPoint key={i} title={point} />;
 //               })}
 //             </div>
-//             <div class="">
+//             <div className="">
 //               <Image
 //                 src={"/Product/HighlightsImage.webp"}
 //                 alt="Highlight Image"
@@ -185,9 +185,9 @@
 //           `${slugify(productCategory)}/` +
 //           slugify(item?.slug.current)
 //         }
-//         class="w-96 h-96 border-4 border-gray-200"
+//         className="w-96 h-96 border-4 border-gray-200"
 //       >
-//         <div class="relative flex justify-center items-center h-full transform transition-transform p-2">
+//         <div className="relative flex justify-center items-center h-full transform transition-transform p-2">
 //           <Image
 //             src={urlForImage(item?.productimage)}
 //             alt={item?.title}

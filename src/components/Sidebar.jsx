@@ -168,7 +168,7 @@ const NavLink = ({
     }
   };
   return (
-    <li class="bg-gray-200 mt-3 flex flex-col pt-4">
+    <li className="bg-gray-200 mt-3 flex flex-col pt-4">
       <Link
         className={`px-4 ${isOpen ? "font-bold text-[#008dd2]" : "font-medium"
           }`}

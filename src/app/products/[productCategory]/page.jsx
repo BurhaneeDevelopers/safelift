@@ -46,7 +46,9 @@ const metadataMap = {
 };
 
 export async function generateMetadata({ params }) {
-  const categorySlug = params?.productCategory;
+  // Await params to get the actual values
+  const resolvedParams = await params;
+  const categorySlug = resolvedParams?.productCategory;
   const pageUrl = `/${categorySlug}`;
   
   // Fetch SEO data from Custom Pages using the page URL
@@ -65,6 +67,8 @@ export async function generateMetadata({ params }) {
   return generateMetadataFromSEO(seoData, fallbackMeta);
 }
 
-export default function ProductCategoryPage({ params }) {
-  return <ProductList params={params} />;
+export default async function ProductCategoryPage({ params }) {
+  // Await params before passing to ProductList
+  const resolvedParams = await params;
+  return <ProductList params={resolvedParams} />;
 }

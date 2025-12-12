@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Disable source maps to prevent parsing errors
+  productionBrowserSourceMaps: false,
+  
   images: {
     remotePatterns: [
       {
@@ -21,14 +24,7 @@ const nextConfig = {
     ],
     // unoptimized: true,
   },
-  // output: "export",
-  
-  // Enable experimental features for better revalidation
-  experimental: {
-    // Enable partial prerendering for better performance
-    ppr: false,
-  },
-  
+
   async headers() {
     return [
       {

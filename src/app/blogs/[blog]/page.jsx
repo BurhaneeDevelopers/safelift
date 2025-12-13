@@ -74,7 +74,9 @@ async function getBlogSEOData(slug) {
 }
 
 export async function generateMetadata({ params }) {
-  const seoData = await getBlogSEOData(params?.blog);
+  // Await params first
+  const resolvedParams = await params;
+  const seoData = await getBlogSEOData(resolvedParams?.blog);
 
   if (!seoData) {
     return {
@@ -91,12 +93,12 @@ export async function generateMetadata({ params }) {
     alternates: {
       canonical:
         seoData.canonical ||
-        `https://safelift.in/blogs/${params.blog}`,
+        `https://safelift.in/blogs/${resolvedParams.blog}`,
     },
     openGraph: {
       title: seoData.openGraph?.ogTitle || seoData.title,
       description: seoData.openGraph?.ogDescription || seoData.description,
-      url: seoData.openGraph?.ogUrl || `https://safelift.in/blogs/${params.blog}`,
+      url: seoData.openGraph?.ogUrl || `https://safelift.in/blogs/${resolvedParams.blog}`,
       siteName: "Safelift",
       images: seoData.openGraph?.ogImage
         ? [
@@ -129,6 +131,8 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function ProductCategoryPage({ params }) {
-  return <BlogList params={params} />;
+export default async function ProductCategoryPage({ params }) {
+  // Await params before passing to BlogList
+  const resolvedParams = await params;
+  return <BlogList params={resolvedParams} />;
 }

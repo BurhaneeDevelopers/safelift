@@ -75,6 +75,13 @@ export async function getSEOData(pageUrl) {
 export function generateMetadataFromSEO(seoData, fallbackMetadata = {}) {
   if (!seoData) return fallbackMetadata;
 
+  // Parse robots string into boolean values
+  const robotsString = seoData.robots || fallbackMetadata.robots;
+  const robotsConfig = robotsString ? {
+    index: robotsString.includes('index') && !robotsString.includes('noindex'),
+    follow: robotsString.includes('follow') && !robotsString.includes('nofollow'),
+  } : undefined;
+
   return {
     title: seoData.title || fallbackMetadata.title,
     description: seoData.description || fallbackMetadata.description,
@@ -83,28 +90,28 @@ export function generateMetadataFromSEO(seoData, fallbackMetadata = {}) {
     alternates: {
       canonical: seoData.canonical || fallbackMetadata.alternates?.canonical,
     },
-    robots: seoData.robots || fallbackMetadata.robots,
+    robots: robotsConfig || fallbackMetadata.robots,
     openGraph: {
-      title: seoData.openGraph?.ogTitle || seoData.title || fallbackMetadata.openGraph?.title,
-      description: seoData.openGraph?.ogDescription || seoData.description || fallbackMetadata.openGraph?.description,
-      url: seoData.openGraph?.ogUrl || fallbackMetadata.openGraph?.url,
-      siteName: fallbackMetadata.openGraph?.siteName || "Safelift",
+      title: seoData.openGraph?.ogTitle || seoData.title || fallbackMetadata.openGraph?.title || fallbackMetadata.title,
+      description: seoData.openGraph?.ogDescription || seoData.description || fallbackMetadata.openGraph?.description || fallbackMetadata.description,
+      url: seoData.openGraph?.ogUrl || seoData.canonical || fallbackMetadata.openGraph?.url || fallbackMetadata.alternates?.canonical,
+      siteName: "Safelift",
       images: seoData.openGraph?.ogImage
         ? [{ url: seoData.openGraph.ogImage }]
-        : fallbackMetadata.openGraph?.images,
+        : fallbackMetadata.openGraph?.images || [],
       type: seoData.openGraph?.ogType || fallbackMetadata.openGraph?.type || "website",
     },
     twitter: {
       card: seoData.twitter?.twitterCard || fallbackMetadata.twitter?.card || "summary_large_image",
-      title: seoData.twitter?.twitterTitle || seoData.title || fallbackMetadata.twitter?.title,
-      description: seoData.twitter?.twitterDescription || seoData.description || fallbackMetadata.twitter?.description,
+      title: seoData.twitter?.twitterTitle || seoData.title || fallbackMetadata.twitter?.title || fallbackMetadata.title,
+      description: seoData.twitter?.twitterDescription || seoData.description || fallbackMetadata.twitter?.description || fallbackMetadata.description,
       images: seoData.twitter?.twitterImage
         ? [seoData.twitter.twitterImage]
-        : fallbackMetadata.twitter?.images,
+        : fallbackMetadata.twitter?.images || [],
     },
     icons: {
-      icon: seoData.icons?.favicon || fallbackMetadata.icons?.icon,
-      apple: seoData.icons?.appleIcon || fallbackMetadata.icons?.apple,
+      icon: seoData.icons?.favicon || fallbackMetadata.icons?.icon || "/favicon.ico",
+      apple: seoData.icons?.appleIcon || fallbackMetadata.icons?.apple || "/apple-icon.png",
     },
   };
 }
@@ -205,8 +212,8 @@ export async function getProductSEOData(productSlug) {
   const query = `*[_type == "product" && slug.current == $productSlug][0]{
     _id,
     title,
-    description,
-    "image": image.asset->url
+    "description": series,
+    "image": productimage.asset->url
   }`;
 
   try {

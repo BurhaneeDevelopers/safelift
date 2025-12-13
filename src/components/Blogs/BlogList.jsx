@@ -15,14 +15,18 @@ import { LargeCaption } from "../textComponents/LargeCaption";
 
 const BlogList = () => {
   const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
         const result = await client.fetch(`*[_type == "blogs"]`);
         setBlogs(result);
       } catch (error) {
         console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -40,7 +44,11 @@ const BlogList = () => {
           : "flex justify-center items-center"
       }
     >
-      {blogs.length !== 0 ? (
+      {loading ? (
+        <LargeCaption className="text-center text-[#050742] mx-auto">
+          Loading blogs...
+        </LargeCaption>
+      ) : blogs.length !== 0 ? (
         blogs.map((blog, i) => (
           <article key={i} className="group cursor-pointer">
             <Image

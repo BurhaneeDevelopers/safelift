@@ -2,7 +2,7 @@
 import CenterHeading from "@/components/CenterHeading";
 import Banner from "@/components/Product/Banner";
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React, { useEffect, use } from "react";
 import { useState } from "react";
 import { HighlightFeatureCard } from "@/components/Product/HighlightFeatureCard";
 import { slugify, unslugify } from "@/utils/slugify";
@@ -13,10 +13,13 @@ import { Body } from "@/components/textComponents/Body";
 import { Download, ArrowRight } from "lucide-react";
 
 const Product = ({ params }) => {
-  const [product, setProduct] = useState([]);
-  // const builder = imageUrlBuilder(client);
+  // Unwrap the params Promise using React's use() hook
+  const resolvedParams = use(params);
+  const productSlug = resolvedParams.product;
+  const productCategory = decodeURIComponent(unslugify(resolvedParams.productCategory));
 
-  const productSlug = params.product;
+  const [product, setProduct] = useState([]);
+  const [products, setProducts] = useState([]);
 
   // Search Single Product
   useEffect(() => {
@@ -32,15 +35,12 @@ const Product = ({ params }) => {
       }
     };
 
-    fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    if (productSlug) {
+      fetchData();
+    }
+  }, [productSlug]);
 
   // Search All Products
-  const [products, setProducts] = useState([]);
-
-  const productCategory = decodeURIComponent(unslugify(params.productCategory));
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -86,10 +86,6 @@ const Product = ({ params }) => {
         highlightFeatures={product?.highlightFeatures}
       />
 
-      {/* <div className="bg-[#050742] py-5 my-10 lg:hidden flex">
-        <CenterHeading title={product?.title} textColor={"text-white"} />
-      </div> */}
-
       <div className="flex flex-wrap justify-end items-center gap-4 pt-5 px-10 lg:px-20">
         <Link href={"/about"} className="w-full flex-grow lg:w-fit bg-[#050742] p-3 px-10 2xl:mt-7 flex gap-2 items-center justify-center text-center text-white">
           <ArrowRight className="-rotate-45" />
@@ -115,24 +111,10 @@ const Product = ({ params }) => {
             width={500}
             height={500}
             className="w-64 h-72 object-contain"
-            onContextMenu={(e) => e.preventDefault()} // Disable right-click
-            draggable="false" // Disable dragging
+            onContextMenu={(e) => e.preventDefault()}
+            draggable="false"
           />
         )}
-
-        {/* {product?.highlightFeatures && (
-          <div className="flex flex-wrap justify-center items-center mt-10">
-            {product?.highlightFeatures.map((feature, i) => {
-              return (
-                <HighlightFeatureCard
-                  key={i}
-                  featureTitle={feature?.featureTitle}
-                  featuredImage={feature?.featuredImage}
-                />
-              );
-            })}
-          </div>
-        )} */}
       </div>
 
       {/* Highlight Section  */}
@@ -155,8 +137,8 @@ const Product = ({ params }) => {
                 width={500}
                 height={500}
                 className="w-full xl:w-[36rem] md:h-[32rem] !min-w-full lg:h-full hidden xl:flex"
-                onContextMenu={(e) => e.preventDefault()} // Disable right-click
-                draggable="false" // Disable dragging
+                onContextMenu={(e) => e.preventDefault()}
+                draggable="false"
               />
             </div>
           </div>
@@ -177,8 +159,8 @@ const Product = ({ params }) => {
             height={500}
             quality={100}
             className="min-w-full lg:max-h-[500px] object-contain"
-            onContextMenu={(e) => e.preventDefault()} // Disable right-click
-            draggable="false" // Disable dragging
+            onContextMenu={(e) => e.preventDefault()}
+            draggable="false"
           />
         </div>
       )}
@@ -233,8 +215,8 @@ const ProductCards = ({ item, productCategory }) => {
             width={500}
             height={500}
             className="w-full h-full object-contain"
-            onContextMenu={(e) => e.preventDefault()} // Disable right-click
-            draggable="false" // Disable dragging
+            onContextMenu={(e) => e.preventDefault()}
+            draggable="false"
           />
         </div>
       </Link>

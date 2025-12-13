@@ -109,9 +109,10 @@ export function generateMetadataFromSEO(seoData, fallbackMetadata = {}) {
   };
 }
 
-// Helper function to fetch SEO data for blogs by slug
+// Helper function to fetch SEO data for blogs by slug (enhanced to check SEO Settings first)
 export async function getBlogSEOData(blogSlug) {
   const query = `*[_type == "blogs" && slug.current == $blogSlug][0]{
+    _id,
     "title": seo.metaTitle,
     "description": seo.metaDescription,
     "keywords": seo.keywords,
@@ -126,6 +127,14 @@ export async function getBlogSEOData(blogSlug) {
     });
     
     if (!blogData) return null;
+
+    // Try to get SEO data from SEO Settings that references this blog
+    const seoSettings = await getSEODataByReference(blogData._id, "blogs");
+    
+    // If SEO Settings exist, use them; otherwise, use blog's built-in SEO
+    if (seoSettings) {
+      return seoSettings;
+    }
 
     // Transform blog data to SEO format
     return {

@@ -9,6 +9,10 @@ import { client } from "../../../../../sanityBackend/lib/client";
 import { urlForImage } from "../../../../../sanityBackend/lib/image";
 import { Body } from "@/components/textComponents/Body";
 import { Download, ArrowRight } from "lucide-react";
+import { PortableText } from "@portabletext/react";
+import { components } from "@/utils/portableTextComponent";
+import { DynamicBody } from "@/components/textComponents/DynamicBody";
+import Container from "@/components/constants/Container";
 
 const ProductClient = ({ params }) => {
   const productSlug = params.product;
@@ -22,7 +26,10 @@ const ProductClient = ({ params }) => {
     const fetchData = async () => {
       try {
         const result = await client.fetch(
-          `*[_type == "product" && slug.current == $productSlug] [0]`,
+          `*[_type == "product" && slug.current == $productSlug] [0] {
+            ...,
+            content
+          }`,
           { productSlug: productSlug }
         );
         setProduct(result);
@@ -98,6 +105,17 @@ const ProductClient = ({ params }) => {
           </Body>
         </Link>
       </div>
+
+      {/* Product Rich Text Content */}
+      {product?.content && product.content.length > 0 && (
+        <div className="bg-gray-50">
+          <Container>
+            <DynamicBody>
+              <PortableText value={product.content} components={components} />
+            </DynamicBody>
+          </Container>
+        </div>
+      )}
 
       <div className="lg:hidden flex flex-wrap items-center justify-center w-full">
         {product?.productimage && (

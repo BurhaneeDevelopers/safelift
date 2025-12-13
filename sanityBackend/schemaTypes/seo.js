@@ -98,7 +98,18 @@ export default defineType({
         defineField({name: 'ogDescription', title: 'OG Description', type: 'text'}),
         defineField({name: 'ogImage', title: 'OG Image', type: 'image'}),
         defineField({name: 'ogUrl', title: 'OG URL', type: 'url'}),
-        defineField({name: 'ogType', title: 'OG Type', type: 'string', initialValue: 'website'}),
+        defineField({
+          name: 'ogType', 
+          title: 'OG Type', 
+          type: 'string', 
+          initialValue: 'website',
+          options: {
+            list: [
+              {title: 'Website', value: 'website'},
+              {title: 'Article', value: 'article'},
+            ],
+          },
+        }),
       ],
     }),
     defineField({

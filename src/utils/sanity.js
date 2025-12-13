@@ -239,7 +239,7 @@ export async function getProductSEOData(productSlug) {
         ogTitle: productData.title,
         ogDescription: productData.description,
         ogImage: productData.image,
-        ogType: "product",
+        ogType: "website",
       },
       twitter: {
         twitterTitle: productData.title,

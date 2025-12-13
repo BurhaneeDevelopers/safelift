@@ -92,7 +92,6 @@ export default defineType({
             list: [
               {title: 'Website', value: 'website'},
               {title: 'Article', value: 'article'},
-              {title: 'Product', value: 'product'},
             ],
           },
         }),

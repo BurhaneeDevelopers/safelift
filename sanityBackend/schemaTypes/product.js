@@ -126,5 +126,37 @@ export default {
         },
       ],
     },
+    {
+      name: 'content',
+      title: 'Product Content (Rich Text)',
+      type: 'array',
+      description: 'Add detailed content about this product with rich text formatting',
+      of: [
+        {
+          type: 'block',
+        },
+        {
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
+          fields: [
+            {
+              name: 'caption',
+              type: 'string',
+              title: 'Caption',
+              options: {
+                isHighlighted: true,
+              },
+            },
+            {
+              name: 'attribution',
+              type: 'string',
+              title: 'Attribution',
+            },
+          ],
+        },
+      ],
+    },
   ],
 }

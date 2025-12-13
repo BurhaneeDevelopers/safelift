@@ -124,7 +124,7 @@ export async function getBlogSEOData(blogSlug) {
     "description": seo.metaDescription,
     "keywords": seo.keywords,
     "ogImage": seo.ogImage.asset->url,
-    title as blogTitle,
+    "blogTitle": title,
     "blogImage": blogImage.asset->url
   }`;
 

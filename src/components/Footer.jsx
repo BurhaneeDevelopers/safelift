@@ -26,7 +26,7 @@ const Footer = () => {
                 <span className="block">NH-6 Domjur, Howrah - 711-302</span>
                 <span className="block">West Bengal</span>
                 <span className="block">
-                  Contact: +91 81005 45253
+                  Contact: +91 90387 47253
                 </span>
               </Body>
             </div>

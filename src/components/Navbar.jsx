@@ -141,8 +141,12 @@ const Nav = () => {
         icon={true}
         dropdownContent={[
           {
-            navSubTitle: "Career",
+            navSubTitle: "About Us",
             navLink: "/about",
+          },
+          {
+            navSubTitle: "Careers",
+            navLink: "/careers",
           },
         ]}
         directRedirect={"/about"}

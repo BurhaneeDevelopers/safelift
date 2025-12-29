@@ -40,6 +40,16 @@ const nextConfig = {
           },
         ],
       },
+      {
+        // Cache sitemap for 1 hour but allow stale-while-revalidate
+        source: "/sitemap.xml",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, s-maxage=3600, stale-while-revalidate=86400",
+          },
+        ],
+      },
     ];
   },
 };

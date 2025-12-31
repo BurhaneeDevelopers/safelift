@@ -147,7 +147,7 @@ async function getProductCategoryPages() {
         return url ? {
           url,
           lastModified: new Date(category._updatedAt),
-          changeFrequency: 'weekly',
+          changeFrequency: 'daily',
           priority: 0.8,
         } : null;
       })

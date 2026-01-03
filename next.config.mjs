@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Enable standalone output for Docker deployment
+  output: 'standalone',
+  
   // Disable source maps to prevent parsing errors
   productionBrowserSourceMaps: false,
   

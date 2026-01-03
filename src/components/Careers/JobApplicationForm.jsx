@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Body } from "../textComponents/Body";
+import { SmallBody } from "../textComponents/SmallBody";
 
 const JobApplicationForm = ({ job }) => {
   const [formData, setFormData] = useState({
@@ -236,9 +237,9 @@ const JobApplicationForm = ({ job }) => {
               required
               className="mt-1"
             />
-            <Body className="text-xs text-gray-500 mt-1">
+            <SmallBody className="text-xs text-gray-500 mt-1">
               Accepted formats: PDF, DOC, DOCX (Max 5MB)
-            </Body>
+            </SmallBody>
           </div>
 
           <div>
@@ -264,10 +265,10 @@ const JobApplicationForm = ({ job }) => {
         </form>
 
         <div className="mt-6 pt-4 border-t border-gray-200">
-          <Body className="text-xs text-gray-500">
+          <SmallBody className="text-xs text-gray-500">
             By submitting this application, you agree to our privacy policy and terms of service. 
             We will only use your information for recruitment purposes.
-          </Body>
+          </SmallBody>
         </div>
       </CardContent>
     </Card>

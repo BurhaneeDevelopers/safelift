@@ -106,7 +106,7 @@ const JobListings = () => {
   }
 
   return (
-    <div data-aos="fade-up">
+    <div>
       <Heading className="text-center mb-8">Current Job Openings</Heading>
       
       {/* Filters */}
@@ -142,9 +142,6 @@ const JobListings = () => {
                 <SelectItem value="all">All Locations</SelectItem>
                 <SelectItem value="kolkata">Kolkata</SelectItem>
                 <SelectItem value="pune">Pune</SelectItem>
-                <SelectItem value="howrah">Howrah</SelectItem>
-                <SelectItem value="mumbai">Mumbai</SelectItem>
-                <SelectItem value="delhi">Delhi</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -158,9 +155,9 @@ const JobListings = () => {
               <SelectContent>
                 <SelectItem value="all">All Types</SelectItem>
                 <SelectItem value="full-time">Full-time</SelectItem>
-                <SelectItem value="part-time">Part-time</SelectItem>
+                {/* <SelectItem value="part-time">Part-time</SelectItem>
                 <SelectItem value="contract">Contract</SelectItem>
-                <SelectItem value="internship">Internship</SelectItem>
+                <SelectItem value="internship">Internship</SelectItem> */}
               </SelectContent>
             </Select>
           </div>

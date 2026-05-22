@@ -2,6 +2,7 @@ export default {
   name: 'subCategory',
   type: 'document',
   title: 'Sub Categories',
+  description: 'Product sub-categories. For SEO: duplicate sub-categories and change slug (e.g., add "-pune"), but keep masterSlug the same to share products.',
   fields: [
     {
       name: 'title',
@@ -11,11 +12,23 @@ export default {
     {
       name: 'slug',
       type: 'slug',
-      title: 'Slug',
+      title: 'Slug (SEO URL)',
+      description: 'This slug will be used in the URL. For location-specific pages, add suffix like "-pune", "-mumbai"',
       options: {
         source: 'title',
         slugify: input => input.toLowerCase().replace(/\s+/g, '-').slice(0, 100),
       },
+    },
+    {
+      name: 'masterSlug',
+      type: 'slug',
+      title: 'Master Slug (Product Linking)',
+      description: 'This is the base slug used to link products. Keep it same across all location variants (e.g., "screw-drivers" for both "screw-drivers" and "screw-drivers-pune")',
+      options: {
+        source: 'title',
+        slugify: input => input.toLowerCase().replace(/\s+/g, '-').slice(0, 100),
+      },
+      validation: (Rule) => Rule.required().error('Master Slug is required for product linking'),
     },
     {
       name: 'parentCategory',

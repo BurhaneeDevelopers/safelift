@@ -18,7 +18,7 @@ const ProductList = ({ params }) => {
   const [pageIndex, setPageIndex] = useState({});
   const [categoryData, setCategoryData] = useState(null);
 
-  const productCategory = decodeURIComponent(unslugify(params.productCategory));
+  const categorySlug = params.productCategory;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,41 +26,88 @@ const ProductList = ({ params }) => {
         const productsBySubTemp = {};
         const pageIndexMap = {};
 
-        // Step 0: Get the main category data with content
+        // Step 0: Get the main category data with content using slug
         const mainCategory = await client.fetch(
-          `*[_type == "mainCategory" && title == $title][0] {
+          `*[_type == "mainCategory" && slug.current == $slug][0] {
             _id,
             title,
             description,
             content,
-            "categoryImage": categoryImage.asset->url
+            "categoryImage": categoryImage.asset->url,
+            "masterSlug": masterSlug.current
           }`,
-          { title: productCategory }
+          { slug: categorySlug }
         );
 
         setCategoryData(mainCategory);
 
-        // Step 1: Get subcategories under this main category (via title)
-        const subCategories = await client.fetch(
-          `*[_type == "subCategory" && parentCategory->title == $title]`,
-          { title: productCategory }
-        );
-
-        // Step 2: Fetch products for each subcategory
-        for (const subCat of subCategories) {
-          const subProducts = await client.fetch(
-            `*[_type == "product" && subCategory._ref == $subCatId]`,
-            { subCatId: subCat._id }
-          );
-
-          productsBySubTemp[subCat.title] = subProducts;
-          pageIndexMap[subCat.title] = 0;
+        if (!mainCategory) {
+          console.error("Category not found");
+          return;
         }
 
-        // Step 3: Fetch products that belong directly to this main category (no subCategory)
+        // Use masterSlug if available, otherwise fall back to slug for backward compatibility
+        const masterSlugToUse = mainCategory.masterSlug || categorySlug;
+
+        // Step 1: Get all categories with the same masterSlug (including this one)
+        const allCategoriesWithMasterSlug = await client.fetch(
+          `*[_type == "mainCategory" && (masterSlug.current == $masterSlug || (!defined(masterSlug) && slug.current == $slug))] {
+            _id
+          }`,
+          { masterSlug: masterSlugToUse, slug: categorySlug }
+        );
+
+        const categoryIds = allCategoriesWithMasterSlug.map(cat => cat._id);
+
+        // Step 2: Get subcategories under any of these main categories
+        const subCategories = await client.fetch(
+          `*[_type == "subCategory" && parentCategory._ref in $categoryIds] {
+            _id,
+            title,
+            "masterSlug": masterSlug.current
+          }`,
+          { categoryIds }
+        );
+
+        // Step 3: Get all subcategories with the same masterSlug as each subcategory
+        // Group by masterSlug to avoid duplicate tabs
+        const processedMasterSlugs = new Set();
+        
+        for (const subCat of subCategories) {
+          const subCatMasterSlug = subCat.masterSlug || subCat.title; // Fallback to title if no masterSlug
+          
+          // Skip if we've already processed this masterSlug
+          if (processedMasterSlugs.has(subCatMasterSlug)) {
+            continue;
+          }
+          processedMasterSlugs.add(subCatMasterSlug);
+          
+          // Find all subcategories with the same masterSlug
+          const allSubCatsWithMasterSlug = await client.fetch(
+            `*[_type == "subCategory" && (masterSlug.current == $masterSlug || (!defined(masterSlug) && title == $title))] {
+              _id
+            }`,
+            { masterSlug: subCatMasterSlug, title: subCat.title }
+          );
+          
+          const subCatIds = allSubCatsWithMasterSlug.map(sc => sc._id);
+          
+          // Fetch products for all subcategories with this masterSlug
+          const subProducts = await client.fetch(
+            `*[_type == "product" && subCategory._ref in $subCatIds]`,
+            { subCatIds }
+          );
+
+          if (subProducts.length > 0) {
+            productsBySubTemp[subCat.title] = subProducts;
+            pageIndexMap[subCat.title] = 0;
+          }
+        }
+
+        // Step 4: Fetch products that belong directly to any main category with this masterSlug
         const mainOnlyProducts = await client.fetch(
-          `*[_type == "product" && mainCategory->title == $title]`,
-          { title: productCategory }
+          `*[_type == "product" && mainCategory._ref in $categoryIds]`,
+          { categoryIds }
         );
 
         if (mainOnlyProducts.length > 0) {
@@ -82,7 +129,7 @@ const ProductList = ({ params }) => {
     };
 
     fetchData();
-  }, [productCategory]);
+  }, [categorySlug]);
 
   const changePage = (slug, direction) => {
     setPageIndex((prev) => ({
@@ -96,7 +143,7 @@ const ProductList = ({ params }) => {
 
   return (
     <div>
-      <Banner title={productCategory} ImageSource="/Products/Banner.webp" />
+      <Banner title={categoryData?.title || categorySlug} ImageSource="/Products/Banner.webp" />
 
       <div className="p-10 sm:p-20">
         {Object.keys(productsBySub).length > 0 ? (
@@ -144,7 +191,7 @@ const ProductList = ({ params }) => {
                             title={item?.title}
                             series={item?.series ?? ""}
                             productimage={item?.productimage}
-                            productCategory={productCategory}
+                            productCategory={categorySlug}
                             slug={item?.slug?.current}
                           />
                         ))}

@@ -34,7 +34,8 @@ const ProductList = ({ params }) => {
             description,
             content,
             "categoryImage": categoryImage.asset->url,
-            "masterSlug": masterSlug.current
+            "masterSlug": coalesce(masterSlug.current, slug.current),
+            "slug": slug.current
           }`,
           { slug: categorySlug }
         );
@@ -46,15 +47,13 @@ const ProductList = ({ params }) => {
           return;
         }
 
-        // Use masterSlug if available, otherwise fall back to slug for backward compatibility
-        const masterSlugToUse = mainCategory.masterSlug || categorySlug;
-
         // Step 1: Get all categories with the same masterSlug (including this one)
+        // If masterSlug doesn't exist, use slug as fallback
         const allCategoriesWithMasterSlug = await client.fetch(
-          `*[_type == "mainCategory" && (masterSlug.current == $masterSlug || (!defined(masterSlug) && slug.current == $slug))] {
+          `*[_type == "mainCategory" && coalesce(masterSlug.current, slug.current) == $masterSlug] {
             _id
           }`,
-          { masterSlug: masterSlugToUse, slug: categorySlug }
+          { masterSlug: mainCategory.masterSlug }
         );
 
         const categoryIds = allCategoriesWithMasterSlug.map(cat => cat._id);
@@ -64,7 +63,7 @@ const ProductList = ({ params }) => {
           `*[_type == "subCategory" && parentCategory._ref in $categoryIds] {
             _id,
             title,
-            "masterSlug": masterSlug.current
+            "masterSlug": coalesce(masterSlug.current, slug.current)
           }`,
           { categoryIds }
         );
@@ -74,20 +73,18 @@ const ProductList = ({ params }) => {
         const processedMasterSlugs = new Set();
         
         for (const subCat of subCategories) {
-          const subCatMasterSlug = subCat.masterSlug || subCat.title; // Fallback to title if no masterSlug
-          
           // Skip if we've already processed this masterSlug
-          if (processedMasterSlugs.has(subCatMasterSlug)) {
+          if (processedMasterSlugs.has(subCat.masterSlug)) {
             continue;
           }
-          processedMasterSlugs.add(subCatMasterSlug);
+          processedMasterSlugs.add(subCat.masterSlug);
           
           // Find all subcategories with the same masterSlug
           const allSubCatsWithMasterSlug = await client.fetch(
-            `*[_type == "subCategory" && (masterSlug.current == $masterSlug || (!defined(masterSlug) && title == $title))] {
+            `*[_type == "subCategory" && coalesce(masterSlug.current, slug.current) == $masterSlug] {
               _id
             }`,
-            { masterSlug: subCatMasterSlug, title: subCat.title }
+            { masterSlug: subCat.masterSlug }
           );
           
           const subCatIds = allSubCatsWithMasterSlug.map(sc => sc._id);

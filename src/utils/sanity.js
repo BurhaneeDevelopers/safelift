@@ -213,7 +213,10 @@ export async function getProductSEOData(productSlug) {
     _id,
     title,
     "description": series,
-    "image": productimage.asset->url
+    "image": productimage.asset->url,
+    "mainCategorySlug": mainCategory->slug.current,
+    "subCategorySlug": subCategory->slug.current,
+    "subCategoryMasterSlug": subCategory->masterSlug.current
   }`;
 
   try {
@@ -223,18 +226,28 @@ export async function getProductSEOData(productSlug) {
     
     if (!productData) return null;
 
+    // Determine the category slug to use in the URL
+    // Priority: subCategory masterSlug > subCategory slug > mainCategory slug
+    const categorySlug = productData.subCategoryMasterSlug || productData.subCategorySlug || productData.mainCategorySlug;
+
+    // Generate the correct canonical URL based on actual category
+    const correctCanonical = categorySlug ? `https://safelift.in/products/${categorySlug}/${productSlug}` : undefined;
+
     // Try to get SEO from SEO Settings document
     const seoSettings = await getSEODataByReference(productData._id, "product");
     
     if (seoSettings) {
+      // Always override canonical URL with the correct one based on actual category
+      seoSettings.canonical = correctCanonical;
       return seoSettings;
     }
 
-    // Fallback to product's basic data
+    // Fallback to product's basic data with dynamic canonical
     return {
       title: productData.title,
       description: productData.description,
       publisher: "Safelift",
+      canonical: correctCanonical,
       openGraph: {
         ogTitle: productData.title,
         ogDescription: productData.description,

@@ -18,12 +18,14 @@ const ProductClient = ({ params }) => {
   const productSlug = params.product;
   const productCategory = decodeURIComponent(unslugify(params.productCategory));
 
-  const [product, setProduct] = useState([]);
+  const [product, setProduct] = useState(null);
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Search Single Product
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true);
       try {
         const result = await client.fetch(
           `*[_type == "product" && slug.current == $productSlug] [0] {
@@ -35,6 +37,8 @@ const ProductClient = ({ params }) => {
         setProduct(result);
       } catch (error) {
         console.error("Error fetching data:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -79,7 +83,22 @@ const ProductClient = ({ params }) => {
   }, [product]);
 
   return (
-    <div>
+    <div key={productSlug}>
+      {isLoading ? (
+        <div className="min-h-screen flex items-center justify-center">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#050742] mx-auto mb-4"></div>
+            <p className="text-gray-600">Loading product...</p>
+          </div>
+        </div>
+      ) : !product ? (
+        <div className="min-h-screen flex items-center justify-center">
+          <div className="text-center">
+            <p className="text-gray-600 text-xl">Product not found</p>
+          </div>
+        </div>
+      ) : (
+        <>
       <Banner
         title={product?.title}
         series={product?.series}
@@ -205,6 +224,8 @@ const ProductClient = ({ params }) => {
           }
         })}
       </div>
+        </>
+      )}
     </div>
   );
 };

@@ -228,7 +228,7 @@ export async function getProductSEOData(productSlug) {
 
     // Determine the category slug to use in the URL
     // Priority: subCategory masterSlug > subCategory slug > mainCategory slug
-    const categorySlug = productData.subCategoryMasterSlug || productData.subCategorySlug || productData.mainCategorySlug;
+    const categorySlug = productData.mainCategoryMasterSlug || productData.subCategoryMasterSlug
 
     // Generate the correct canonical URL based on actual category
     const correctCanonical = categorySlug ? `https://safelift.in/products/${categorySlug}/${productSlug}` : undefined;

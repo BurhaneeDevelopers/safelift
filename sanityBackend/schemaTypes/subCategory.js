@@ -27,8 +27,14 @@ export default {
       options: {
         source: 'title',
         slugify: input => input.toLowerCase().replace(/\s+/g, '-').slice(0, 100),
+        isUnique: (value, context) => true,
       },
-      validation: (Rule) => Rule.required().error('Master Slug is required for product linking'),
+      validation: (Rule) => Rule.custom((slug) => {
+        if (!slug || !slug.current) {
+          return 'Master Slug is required for product linking'
+        }
+        return true
+      }),
     },
     {
       name: 'parentCategory',

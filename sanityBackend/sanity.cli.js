@@ -10,5 +10,5 @@ export default defineCliConfig({
    * Learn more at https://www.sanity.io/docs/cli#auto-updates
    */
   studioHost: 'safeliftdashboard',
-  deployment: { autoUpdates: true }
+  deployment: { autoUpdates: true, appId: 'f21f55e6ac6722673bfde2a3', }
 })

@@ -42,41 +42,112 @@ export default {
       title: 'Main Category',
       to: [{ type: 'mainCategory' }],
     },
-    // {
-    //   name: 'description',
-    //   title: 'Short Description',
-    //   type: 'text',
-    // },
-    // {
-    //   name: 'seo',
-    //   title: 'SEO Metadata',
-    //   type: 'object',
-    //   fields: [
-    //     {
-    //       name: 'metaTitle',
-    //       title: 'Meta Title',
-    //       type: 'string',
-    //       validation: (Rule) => Rule.max(60),
-    //     },
-    //     {
-    //       name: 'metaDescription',
-    //       title: 'Meta Description',
-    //       type: 'text',
-    //       validation: (Rule) => Rule.max(160),
-    //     },
-    //     {
-    //       name: 'keywords',
-    //       title: 'Keywords',
-    //       type: 'array',
-    //       of: [{ type: 'string' }],
-    //     },
-    //     {
-    //       name: 'ogImage',
-    //       title: 'Open Graph Image',
-    //       type: 'image',
-    //       options: { hotspot: true },
-    //     },
-    //   ],
-    // },
+    {
+      name: 'seo',
+      title: 'SEO Metadata',
+      type: 'object',
+      fields: [
+        {
+          name: 'metaTitle',
+          title: 'Meta Title',
+          type: 'string',
+          validation: (Rule) => Rule.max(60).warning('Titles should be under 60 characters'),
+        },
+        {
+          name: 'metaDescription',
+          title: 'Meta Description',
+          type: 'text',
+          validation: (Rule) => Rule.max(160).warning('Descriptions should be under 160 characters'),
+        },
+        {
+          name: 'keywords',
+          title: 'Meta Keywords',
+          type: 'array',
+          of: [{ type: 'string' }],
+          description: 'Add relevant keywords for SEO',
+          options: {
+            layout: 'tags',
+          },
+        },
+        {
+          name: 'publisher',
+          title: 'Publisher',
+          type: 'string',
+          description: 'Publisher name for the content',
+          initialValue: 'Safelift',
+        },
+        {
+          name: 'canonical',
+          title: 'Canonical URL',
+          type: 'url',
+          description: 'Preferred URL to avoid duplicate content issues',
+        },
+        {
+          name: 'robots',
+          title: 'Meta Robots',
+          type: 'string',
+          options: {
+            list: [
+              { title: 'Index & Follow', value: 'index, follow' },
+              { title: 'No Index & No Follow', value: 'noindex, nofollow' },
+              { title: 'No Index', value: 'noindex, follow' },
+            ],
+          },
+        },
+        {
+          name: 'openGraph',
+          title: 'Open Graph',
+          type: 'object',
+          fields: [
+            { name: 'ogTitle', title: 'OG Title', type: 'string' },
+            { name: 'ogDescription', title: 'OG Description', type: 'text' },
+            { name: 'ogImage', title: 'OG Image', type: 'image' },
+            { name: 'ogUrl', title: 'OG URL', type: 'url' },
+            {
+              name: 'ogType',
+              title: 'OG Type',
+              type: 'string',
+              initialValue: 'website',
+              options: {
+                list: [
+                  { title: 'Website', value: 'website' },
+                  { title: 'Article', value: 'article' },
+                ],
+              },
+            },
+          ],
+        },
+        {
+          name: 'twitter',
+          title: 'Twitter Card',
+          type: 'object',
+          fields: [
+            { name: 'twitterTitle', title: 'Twitter Title', type: 'string' },
+            { name: 'twitterDescription', title: 'Twitter Description', type: 'text' },
+            { name: 'twitterImage', title: 'Twitter Image', type: 'image' },
+            {
+              name: 'twitterCard',
+              title: 'Twitter Card Type',
+              type: 'string',
+              options: {
+                list: [
+                  { title: 'Summary', value: 'summary' },
+                  { title: 'Summary Large Image', value: 'summary_large_image' },
+                ],
+              },
+            },
+          ],
+        },
+        {
+          name: 'icons',
+          title: 'Icons',
+          type: 'object',
+          fields: [
+            { name: 'favicon', title: 'Favicon', type: 'image' },
+            { name: 'appleIcon', title: 'Apple Touch Icon', type: 'image' },
+          ],
+        },
+      ],
+    },
   ],
 }

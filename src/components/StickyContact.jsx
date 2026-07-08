@@ -37,7 +37,7 @@ const StickyContact = () => {
       <div className="bg-black h-[0.15rem] w-5 mx-auto rounded-full my-3" />
 
       <a
-        href="mailto:info@safelift.in"
+        href="mailto:crm@safelift.com"
         target="_blank"
         className="text-white text-xl"
       >

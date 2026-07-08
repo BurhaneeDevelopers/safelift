@@ -185,7 +185,10 @@ const Footer = () => {
                     </g>
                   </svg>
 
-                  <Body className="text-white">info@safelift.in</Body>
+                  <Body className="text-white">
+                    <span className="block">info@safelift.in</span>
+                    <span className="block">crm@safelift.com</span>
+                  </Body>
                 </div>
               </div>
             </div>

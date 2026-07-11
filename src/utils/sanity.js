@@ -207,6 +207,118 @@ export async function getSEODataByReference(referenceId, referenceType) {
   }
 }
 
+// Helper function to fetch category SEO data (checks both mainCategory and subCategory)
+export async function getCategorySEOData(categorySlug) {
+  // First try to find in mainCategory
+  const mainCategoryQuery = `*[_type == "mainCategory" && slug.current == $categorySlug][0]{
+    _id,
+    title,
+    "categoryImage": categoryImage.asset->url,
+    "metaTitle": seo.metaTitle,
+    "metaDescription": seo.metaDescription,
+    "keywords": seo.keywords,
+    "publisher": seo.publisher,
+    "canonical": seo.canonical,
+    "robots": seo.robots,
+    "openGraph": seo.openGraph{
+      ogTitle,
+      ogDescription,
+      "ogImage": ogImage.asset->url,
+      ogUrl,
+      ogType
+    },
+    "twitter": seo.twitter{
+      twitterTitle,
+      twitterDescription,
+      "twitterImage": twitterImage.asset->url,
+      twitterCard
+    },
+    "icons": seo.icons{
+      "favicon": favicon.asset->url,
+      "appleIcon": appleIcon.asset->url
+    }
+  }`;
+
+  // Try subCategory if not found in mainCategory
+  const subCategoryQuery = `*[_type == "subCategory" && slug.current == $categorySlug][0]{
+    _id,
+    title,
+    "metaTitle": seo.metaTitle,
+    "metaDescription": seo.metaDescription,
+    "keywords": seo.keywords,
+    "publisher": seo.publisher,
+    "canonical": seo.canonical,
+    "robots": seo.robots,
+    "openGraph": seo.openGraph{
+      ogTitle,
+      ogDescription,
+      "ogImage": ogImage.asset->url,
+      ogUrl,
+      ogType
+    },
+    "twitter": seo.twitter{
+      twitterTitle,
+      twitterDescription,
+      "twitterImage": twitterImage.asset->url,
+      twitterCard
+    },
+    "icons": seo.icons{
+      "favicon": favicon.asset->url,
+      "appleIcon": appleIcon.asset->url
+    }
+  }`;
+
+  try {
+    // Try mainCategory first
+    let categoryData = await client.fetch(mainCategoryQuery, { categorySlug }, {
+      next: { revalidate: 60 }
+    });
+    
+    // If not found, try subCategory
+    if (!categoryData) {
+      categoryData = await client.fetch(subCategoryQuery, { categorySlug }, {
+        next: { revalidate: 60 }
+      });
+    }
+    
+    if (!categoryData) return null;
+
+    // Also check if there's a separate SEO Settings document referencing this category
+    const seoSettings = await getSEODataByReference(categoryData._id, "mainCategory");
+    
+    if (seoSettings) {
+      return seoSettings;
+    }
+
+    // Transform category SEO data to the expected format
+    return {
+      title: categoryData.metaTitle || categoryData.title,
+      description: categoryData.metaDescription,
+      keywords: categoryData.keywords,
+      publisher: categoryData.publisher || "Safelift",
+      canonical: categoryData.canonical,
+      robots: categoryData.robots,
+      openGraph: categoryData.openGraph ? {
+        ogTitle: categoryData.openGraph.ogTitle || categoryData.metaTitle || categoryData.title,
+        ogDescription: categoryData.openGraph.ogDescription || categoryData.metaDescription,
+        ogImage: categoryData.openGraph.ogImage || categoryData.categoryImage,
+        ogUrl: categoryData.openGraph.ogUrl,
+        ogType: categoryData.openGraph.ogType || "website",
+      } : undefined,
+      twitter: categoryData.twitter ? {
+        twitterTitle: categoryData.twitter.twitterTitle || categoryData.metaTitle || categoryData.title,
+        twitterDescription: categoryData.twitter.twitterDescription || categoryData.metaDescription,
+        twitterImage: categoryData.twitter.twitterImage || categoryData.categoryImage,
+        twitterCard: categoryData.twitter.twitterCard || "summary_large_image",
+      } : undefined,
+      icons: categoryData.icons,
+    };
+  } catch (error) {
+    console.error("Error fetching category SEO data:", error);
+    return null;
+  }
+}
+
 // Helper function to fetch product SEO data (checks both product's own SEO and SEO Settings)
 export async function getProductSEOData(productSlug) {
   const query = `*[_type == "product" && slug.current == $productSlug][0]{

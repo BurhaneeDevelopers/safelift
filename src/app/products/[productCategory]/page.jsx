@@ -1,5 +1,5 @@
 import ProductList from "./ProductList";
-import { getSEOData, generateMetadataFromSEO } from "@/utils/sanity";
+import { getCategorySEOData, generateMetadataFromSEO } from "@/utils/sanity";
 
 const metadataMap = {
   "products/hoisting-equipment": {
@@ -49,10 +49,9 @@ export async function generateMetadata({ params }) {
   // Await params to get the actual values
   const resolvedParams = await params;
   const categorySlug = resolvedParams?.productCategory;
-  const pageUrl = `/${categorySlug}`;
   
-  // Fetch SEO data from Custom Pages using the page URL
-  const seoData = await getSEOData(pageUrl);
+  // Fetch SEO data from mainCategory or subCategory using the category slug
+  const seoData = await getCategorySEOData(categorySlug);
 
   // Fallback metadata from the hardcoded map
   const path = `products/${categorySlug}`;

@@ -187,7 +187,7 @@ const Footer = () => {
 
                   <Body className="text-white">
                     <span className="block">info@safelift.in</span>
-                    <span className="block">crm@safelift.com</span>
+                    <span className="block">crm@safelift.in</span>
                   </Body>
                 </div>
               </div>
